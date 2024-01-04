@@ -16,7 +16,7 @@ public class GenereServiceImpl implements GenereService{
 	}
 
 	@Override
-	public Genere getGenereById(int id) {
-		return genereDao.findById(id).get();
+	public Genere getGenereById(int genereId) {
+		return genereDao.findById(genereId).get();
 	}
 }

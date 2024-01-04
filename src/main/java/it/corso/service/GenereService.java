@@ -4,5 +4,5 @@ import it.corso.model.Genere;
 
 public interface GenereService {
 	public List<Genere> getGeneri();
-	public Genere getGenereById(int id);
+	public Genere getGenereById(int genereId);
 }
