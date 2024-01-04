@@ -1,11 +1,8 @@
 package it.corso.service;
-import java.sql.Date;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import it.corso.dao.DettaglioLibroDao;
 import it.corso.model.DettaglioLibro;
 
