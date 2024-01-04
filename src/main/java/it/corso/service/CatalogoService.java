@@ -5,5 +5,6 @@ import it.corso.model.Libro;
 public interface CatalogoService
 {
 	public List<Libro> getCatalogo();
+	public void resetStato();
 	
 }

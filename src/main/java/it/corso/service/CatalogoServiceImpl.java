@@ -15,5 +15,10 @@ public class CatalogoServiceImpl implements CatalogoService
 		// findAll torna un insieme di libri che castiamo a lista per facilitarne l'utilizzo
 		return (List<Libro>) libroDao.findAllByOrderByTitoloAsc();
 	}
+
+	@Override
+	public void resetStato() {
+		libroDao.updateStatoToZeroForAllRecords();		
+	}
 	
 }

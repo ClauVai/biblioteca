@@ -18,6 +18,8 @@ public class CatagoloController
 	public String getPage(Model model)
 	{
 		model.addAttribute("catalogo", catalogoService.getCatalogo());
+		
+		catalogoService.resetStato(); //FUNZIONE TEMPORANEA, ELIMINARE IN SEGUITO!!
 		return "catalogo";
 	}
 	
