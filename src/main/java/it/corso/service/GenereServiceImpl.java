@@ -12,7 +12,7 @@ public class GenereServiceImpl implements GenereService{
 	
 	@Override
 	public List<Genere> getGeneri() {
-		return (List<Genere>) genereDao.findAllByOrderByNomeAsc();
+		return (List<Genere>) genereDao.findAllByOrderByNomeGenereAsc();
 	}
 
 	@Override

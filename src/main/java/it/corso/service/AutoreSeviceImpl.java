@@ -10,7 +10,7 @@ public class AutoreSeviceImpl implements AutoreService {
 	private AutoreDao autoreDao;
 	
 	public List<Autore> getAutore() {
-		return (List<Autore>) autoreDao.findAllByOrderByAutoreAsc();
+		return (List<Autore>) autoreDao.findAllByOrderByNomeAutoreAsc();
 	}
 
 	@Override
