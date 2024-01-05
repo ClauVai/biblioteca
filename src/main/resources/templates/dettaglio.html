@@ -16,7 +16,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-	
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Includi jQuery da un CDN -->
@@ -50,12 +50,59 @@
 		                // Aggiungi la classe 'selected' solo alle stelle selezionate
 		                $('#star-rating .star:lt(' + rating + ')').addClass('selected');
 		                
-		                $('#rating-value').text('Hai valutato con ' + rating + ' stella(e).');
+		                 if (rating == 1) {
+        $('#rating-value').text('Hai dato ' + rating + ' punto!');
+    } else {
+        $('#rating-value').text('Hai dato ' + rating + ' punti!');
+    }
 		            });
 					
 		        });
 		        
 		</script>
+		
+		<script>
+    $(document).ready(function () {
+        // Array di nomi delle immagini
+        var imageNames = [
+            'bimba1',
+            'bimba2',
+            'bimba3',
+            // Aggiungi altri nomi delle immagini secondo necessità
+        ];
+
+        // Ottieni un numero casuale per selezionare un nome di immagine dal array
+        var randomIndex = Math.floor(Math.random() * imageNames.length);
+
+        // Costruisci l'URL completo dell'immagine
+        var imageUrl = '/img/' + imageNames[randomIndex] + '.jpg';
+
+        // Ottieni l'elemento dell'immagine
+        var imgElement = $('#bimba');
+
+        // Imposta l'attributo src dell'immagine con l'URL casuale
+        imgElement.attr('src', imageUrl);
+    });
+</script>
+		 <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var titles = document.querySelectorAll('.titoloDett, .sinossi-content');
+
+        titles.forEach(function (title) {
+            var randomColor = getRandomColor();
+            title.style.backgroundColor = randomColor;
+        });
+
+        // Funzione per ottenere un colore casuale dalla tua lista
+        function getRandomColor() {
+            var colors = ['#EF7E6B', '#9AD0C3', '#F8C77A', '#98D4E1'];
+            var randomIndex = Math.floor(Math.random() * colors.length);
+            return colors[randomIndex]; 
+        }
+    });
+</script>
+
+
 		
 </head>
 <body>
@@ -112,7 +159,7 @@
         <div class="body">
 			<div class="col-lg-10 mx-auto ">
 				<h1 id="dettaglio" class="text-center">Dettaglio</h1>
-            <div class="card">
+            <div id="cardDett" class="card card-with-shadow">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-lg-6 col-md-12 col-sm-12">
@@ -173,7 +220,7 @@
                        
                         </div>
                         <div id="sinossi" class="col-lg-12 col-md-12 col-sm-12">
-                            <h3 class="box-title mt-5 titoloDett">Sinossi</h3>
+                            <h5 class="box-title mt-5 titoloDett">Sinossi</h5>
                             <div class="table-responsive">
 								<p th:text="${dettaglio.trama}"></p>                            
 							</div>
@@ -189,15 +236,15 @@
                
               <div class="row">
                   
-                  <div class="col-2">
+                  <div class="col-lg-2 col-md-1 col-sm-10 col-10 mx-auto">
                       
                       
-                      <img src="#" width="70" class="rounded-circle mt-2" alt="img">
+                      <img id="bimba" th:src="@{'img/bimba3.png'}" alt="img">
                   
                   
                   </div>
                   
-                  <div class="col-8">
+                  <div class="col-lg-8 col-md-9 col-sm-10 col-10 mx-auto">
                       
                       <div class="comment-box ml-2">
                           
@@ -216,7 +263,7 @@
                           
                           <div class="comment-area">
                               
-                              <textarea class="form-control" placeholder="what is your view?" rows="4"></textarea>
+                              <textarea class="form-control" placeholder="Commenta" rows="4"></textarea>
                           
                           </div>
                           
@@ -228,7 +275,7 @@
                                       
                                       <div class="pull-left">
                                       
-                                      <button class="btn btn-success btn-sm">Cancel</button>      
+                                      <button class="btn btn-success btn-sm">Cancella</button>      
                                           
                                       </div>
                                   
@@ -238,7 +285,7 @@
                                       
                                       <div class="pull-right">
                                       
-                                      <button class="btn btn-success send btn-sm">Send <i class="fa fa-long-arrow-right ml-1"></i></button>      
+                                      <button class="btn btn-success send btn-sm">Invia<i class="fa ml-1"></i></button>      
                                           
                                       </div>
                                   
