@@ -29,16 +29,16 @@ body {
 /* Dropdown Button */
 .dropbtn {
     background-color: #b3e2d7;
-    color: #ffffff;
-    margin-top: 24px;
+    color: #737373;
+    margin-top: 20px;
     padding-top: 16px;
     padding-left: 80px;
     padding-right: 80px;
     
     padding-bottom: 16px;
-    font-size: 15px;
+    font-size: 20px;
     font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
+    
     border: none;
     justify-content: center;
 }
@@ -56,7 +56,11 @@ body {
         border-radius: 10px;
         
     }
-
+.card-with-shadow {
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Personalizza l'ombra secondo necessità */
+            margin-bottom: 20px; /* Aggiunge uno spazio tra le card */
+            margin: 5px;
+        }
 
 #navbar{
   background-color: #b3e2d7;
@@ -97,9 +101,15 @@ body {
     display: block;
   }
   img{
-    width: 220px;
+    width: auto;
     height: auto;
     padding-left: 50px;
+  }
+  
+  #logo{
+	  width: 400px;
+	  height: auto;
+	  padding-bottom: 5px;
   }
  #covercatalogo{
 	 padding-right: 50px;
@@ -108,7 +118,7 @@ body {
  
  .intro{
 	 margin-top: 30px;
-	 margin-bottom: 40px;
+	 margin-bottom: 70px;
 	 text-align: center;
 	 font-family: 'Montserrat', sans-serif;
  }
@@ -121,6 +131,7 @@ body {
  }
  #libri{
 	color: #EF7E6B; 
+	margin-top:20px;
  }
   .navbar-nav {
     margin-right: 15px; /* Centra gli elementi nella navbar */
@@ -146,6 +157,9 @@ body {
 }
 
 footer{
+	margin-top: 50px;
+	padding-top: 40px;
+	padding-bottom: 0px;
   background-color: antiquewhite;
   height: 100%;
   width: 100%;
@@ -157,11 +171,33 @@ footer{
   .dropdown:hover .dropdown-content {display: block;}
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {background-color: #ffffff; color: #b3e2d7;}
+  .dropdown:hover .dropbtn {background-color: #ffffff; color: #EF7E6B;}
 
+select{
+margin: 10px;
 
+}
+/* Stile del pulsante */
+    .btn-outline-success{
+        
+        color: #EF7E6B; /* Colore di sfondo */
+        border-color: #EF7E6B; /* Colore del bordo */
+        background-color: #ffffff;
 
+    }
 
+    /* Effetto hover */
+    .btn-outline-success:hover {
+        background-color: #EF7E6B; /* Colore di sfondo durante l'hover */
+        border-color: #FFEABB; /* Colore del bordo durante l'hover */
+        color: #ffffff;
+    }
+    
+    #filtroForm{
+		background-color: #FFEABB;
+		padding: 15px;
+		
+	}
 
 .card {
   margin-bottom: 30px;

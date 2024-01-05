@@ -17,6 +17,29 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+	<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var titles = document.querySelectorAll('.pro-title');
+
+    titles.forEach(function(title) {
+        title.addEventListener('mouseover', function() {
+            var randomColor = getRandomColor();
+            title.style.backgroundColor = randomColor;
+        });
+
+        title.addEventListener('mouseout', function() {
+            title.style.backgroundColor = ''; // Resetta il colore di sfondo
+        });
+    });
+
+    // Funzione per ottenere un colore casuale dalla tua lista
+    function getRandomColor() {
+        var colors = ['#EF7E6B', '#9AD0C3', '#FCDD98', '#F58247', '#98D4E1'];
+        var randomIndex = Math.floor(Math.random() * colors.length);
+        return colors[randomIndex];
+    }
+});
+</script>
 
 </head>
 
@@ -50,7 +73,7 @@
 
 			<nav id="navbar2" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="#"><img th:src="@{'img/1.png'}" alt="logo Bibliothè" /></a>
+					<a class="navbar-brand" href="#"><img th:src="@{'img/minilogo.png'}" alt="logo Bibliothè" id="logo"/></a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
 						aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -61,7 +84,7 @@
 								<a class="nav-link" href="#">Chi siamo</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Libri</a>
+								<a class="nav-link" th:href="@{catalogo}">Libri</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="#">Contatti</a>
@@ -82,14 +105,51 @@
 					<p>Qui potrai vedere tutti i libri che abbiamo nella nostra biblioteca.<br>
 						Scegliamo con cura ogni titolo, e speriamo che troverai il tuo prossimo libro del cuore!</p>
 				</div>
+
+	<div id="filtroForm" class="text-center my-3">
+		<h5 class="d-block mx-auto my-2">Cerca per</h5>
+		<form class="d-flex">
+        <select class="form-select form-select-sm" id="genereSelect" name="genere">
+            <option value="genere" selected disabled>Genere</option>
+            <option>1</option>
+        </select>
+        <select class="form-select form-select-sm" id="autoreSelect" name="autore">
+            <option value="" selected disabled>Autore</option>
+            <option>1</option>
+        </select>
+        <select class="form-select form-select-sm" id="annoSelect" name="anno">
+            <option value="" selected disabled>Anno</option>
+            <option>1</option>
+        </select>
+        <!-- Aggiungi altri select e input per altri filtri se necessario -->
+    </form>
+    <form class="d-flex">
+        <select class="form-select form-select-sm" id="genereSelect" name="genere">
+            <option value="genere" selected disabled>Casa editrice</option>
+            <option>1</option>
+        </select>
+        <select class="form-select form-select-sm" id="autoreSelect" name="autore">
+            <option value="" selected disabled>Autore</option>
+            <option>1</option>
+        </select>
+        <select class="form-select form-select-sm" id="annoSelect" name="anno">
+            <option value="" selected disabled>Anno</option>
+            <option>1</option>
+        </select>
+        <!-- Aggiungi altri select e input per altri filtri se necessario -->
+    </form>
+   <button type="button" class="btn btn-outline-success">Applica</button>
+</div>
+
 			</div>
 			
 			<div class="col-md-10 mx-auto">
+				
 				<div class="row product-list justify-content-center">
-					<div th:each="c : ${catalogo}" class="col-md-4 ">
+					<div th:each="c : ${catalogo}" class="col-xl-3 col-lg-3 col-md-4 col-sm-12 card-with-shadow">
 						<section class="panel">
-							<div class="pro-img-box">
-								<img id="covercatalogo" th:src="${c.copertina}" alt="cover" />
+							<div class="pro-img-box ">
+								<img id="covercatalogo" th:src="${c.copertina}" alt="cover"  />
 							</div>
 							<div class="panel-body text-center">
 								<h4>
@@ -116,45 +176,6 @@
 								<img id="logofooter" th:src="@{'img/1.png'}" alt="logo">
 								<p>Nisi, purus vitae, ultrices nunc. Sit ac sit suscipit hendrerit. Gravida massa
 									volutpat aenean odio erat nullam fringilla.</p>
-								<div class="social-links">
-									<ul class="d-flex list-unstyled">
-										<li>
-											<a href="#">
-												<svg class="facebook">
-													<use xlink:href="#facebook" />
-												</svg>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<svg class="instagram">
-													<use xlink:href="#instagram" />
-												</svg>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<svg class="twitter">
-													<use xlink:href="#twitter" />
-												</svg>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<svg class="linkedin">
-													<use xlink:href="#linkedin" />
-												</svg>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<svg class="youtube">
-													<use xlink:href="#youtube" />
-												</svg>
-											</a>
-										</li>
-									</ul>
-								</div>
 							</div>
 						</div>
 						<div class="col-lg-2 col-sm-6 pb-3">
