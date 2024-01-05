@@ -17,7 +17,7 @@ public class CatagoloController
 	@GetMapping
 	public String getPage(Model model)
 	{
-		model.addAttribute("catalogo", catalogoService.getCatalogo());
+		model.addAttribute("catalogo", catalogoService.getCatalogoDettaglio());
 		
 		catalogoService.resetStato(); //FUNZIONE TEMPORANEA, ELIMINARE IN SEGUITO!!
 		return "catalogo";

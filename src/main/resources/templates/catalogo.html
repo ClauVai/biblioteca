@@ -95,8 +95,8 @@
 								<h4>
 									<a th:text="${c.titolo}" th:href="@{dettaglio(id=${c.id})}" class="pro-title"></a>
 								</h4>
-								<p>Autore</p>
-								<p>Disponibile ??</p>
+                            <p th:text="${c.autore.nomeAutore}+' '+${c.autore.cognome}"></p>
+                                <p th:text="'Stato: '+${c.stato ? 'Non disponibile' : 'Disponibile'}"></p>
 							</div>
 						</section>
 					</div>
