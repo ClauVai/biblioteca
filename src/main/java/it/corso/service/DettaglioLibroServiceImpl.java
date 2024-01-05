@@ -68,8 +68,9 @@ public class DettaglioLibroServiceImpl implements DettaglioLibroService
         return libriFiltrati;
     }
 
-//@Override//
-	//public List<DettaglioLibro> getSceltaRedazione() //{
-		//return dettaglioLibroDao.findRandomLibri();//
-	
+	@Override
+	public List<DettaglioLibro> getPreferitiRedazione() {
+		return dettaglioLibroDao.findRandomSixLibri();
+	}
+
 }

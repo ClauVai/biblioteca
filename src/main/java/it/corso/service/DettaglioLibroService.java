@@ -4,12 +4,12 @@ import it.corso.model.DettaglioLibro;
 
 public interface DettaglioLibroService
 {
-	public DettaglioLibro getDettaglioLibro(int libroId) throws Exception;
+	DettaglioLibro getDettaglioLibro(int libroId) throws Exception;
 
-	public void prenota(int id) throws Exception;
+	void prenota(int id) throws Exception;
 
 	List<DettaglioLibro> getUltimiUsciti();
 
-	//List<DettaglioLibro> getSceltaRedazione();//
+	List<DettaglioLibro> getPreferitiRedazione();
 	
 }

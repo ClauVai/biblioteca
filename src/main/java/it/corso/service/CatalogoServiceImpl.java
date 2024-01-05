@@ -13,12 +13,17 @@ public class CatalogoServiceImpl implements CatalogoService
 	
 	public List<Libro> getCatalogo() {
 		// findAll torna un insieme di libri che castiamo a lista per facilitarne l'utilizzo
-		return (List<Libro>) libroDao.findAllByOrderByTitoloAsc();
+		return libroDao.findAllByOrderByTitoloAsc();
 	}
 
 	@Override
 	public void resetStato() {
 		libroDao.updateStatoToZeroForAllRecords();		
+	}
+
+	@Override
+	public List<Libro> getLastFive() {
+		return libroDao.findTop5ByOrderByIdDesc();
 	}
 	
 }

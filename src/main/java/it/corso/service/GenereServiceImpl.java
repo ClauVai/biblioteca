@@ -14,7 +14,7 @@ public class GenereServiceImpl implements GenereService{
 	public List<Genere> getGeneri() {
 		return (List<Genere>) genereDao.findAllByOrderByNomeGenereAsc();
 	}
-
+	
 	@Override
 	public Genere getGenereById(int genereId) {
 		return genereDao.findById(genereId).get();

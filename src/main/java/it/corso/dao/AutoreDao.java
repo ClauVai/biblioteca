@@ -9,6 +9,6 @@ import it.corso.model.Autore;
 public interface AutoreDao extends CrudRepository<Autore, Integer>
 {
 
-	List<Autore> findAllByOrderByNomeAutoreAsc();
+	List<Autore> findAllByOrderByCognomeAsc();
 
 }

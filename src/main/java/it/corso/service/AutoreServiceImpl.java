@@ -1,16 +1,17 @@
 package it.corso.service;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import it.corso.dao.AutoreDao;
 import it.corso.model.Autore;
 
-
-public class AutoreSeviceImpl implements AutoreService {
+@Service
+public class AutoreServiceImpl implements AutoreService {
 	@Autowired
 	private AutoreDao autoreDao;
 	
-	public List<Autore> getAutore() {
-		return (List<Autore>) autoreDao.findAllByOrderByNomeAutoreAsc();
+	public List<Autore> getAutori() {
+		return (List<Autore>) autoreDao.findAllByOrderByCognomeAsc();
 	}
 
 	@Override

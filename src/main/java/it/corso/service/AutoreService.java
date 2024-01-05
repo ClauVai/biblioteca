@@ -4,7 +4,7 @@ import it.corso.model.Autore;
 
 public interface AutoreService {
 	public Autore getAutore(int autoreId);
-	public List<Autore> getAutore();
+	public List<Autore> getAutori();
 		
 	
 }

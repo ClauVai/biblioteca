@@ -6,5 +6,6 @@ public interface CatalogoService
 {
 	public List<Libro> getCatalogo();
 	public void resetStato();
+	public List<Libro> getLastFive();
 	
 }
