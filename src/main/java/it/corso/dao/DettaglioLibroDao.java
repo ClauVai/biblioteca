@@ -11,8 +11,10 @@ public interface DettaglioLibroDao extends CrudRepository<DettaglioLibro, Intege
 
 	List<DettaglioLibro> findTop15ByOrderByAnnoEdizioneDesc();
 	
-	@Query(value = "SELECT l.titolo, l.stato, a.nome, a.cognome FROM Libro JOIN l.autore a ORDER BY RAND() LIMIT 6", nativeQuery = true)
+	@Query(value = "SELECT * FROM libri ORDER BY RAND() LIMIT 6", nativeQuery = true)
     List<DettaglioLibro> findRandomSixLibri();
+
+	List<DettaglioLibro> findAllByOrderByTitoloAsc();
 	
 
 }

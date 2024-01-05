@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import it.corso.service.AutoreService;
 import it.corso.service.CasaEditriceService;
+import it.corso.service.CatalogoService;
+import it.corso.service.DettaglioLibroService;
 import it.corso.service.GenereService;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -12,7 +14,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 @RequestMapping("/index")
 public class HomeController
-{
+{	
+	@Autowired
+	private CatalogoService catalogoService;
+	@Autowired
+	private DettaglioLibroService dettaglioLibroService;
 	@Autowired
 	private CasaEditriceService casaEditriceService;
 	@Autowired
@@ -26,6 +32,8 @@ public class HomeController
 		model.addAttribute("caseEditrici", casaEditriceService.getCaseEditrici());
 		model.addAttribute("generi", genereService.getGeneri());
 		model.addAttribute("autori", autoreService.getAutori());
+		model.addAttribute("lastFive", catalogoService.getLastFive());
+		model.addAttribute("preferiti", dettaglioLibroService.getPreferitiRedazione());
 		return "index";
 	}
 	
