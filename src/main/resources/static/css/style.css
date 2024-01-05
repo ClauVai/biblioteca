@@ -111,6 +111,14 @@ body {
 	  height: auto;
 	  padding-bottom: 5px;
   }
+  #logofooter{
+	  max-width: 100%; /* Imposta la larghezza massima al 100% del contenitore padre */
+            max-height: 100px; /* Imposta l'altezza massima desiderata */
+            display: block; /* Per rimuovere spazi vuoti sotto l'immagine */
+            margin: 0px;
+            margin-bottom: 30px;
+            padding: 0px;
+  }
  #covercatalogo{
 	 padding-right: 50px;
 	 padding-top: 30px;
@@ -121,6 +129,14 @@ body {
 	 margin-bottom: 70px;
 	 text-align: center;
 	 font-family: 'Montserrat', sans-serif;
+ }
+ 
+ a{
+	 text-decoration: none;
+	 color: black;
+ }
+ a:hover{
+	 color: #EF7E6B;
  }
  
  h1{
@@ -141,6 +157,26 @@ body {
     width: 100%; /* Fai sì che la navbar occupi l'intera larghezza */
 }
 
+.pro-title:hover{
+	color: #ffffff;
+}
+
+.img-responsive{
+	width: 450px;
+	margin:0px;
+}
+
+#dettaglio{
+	color: #98D4E1;
+}
+
+
+li{
+	text-decoration: none;
+	
+}
+
+
 .navbar-nav .nav-item {
     text-align: center; /* Centra il testo all'interno dei pulsanti */
 }
@@ -150,11 +186,17 @@ body {
 .navbar-nav .nav-link {
     padding: 0.5rem 1rem; /* Aggiusta il padding dei pulsanti per uno spaziamento uniforme */
     padding-right: 15px;
+  
 }
 .navbar-toggler{
   border: none;
-  background-color: #b3e2d7;
+  background-color: #FDD28A;
+  margin-right: 20px;
 }
+.navbar-nav .nav-item .nav-link:hover{
+	color: #EF7E6B;
+}
+
 
 footer{
 	margin-top: 50px;
@@ -177,7 +219,29 @@ select{
 margin: 10px;
 
 }
+
+.titoloDett{
+	background-color: #FCDD98;
+	
+	padding: 5px;
+}
 /* Stile del pulsante */
+    .btn-rounded{
+        
+        color: #EF7E6B; /* Colore di sfondo */
+        border-color: #EF7E6B; /* Colore del bordo */
+        background-color: #ffffff;
+        margin-top: 20px;
+
+    }
+
+    /* Effetto hover */
+    .btn-rounded:hover {
+        background-color: #EF7E6B; /* Colore di sfondo durante l'hover */
+        border-color: #FFEABB; /* Colore del bordo durante l'hover */
+        color: #ffffff;
+    }
+    
     .btn-outline-success{
         
         color: #EF7E6B; /* Colore di sfondo */
@@ -196,9 +260,11 @@ margin: 10px;
     #filtroForm{
 		background-color: #FFEABB;
 		padding: 15px;
-		
 	}
 
+#lista{
+	margin-top: 50px;
+}
 .card {
   margin-bottom: 30px;
 }
@@ -514,5 +580,5 @@ margin: 10px;
 }
         
 .rating .star.selected {
-	color: #f8d801; /* Colore giallo */
+	color: #FBD75D; /* Colore giallo */
 }
