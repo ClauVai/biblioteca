@@ -6,7 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import it.corso.service.AutoreService;
+import it.corso.service.CasaEditriceService;
 import it.corso.service.CatalogoService;
+import it.corso.service.GenereService;
 
 // localhost:8080/catalogo
 @Controller
@@ -15,11 +18,18 @@ public class CatagoloController
 {
 	@Autowired
 	private CatalogoService catalogoService;
+	@Autowired
+	private CasaEditriceService casaEditriceService;
+	@Autowired
+	private GenereService genereService;
+	@Autowired
+	private AutoreService autoreService;
 	
 	@GetMapping
 	public String getPage(Model model)
 	{
 		model.addAttribute("catalogo", catalogoService.getCatalogoDettaglio());
+		addSelectFields(model);
 		catalogoService.resetStato(); //FUNZIONE TEMPORANEA, ELIMINARE IN SEGUITO!!
 		return "catalogo";
 	}
@@ -29,7 +39,31 @@ public class CatagoloController
 	public String getByAutore(Model model, @PathVariable int id )
 	{
 		model.addAttribute("catalogo", catalogoService.getByFilter(id, 0, 0, 0, 0));
+		addSelectFields(model);
 		return "catalogo";
+	}
+	
+
+	@GetMapping("/genere/{id}")
+	public String getByGenere(Model model, @PathVariable int id )
+	{
+		model.addAttribute("catalogo", catalogoService.getByFilter(0, id, 0, 0, 0));
+		addSelectFields(model);
+		return "catalogo";
+	}
+	
+	@GetMapping("/caseEditrici/{id}")
+	public String getByEditore(Model model, @PathVariable int id )
+	{
+		model.addAttribute("catalogo", catalogoService.getByFilter(0, 0, 0, id, 0));
+		addSelectFields(model);
+		return "catalogo";
+	}
+	
+	private void addSelectFields(Model model) {
+		model.addAttribute("caseEditrici", casaEditriceService.getCaseEditrici());
+		model.addAttribute("generi", genereService.getGeneri());
+		model.addAttribute("autori", autoreService.getAutori());
 	}
 
 }
