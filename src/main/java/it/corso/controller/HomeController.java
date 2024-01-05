@@ -33,7 +33,7 @@ public class HomeController
 		model.addAttribute("generi", genereService.getGeneri());
 		model.addAttribute("autori", autoreService.getAutori());
 		model.addAttribute("lastFive", catalogoService.getLastFive());
-		model.addAttribute("preferiti", dettaglioLibroService.getPreferitiRedazione());
+		//model.addAttribute("preferiti", dettaglioLibroService.getPreferitiRedazione());
 		return "index";
 	}
 	

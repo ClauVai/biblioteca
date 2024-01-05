@@ -10,6 +10,12 @@ public interface CatalogoService
 	public void resetStato();
 	public List<Libro> getLastFive();
 	public List<DettaglioLibro> getCatalogoDettaglio();
+	public List<DettaglioLibro> getByFilter(
+			int autoreId,
+			int genereId,
+			int annoEdizione,
+			int casaEditriceId,
+			int linguaId) ;
 
 	
 }
