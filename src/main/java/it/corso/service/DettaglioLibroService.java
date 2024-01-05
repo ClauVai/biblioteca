@@ -9,5 +9,7 @@ public interface DettaglioLibroService
 	public void prenota(int id) throws Exception;
 
 	List<DettaglioLibro> getUltimiUsciti();
+
+	//List<DettaglioLibro> getSceltaRedazione();//
 	
 }
