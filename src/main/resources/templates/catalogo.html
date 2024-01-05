@@ -47,25 +47,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	<div class="container">
 		<div class="head">
-			<nav id="navbar"
+						<nav id="navbar"
 				class="navbar navbar-toggleable-sm bg-faded navbar-light fixed-top fixed-top-2 justify-content-center mb-0">
 				<div class="d-flex align-items-center">
 					<div class="dropdown">
 						<button class="dropbtn">Autori</button>
-						<div th:each="a: ${autori}" class="dropdown-content">
-							<a th:text="${a.cognome}" th:href="@{catalogo/autori}"></a>
+						<div class="dropdown-content">
+							<a th:each="a: ${autori}" th:text="${a.cognome}" th:href="@{/catalogo/autore/{id}(id=${a.id})}"></a>
 						</div>
 					</div>
 					<div class="dropdown">
 						<button class="dropbtn">Generi</button>
-						<div th:each="g: ${generi}" class="dropdown-content">
-							<a th:text="${g.nomeGenere}" th:href="@{catalogo/generi}"></a>
+						<div class="dropdown-content">
+							<a th:each="g: ${generi}" th:text="${g.nomeGenere}" th:href="@{/catalogo/genere/{id}(id=${g.id})}"></a>
 						</div>
 					</div>
 					<div class="dropdown">
 						<button class="dropbtn">Editori</button>
-						<div th:each="c: ${caseEditrici}" class="dropdown-content">
-							<a th:text="${c.nomeCasa}" th:href="@{catalogo/editori}"></a>
+						<div class="dropdown-content">
+							<a th:each="c: ${caseEditrici}"  th:text="${c.nomeCasa}" th:href="@{/catalogo/caseEditrici/{id}(id=${c.id})}"></a>
 						</div>
 					</div>
 				</div>

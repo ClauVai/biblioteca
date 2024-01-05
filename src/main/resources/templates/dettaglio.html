@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bibliothè | Libri</title>
 	<link rel="icon" type="image/png" th:src="@{'img/minilogo.png'}">
@@ -16,118 +17,122 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Includi jQuery da un CDN -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<!-- Includi jQuery da un CDN -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-    <!-- Includi Popper.js da un CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+	<!-- Includi Popper.js da un CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
 
-    <!-- Includi MDB JS da un CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
-    
-    
-
-		<script>
-		        $(document).ready(function () {
-		            $('#apriPopupButton').on('click', function () {
-		                $('#mioPopup').modal('show');
-		            });
-		
-					$('#chiudiPopupButton').on('click', function () {
-					    $('#mioPopup').modal('hide');
-					});
-					
-					// Inizializza il rating
-		            $('#star-rating .star').click(function () {
-		                var rating = $(this).data('rating');
-		                
-		                // Rimuovi la classe 'selected' da tutte le stelle
-		                $('#star-rating .star').removeClass('selected');
-		                
-		                // Aggiungi la classe 'selected' solo alle stelle selezionate
-		                $('#star-rating .star:lt(' + rating + ')').addClass('selected');
-		                
-		                 if (rating == 1) {
-        $('#rating-value').text('Hai dato ' + rating + ' punto!');
-    } else {
-        $('#rating-value').text('Hai dato ' + rating + ' punti!');
-    }
-		            });
-					
-		        });
-		        
-		</script>
-		
-		<script>
-    $(document).ready(function () {
-        // Array di nomi delle immagini
-        var imageNames = [
-            'bimba1',
-            'bimba2',
-            'bimba3',
-            // Aggiungi altri nomi delle immagini secondo necessità
-        ];
-
-        // Ottieni un numero casuale per selezionare un nome di immagine dal array
-        var randomIndex = Math.floor(Math.random() * imageNames.length);
-
-        // Costruisci l'URL completo dell'immagine
-        var imageUrl = '/img/' + imageNames[randomIndex] + '.jpg';
-
-        // Ottieni l'elemento dell'immagine
-        var imgElement = $('#bimba');
-
-        // Imposta l'attributo src dell'immagine con l'URL casuale
-        imgElement.attr('src', imageUrl);
-    });
-</script>
-		 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var titles = document.querySelectorAll('.titoloDett, .sinossi-content');
-
-        titles.forEach(function (title) {
-            var randomColor = getRandomColor();
-            title.style.backgroundColor = randomColor;
-        });
-
-        // Funzione per ottenere un colore casuale dalla tua lista
-        function getRandomColor() {
-            var colors = ['#EF7E6B', '#9AD0C3', '#F8C77A', '#98D4E1'];
-            var randomIndex = Math.floor(Math.random() * colors.length);
-            return colors[randomIndex]; 
-        }
-    });
-</script>
+	<!-- Includi MDB JS da un CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 
 
-		
+
+	<script>
+		$(document).ready(function () {
+			$('#apriPopupButton').on('click', function () {
+				$('#mioPopup').modal('show');
+			});
+
+			$('#chiudiPopupButton').on('click', function () {
+				$('#mioPopup').modal('hide');
+			});
+
+			// Inizializza il rating
+			$('#star-rating .star').click(function () {
+				var rating = $(this).data('rating');
+
+				// Rimuovi la classe 'selected' da tutte le stelle
+				$('#star-rating .star').removeClass('selected');
+
+				// Aggiungi la classe 'selected' solo alle stelle selezionate
+				$('#star-rating .star:lt(' + rating + ')').addClass('selected');
+
+				if (rating == 1) {
+					$('#rating-value').text('Hai dato ' + rating + ' punto!');
+				} else {
+					$('#rating-value').text('Hai dato ' + rating + ' punti!');
+				}
+			});
+
+		});
+
+	</script>
+
+	<script>
+		$(document).ready(function () {
+			// Array di nomi delle immagini
+			var imageNames = [
+				'bimba1',
+				'bimba2',
+				'bimba3',
+				// Aggiungi altri nomi delle immagini secondo necessità
+			];
+
+			// Ottieni un numero casuale per selezionare un nome di immagine dal array
+			var randomIndex = Math.floor(Math.random() * imageNames.length);
+
+			// Costruisci l'URL completo dell'immagine
+			var imageUrl = '/img/' + imageNames[randomIndex] + '.jpg';
+
+			// Ottieni l'elemento dell'immagine
+			var imgElement = $('#bimba');
+
+			// Imposta l'attributo src dell'immagine con l'URL casuale
+			imgElement.attr('src', imageUrl);
+		});
+	</script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			var titles = document.querySelectorAll('.titoloDett, .sinossi-content');
+
+			titles.forEach(function (title) {
+				var randomColor = getRandomColor();
+				title.style.backgroundColor = randomColor;
+			});
+
+			// Funzione per ottenere un colore casuale dalla tua lista
+			function getRandomColor() {
+				var colors = ['#EF7E6B', '#9AD0C3', '#F8C77A', '#98D4E1'];
+				var randomIndex = Math.floor(Math.random() * colors.length);
+				return colors[randomIndex];
+			}
+		});
+	</script>
+
+
+
 </head>
+
 <body>
-    
-    <div class="container">
-        <div class="head">
+
+	<div class="container">
+		<div class="head">
 			<nav id="navbar"
 				class="navbar navbar-toggleable-sm bg-faded navbar-light fixed-top fixed-top-2 justify-content-center mb-0">
 				<div class="d-flex align-items-center">
 					<div class="dropdown">
 						<button class="dropbtn">Autori</button>
-						<div th:each="a: ${autori}" class="dropdown-content">
-							<a th:text="${a.cognome}" th:href="@{catalogo/autori}"></a>
+						<div class="dropdown-content">
+							<a th:each="a: ${autori}" th:text="${a.cognome}"
+								th:href="@{/catalogo/autore/{id}(id=${a.id})}"></a>
 						</div>
 					</div>
 					<div class="dropdown">
 						<button class="dropbtn">Generi</button>
-						<div th:each="g: ${generi}" class="dropdown-content">
-							<a th:text="${g.nomeGenere}" th:href="@{catalogo/generi}"></a>
+						<div class="dropdown-content">
+							<a th:each="g: ${generi}" th:text="${g.nomeGenere}"
+								th:href="@{/catalogo/genere/{id}(id=${g.id})}"></a>
 						</div>
 					</div>
 					<div class="dropdown">
 						<button class="dropbtn">Editori</button>
-						<div th:each="c: ${caseEditrici}" class="dropdown-content">
-							<a th:text="${c.nomeCasa}" th:href="@{catalogo/editori}"></a>
+						<div class="dropdown-content">
+							<a th:each="c: ${caseEditrici}" th:text="${c.nomeCasa}"
+								th:href="@{/catalogo/caseEditrici/{id}(id=${c.id})}"></a>
 						</div>
 					</div>
 				</div>
@@ -135,7 +140,8 @@
 
 			<nav id="navbar2" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 				<div class="container-fluid">
-					<a class="navbar-brand" th:href="@{index}"><img th:src="@{'img/logo-lungo.png'}" alt="logo Bibliothè" id="logo"/></a>
+					<a class="navbar-brand" th:href="@{index}"><img th:src="@{'img/logo-lungo.png'}"
+							alt="logo Bibliothè" id="logo" /></a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
 						aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -156,155 +162,164 @@
 				</div>
 			</nav>
 		</div>
-        <div class="body">
+		<div class="body">
 			<div class="col-lg-10 mx-auto ">
 				<h1 id="dettaglio" class="text-center">Dettaglio</h1>
-            <div id="cardDett" class="card card-with-shadow">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-12 col-sm-12">
-                            <div class="white-box text-center"><img id="covercatalogo" th:src="${dettaglio.copertina}" alt="cover"  class="img-responsive"></div>
-                        </div>
-                        <div class="col-lg-6 col-md-12 col-sm-12">
-                            <h4 th:text="${dettaglio.titolo}" class="box-title mt-5 titoloDett"></h4>
-                            <h6 th:text="${dettaglio.autore.nomeAutore}+' '+${dettaglio.autore.cognome}" class="box-title mt-5"></h6>
-                            <p th:text="${dettaglio.autore.biografia}"></p>
-                            
-                     
-                       
-                            </ul>
-                            
-                            
-                            <h5 class="box-title mt-5 titoloDett">Dettagli</h5>
-                            <ul class="list-unstyled">
-                                <li th:text="'Genere: '+${dettaglio.genere.nomeGenere}"></li>
-                                <li th:text="'Casa editrice: '+${dettaglio.casaEditrice.nomeCasa}"></li>
-                                <li th:text="'Anno di pubblicazione: '+${dettaglio.annoEdizione}"></li>
-                                <li th:text="'ISBN: ' + ${dettaglio.ISBN}"></li>
-                            </ul>
-                            <ul class="list-unstyled">
-                                <li th:text="'Stato: '+${dettaglio.stato ? 'Non disponibile' : 'Disponibile'}"></li>
-                                							<div th:if="${alert}" th:text="'Libro Prenotato!'" class="alert alert-success" role="alert"></div>
-
-                                
-                                <button id="apriPopupButton" class="btn btn-primary btn-rounded" th:if="${dettaglio.stato == false}"> Richiedi prenotazione </button>
-                                
-                       
-                       <!-- Model -->
-						    <div class="modal fade" id="mioPopup" tabindex="-1" role="dialog" aria-labelledby="mioPopupLabel" aria-hidden="true">
-						        <div class="modal-dialog" role="document">
-						            <div class="modal-content">
-						                <div class="modal-header">
-											<!-- aggiungere il "prenota" prima del testo titolo -->
-											<h5 class="modal-title" id="mioPopupLabel" th:text="${dettaglio.titolo}"></h5>
-						                    <button id="chiudiPopupButton" type="button" class="close" data-dismiss="modal" aria-label="Close">
-						                        <span aria-hidden="true"></span>
-						                    </button>  
-						                </div>
-						                <div class="modal-body">
-						                    <!-- Contenuto del tuo popup -->
-						                    <form th:action="@{/dettaglio/prenota(id=${dettaglio.id})}" method="post">
-						                        <label for="nome">Nome:</label>
-						                        <input type="text" id="nome" name="nome" required />
-						
-						                        <label for="cognome">Cognome:</label>
-						                        <input type="text" id="cognome" name="cognome" required />
-						
-						                        <button type="submit" class="btn btn-primary btn-sm">Prenota</button>
-						                    </form>
-						                </div>
-						            </div>
-						        </div>
-						    </div>
-						</div>
-                       
-                        </div>
-                        <div id="sinossi" class="col-lg-12 col-md-12 col-sm-12">
-                            <h5 class="box-title mt-5 titoloDett">Sinossi</h5>
-                            <div class="table-responsive">
-								<p th:text="${dettaglio.trama}"></p>                            
+				<div id="cardDett" class="card card-with-shadow">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-lg-6 col-md-12 col-sm-12">
+								<div class="white-box text-center"><img id="covercatalogo"
+										th:src="${dettaglio.copertina}" alt="cover" class="img-responsive"></div>
 							</div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="card">
-               
-              <div class="row">
-                  
-                  <div class="col-lg-2 col-md-1 col-sm-10 col-10 mx-auto">
-                      
-                      
-                      <img id="bimba" th:src="@{'img/bimba3.png'}" alt="img">
-                  
-                  
-                  </div>
-                  
-                  <div class="col-lg-8 col-md-9 col-sm-10 col-10 mx-auto">
-                      
-                      <div class="comment-box ml-2">
-                          
-                          <h4>Cosa pensi di questo libro? Scrivilo qui!</h4>
-                          
-							  <div class="container">
-						         <div id="star-rating" class="rating">
-						            <span class="star" data-rating="1">&#9733;</span>
-						            <span class="star" data-rating="2">&#9733;</span>
-						            <span class="star" data-rating="3">&#9733;</span>
-						            <span class="star" data-rating="4">&#9733;</span>
-						            <span class="star" data-rating="5">&#9733;</span>
-						        </div>
-						        <p id="rating-value"></p>
-						    </div>
-                          
-                          <div class="comment-area">
-                              
-                              <textarea class="form-control" placeholder="Commenta" rows="4"></textarea>
-                          
-                          </div>
-                          
-                          <div class="comment-btns mt-2">
-                              
-                              <div class="row">
-                                  
-                                  <div class="col-6">
-                                      
-                                      <div class="pull-left">
-                                      
-                                      <button class="btn btn-success btn-sm">Cancella</button>      
-                                          
-                                      </div>
-                                  
-                                  </div>
-                                  
-                                  <div class="col-6">
-                                      
-                                      <div class="pull-right">
-                                      
-                                      <button class="btn btn-success send btn-sm">Invia<i class="fa ml-1"></i></button>      
-                                          
-                                      </div>
-                                  
-                                  </div>
-                              
-                              </div>
-                          
-                          </div>
-                      
-                      
-                      </div>
-                  
-                  </div>
-              
-              
-              </div>
-    
-          </div>
-    <footer id="footer" class="overflow-hidden">
+							<div class="col-lg-6 col-md-12 col-sm-12">
+								<h4 th:text="${dettaglio.titolo}" class="box-title mt-5 titoloDett"></h4>
+								<h6 th:text="${dettaglio.autore.nomeAutore}+' '+${dettaglio.autore.cognome}"
+									class="box-title mt-5"></h6>
+								<p th:text="${dettaglio.autore.biografia}"></p>
+
+
+
+								</ul>
+
+
+								<h5 class="box-title mt-5 titoloDett">Dettagli</h5>
+								<ul class="list-unstyled">
+									<li th:text="'Genere: '+${dettaglio.genere.nomeGenere}"></li>
+									<li th:text="'Casa editrice: '+${dettaglio.casaEditrice.nomeCasa}"></li>
+									<li th:text="'Anno di pubblicazione: '+${dettaglio.annoEdizione}"></li>
+									<li th:text="'ISBN: ' + ${dettaglio.ISBN}"></li>
+								</ul>
+								<ul class="list-unstyled">
+									<li th:text="'Stato: '+${dettaglio.stato ? 'Non disponibile' : 'Disponibile'}"></li>
+									<div th:if="${alert}" th:text="'Libro Prenotato!'" class="alert alert-success"
+										role="alert"></div>
+
+
+									<button id="apriPopupButton" class="btn btn-primary btn-rounded"
+										th:if="${dettaglio.stato == false}"> Richiedi prenotazione </button>
+
+
+									<!-- Model -->
+									<div class="modal fade" id="mioPopup" tabindex="-1" role="dialog"
+										aria-labelledby="mioPopupLabel" aria-hidden="true">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<!-- aggiungere il "prenota" prima del testo titolo -->
+													<h5 class="modal-title" id="mioPopupLabel"
+														th:text="${dettaglio.titolo}"></h5>
+													<button id="chiudiPopupButton" type="button" class="close"
+														data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true"></span>
+													</button>
+												</div>
+												<div class="modal-body">
+													<!-- Contenuto del tuo popup -->
+													<form th:action="@{/dettaglio/prenota(id=${dettaglio.id})}"
+														method="post">
+														<label for="nome">Nome:</label>
+														<input type="text" id="nome" name="nome" required />
+
+														<label for="cognome">Cognome:</label>
+														<input type="text" id="cognome" name="cognome" required />
+
+														<button type="submit"
+															class="btn btn-primary btn-sm">Prenota</button>
+													</form>
+												</div>
+											</div>
+										</div>
+									</div>
+							</div>
+
+						</div>
+						<div id="sinossi" class="col-lg-12 col-md-12 col-sm-12">
+							<h5 class="box-title mt-5 titoloDett">Sinossi</h5>
+							<div class="table-responsive">
+								<p th:text="${dettaglio.trama}"></p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="card">
+
+		<div class="row">
+
+			<div class="col-lg-2 col-md-1 col-sm-10 col-10 mx-auto">
+
+
+				<img id="bimba" th:src="@{'img/bimba3.png'}" alt="img">
+
+
+			</div>
+
+			<div class="col-lg-8 col-md-9 col-sm-10 col-10 mx-auto">
+
+				<div class="comment-box ml-2">
+
+					<h4>Cosa pensi di questo libro? Scrivilo qui!</h4>
+
+					<div class="container">
+						<div id="star-rating" class="rating">
+							<span class="star" data-rating="1">&#9733;</span>
+							<span class="star" data-rating="2">&#9733;</span>
+							<span class="star" data-rating="3">&#9733;</span>
+							<span class="star" data-rating="4">&#9733;</span>
+							<span class="star" data-rating="5">&#9733;</span>
+						</div>
+						<p id="rating-value"></p>
+					</div>
+
+					<div class="comment-area">
+
+						<textarea class="form-control" placeholder="Commenta" rows="4"></textarea>
+
+					</div>
+
+					<div class="comment-btns mt-2">
+
+						<div class="row">
+
+							<div class="col-6">
+
+								<div class="pull-left">
+
+									<button class="btn btn-success btn-sm">Cancella</button>
+
+								</div>
+
+							</div>
+
+							<div class="col-6">
+
+								<div class="pull-right">
+
+									<button class="btn btn-success send btn-sm">Invia<i class="fa ml-1"></i></button>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+	</div>
+	<footer id="footer" class="overflow-hidden">
 		<div class="container">
 			<div class="row">
 				<div class="footer-top-area">
@@ -383,8 +398,7 @@
 					</div>
 					<div class="col-md-4 col-sm-6">
 						<div class="Shipping d-flex">
-							<p> Contattaci su: <a 
-					href="mailto:info@bibliothe.it">info@bibliothe.it</a></p>
+							<p> Contattaci su: <a href="mailto:info@bibliothe.it">info@bibliothe.it</a></p>
 
 						</div>
 					</div>
@@ -392,6 +406,7 @@
 			</div>
 		</div>
 	</footer>
-    
+
 </body>
+
 </html>
