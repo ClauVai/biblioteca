@@ -3,6 +3,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -79,5 +80,14 @@ public class DettaglioLibroController
 		model.addAttribute("generi", genereService.getGeneri());
 		model.addAttribute("autori", autoreService.getAutori());
 	}
-	
+	/*
+	@PostMapping("/comment")
+    public String handleCommentForm(@ModelAttribute CommentForm commentForm, Model model) {
+        // Logica per gestire il form e salvare i dati
+
+        // Imposta un attributo nel modello per indicare che il form è stato compilato e inviato con successo
+        model.addAttribute("commentFormSubmitted", true);
+
+        return "redirect:/pagina-del-tuo-form"; // Puoi reindirizzare l'utente ad una pagina specifica dopo l'invio del form
+    }*/
 }

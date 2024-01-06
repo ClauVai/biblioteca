@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bibliothè | Libri</title>
+	<title>Bibliothè | Dettaglio</title>
 	<link rel="icon" type="image/png" th:href="@{/img/favicon.ico}">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link th:href="@{/css/style.css}" rel="stylesheet" />
@@ -113,21 +113,22 @@
 			<nav id="navbar"
 				class="navbar navbar-toggleable-sm bg-faded navbar-light fixed-top fixed-top-2 justify-content-center mb-0">
 				<div class="d-flex align-items-center">
-					<div class="dropdown">
+					<div class="dropdown col-3">
 						<button class="dropbtn">Autori</button>
-						<div class="dropdown-content">
+						<div class="dropdown-content ">
 							<a th:each="a: ${autori}" th:text="${a.cognome}"
 								th:href="@{/catalogo/autore/{id}(id=${a.id})}"></a>
 						</div>
+						
 					</div>
-					<div class="dropdown">
+					<div class="dropdown col-3">
 						<button class="dropbtn">Generi</button>
 						<div class="dropdown-content">
 							<a th:each="g: ${generi}" th:text="${g.nomeGenere}"
 								th:href="@{/catalogo/genere/{id}(id=${g.id})}"></a>
 						</div>
 					</div>
-					<div class="dropdown">
+					<div class="dropdown col-3">
 						<button class="dropbtn">Editori</button>
 						<div class="dropdown-content">
 							<a th:each="c: ${caseEditrici}" th:text="${c.nomeCasa}"
@@ -155,14 +156,15 @@
 							<li class="nav-item">
 								<a class="nav-link" th:href="@{catalogo}">Libri</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Contatti</a>
-							</li>
+							
 						</ul>
 					</div>
 				</div>
 			</nav>
 		</div>
+		<!--FINE NAVBAR-->
+		
+		<!--BODY DELLA PAGINA DETTAGLIO-->
 		<div class="body">
 			<div class="col-lg-10 mx-auto ">
 				<h1 id="dettaglio" class="text-center">Dettaglio</h1>
@@ -178,12 +180,6 @@
 								<h6 th:text="${dettaglio.autore.nomeAutore}+' '+${dettaglio.autore.cognome}"
 									class="box-title mt-5"></h6>
 								<p th:text="${dettaglio.autore.biografia}"></p>
-
-
-
-								</ul>
-
-
 								<h5 class="box-title mt-5 titoloDett">Dettagli</h5>
 								<ul class="list-unstyled">
 									<li th:text="'Genere: '+${dettaglio.genere.nomeGenere}"></li>
@@ -195,8 +191,6 @@
 									<li th:text="'Stato: '+${dettaglio.stato ? 'Non disponibile' : 'Disponibile'}"></li>
 									<div th:if="${alert}" th:text="'Libro Prenotato!'" class="alert alert-success"
 										role="alert"></div>
-
-
 									<button id="apriPopupButton" class="btn btn-primary btn-rounded"
 										th:if="${dettaglio.stato == false}"> Richiedi prenotazione </button>
 
@@ -247,26 +241,16 @@
 			</div>
 		</div>
 	</div>
-
-	<div class="card">
-
-		<div class="row">
-
-			<div class="col-lg-2 col-md-1 col-sm-10 col-10 mx-auto">
-
-
+<!--FORM PER LASCIARE UN COMMENTO-->
+	<div class="card col-9 mx-auto" style="margin-top: 80px;">
+		<div class="row ">
+			<div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
 				<img id="bimba" alt="img"><img>
-
-
 			</div>
-
-			<div class="col-lg-8 col-md-9 col-sm-10 col-10 mx-auto">
-
-				<div class="comment-box ml-2">
-
-					<h4>Cosa pensi di questo libro? Scrivilo qui!</h4>
-
-					<div class="container">
+			<div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12">
+				<div class="comment-box custom-margin">
+					<h4>Cosa pensi di questo libro? Scrivilo qui!</h4>				
+					<div class="container">						
 						<div id="star-rating" class="rating">
 							<span class="star" data-rating="1">&#9733;</span>
 							<span class="star" data-rating="2">&#9733;</span>
@@ -276,50 +260,56 @@
 						</div>
 						<p id="rating-value"></p>
 					</div>
-
 					<div class="comment-area">
-
+						<input type="text" class="form-control" id="name" placeholder="nickname">
 						<textarea class="form-control" placeholder="Commenta" rows="4"></textarea>
-
 					</div>
-
 					<div class="comment-btns mt-2">
-
 						<div class="row">
-
 							<div class="col-6">
-
 								<div class="pull-left">
-
 									<button class="btn btn-success btn-sm">Cancella</button>
-
 								</div>
-
 							</div>
-
 							<div class="col-6">
-
 								<div class="pull-right">
-
 									<button class="btn btn-success send btn-sm">Invia<i class="fa ml-1"></i></button>
-
 								</div>
-
 							</div>
-
 						</div>
-
 					</div>
-
-
 				</div>
-
 			</div>
-
-
 		</div>
-
 	</div>
+	<!--FINE FORM-->
+	
+	<!--AREA COMMENTI CHE NON SI VEDE PERCHé VA SISTMATO IL DB E IL CONTROLLER-->
+	<div class="be-comment-block" th:if="${commentFormSubmitted}">
+    <h1 class="comments-title">Commenti</h1>
+		<div class="be-comment-content">
+			<span class="be-comment-name">
+				<a href="blog-detail-2.html">Phoenix <svg class="gig-rating" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15">
+                                            <path
+                                                fill="currentColor"
+                                                d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+                                            ></path>
+                                        </svg>
+                                        5.0</a>
+			</span>
+			
+			<span class="be-comment-time">
+				<i class="fa fa-clock-o"></i>
+				May 27, 2015 at 3:14am
+			</span>
+			<p class="be-comment-text">
+				Nunc ornare sed dolor sed mattis. In scelerisque dui a arcu mattis, at maximus eros commodo. Cras magna nunc, cursus lobortis luctus at, sollicitudin vel neque. Duis eleifend lorem non ant. Proin ut ornare lectus, vel eleifend est. Fusce hendrerit dui in turpis tristique blandit.
+			</p>
+		</div>
+		</div>
+	<!--FINE AREA COMMENTI -->
+	
+	<!--FOOTER-->
 	<footer id="footer" class="overflow-hidden">
 		<div class="container">
 			<div class="row">

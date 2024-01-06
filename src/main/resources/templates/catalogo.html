@@ -17,6 +17,8 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
+
 	<script>
 document.addEventListener('DOMContentLoaded', function() {
     var titles = document.querySelectorAll('.pro-title');
@@ -89,9 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
 							<li class="nav-item">
 								<a class="nav-link" th:href="@{/catalogo}">Libri</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Contatti</a>
-							</li>
+							
 						</ul>
 					</div>
 				</div>
@@ -155,9 +155,9 @@ document.addEventListener('DOMContentLoaded', function() {
 								<img id="covercatalogo" th:src="${c.copertina}" alt="cover"  />
 							</div>
 							<div class="panel-body text-center">
-								<h4>
+								<h5 id="titolocat">
 									<a th:text="${c.titolo}" th:href="@{/dettaglio(id=${c.id})}" class="pro-title"></a>
-								</h4>
+								</h5>
                             <p th:text="${c.autore.nomeAutore}+' '+${c.autore.cognome}"></p>
                                 <p th:text="'Stato: '+${c.stato ? 'Non disponibile' : 'Disponibile'}"></p>
 							</div>
