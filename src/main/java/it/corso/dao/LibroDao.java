@@ -17,8 +17,6 @@ public interface LibroDao extends CrudRepository<Libro, Integer>
     @Query("UPDATE Libro l SET l.stato = false")
 	void updateStatoToZeroForAllRecords();
     
-    //questo metodo trova gli ultimi 5 libri aggiunti
-    //@Query("SELECT * FROM Libri l ORDER BY l.id DESC limit 5")
-    //List<Libro> findUltimiCinqueLibri();
+
     List<Libro> findTop5ByOrderByIdDesc();
 }

@@ -12,4 +12,6 @@ public interface DettaglioLibroService
 
 	List<DettaglioLibro> getPreferitiRedazione();
 	
+    List<DettaglioLibro> getUltimiLibri();
+
 }

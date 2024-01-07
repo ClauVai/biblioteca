@@ -72,5 +72,14 @@ public class DettaglioLibroServiceImpl implements DettaglioLibroService
 	public List<DettaglioLibro> getPreferitiRedazione() {
 		return dettaglioLibroDao.findRandomSixLibri();
 	}
+	
+
+
+	@Override
+	public List<DettaglioLibro> getUltimiLibri() {
+		return dettaglioLibroDao.findUltimiOttoLibri();
+	}
+
+
 
 }

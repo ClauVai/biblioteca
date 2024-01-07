@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import it.corso.service.AutoreService;
 import it.corso.service.CasaEditriceService;
 import it.corso.service.CatalogoService;
+import it.corso.service.DettaglioLibroService;
 import it.corso.service.GenereService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,10 +27,14 @@ public class HomeController
 	@Autowired
 	private AutoreService autoreService;
 	
+	@Autowired
+	private DettaglioLibroService dettaglioLibroService;
+	
 	@GetMapping
 	public String getPage(Model model)
 	{
 		addSelectFields(model);
+		model.addAttribute("ultimiLibri", dettaglioLibroService.getUltimiLibri());
 		model.addAttribute("lastFive", catalogoService.getLastFive());
 		//model.addAttribute("preferiti", dettaglioLibroService.getPreferitiRedazione());
 		return "index";

@@ -16,5 +16,9 @@ public interface DettaglioLibroDao extends CrudRepository<DettaglioLibro, Intege
 
 	List<DettaglioLibro> findAllByOrderByTitoloAsc();
 	
+    //questo metodo trova gli ultimi 8 libri aggiunti
+    @Query(value = "SELECT * FROM Libri l ORDER BY l.id DESC limit 8",  nativeQuery = true)
+    List<DettaglioLibro> findUltimiOttoLibri();
+	
 
 }
