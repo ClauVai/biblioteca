@@ -35,7 +35,6 @@ public class HomeController
 	{
 		addSelectFields(model);
 		model.addAttribute("ultimiLibri", dettaglioLibroService.getUltimiLibri());
-		model.addAttribute("lastFive", catalogoService.getLastFive());
 		//model.addAttribute("preferiti", dettaglioLibroService.getPreferitiRedazione());
 		return "index";
 	}
