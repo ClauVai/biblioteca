@@ -85,15 +85,23 @@
                   </div>
                </div>
             </nav>
+            <hr>
+           
          </div>
          <div class="body">
+			
+				 <picture>
+				 	<img class="w-full" th:src="@{'/img/home.png'}">
+			 	 </picture>
+			 <hr>
+			 
             <h4 id="scrollspyHeading1">Novità</h4>
             <P>Gli ultimi arrivi ogni settimana!</P>
-            <div id="myCarousel" class="carousel slide container" data-bs-ride="carousel">
+            <div id="myCarousel" class="carousel slide container col-10" data-bs-ride="carousel">
                <div class="carousel-inner w-100">
 			        <div th:each="libro, iterStat : ${ultimiLibri}" th:classappend="${iterStat.index == 0} ? 'carousel-item active' : 'carousel-item'">
 			            <div class="col-md-3">
-			                <div class="card card-body">
+			                <div class="card card-body caroselcard1">
 			                    <img class="img-fluid" th:src="${libro.copertina}">
 			                </div>
 			            </div>
@@ -116,7 +124,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start" alt="...">
+                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
@@ -131,7 +139,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start" alt="...">
+                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
@@ -146,7 +154,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start" alt="...">
+                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
@@ -163,7 +171,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start" alt="...">
+                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
@@ -178,7 +186,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start" alt="...">
+                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
@@ -193,7 +201,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start" alt="...">
+                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
@@ -213,7 +221,7 @@
                   <div th:each="i : ${#numbers.sequence(1, 8)}" th:classappend="${i==1} ? 'carousel-item active' : 'carousel-item'">
                      <div class="col-md-3">
                         <div class="card card-body">
-                           <img class="img-fluid" th:src="'https://via.placeholder.com/640x360?text=' + ${i}">
+                           <img class="img-fluid zoom-image" th:src="'https://via.placeholder.com/640x360?text=' + ${i}">
                         </div>
                      </div>
                   </div>
@@ -235,7 +243,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start" alt="...">
+                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
@@ -250,7 +258,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start" alt="...">
+                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
@@ -265,7 +273,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start" alt="...">
+                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
@@ -280,7 +288,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start" alt="...">
+                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
@@ -295,7 +303,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start" alt="...">
+                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
@@ -312,7 +320,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start" alt="...">
+                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
@@ -327,7 +335,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start" alt="...">
+                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
@@ -342,7 +350,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start" alt="...">
+                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
@@ -357,7 +365,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start" alt="...">
+                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
@@ -372,7 +380,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start" alt="...">
+                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">

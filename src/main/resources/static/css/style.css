@@ -11,10 +11,6 @@ body {
     
 }
 
-.body{
-  padding-top: 70px;
-  
-}
 .navbar{
   background-color: #ffffff;
   justify-content: left;
@@ -451,6 +447,11 @@ margin: 10px;
 	font-family: 'Roboto Slab', serif;
 }
 
+.w-full {
+width: 100%;
+padding-left: 0px;
+padding-top: 20px;
+}
 
 .social-link {
   width: 30px;
@@ -471,13 +472,6 @@ margin: 10px;
   text-decoration: none;
   color: #555;
 }
-
-
-
-
-
-
-
 
 
 .be-comment-block {
@@ -613,8 +607,78 @@ margin: 10px;
 }
 
 
+.zoom-image:hover {
+    transform: scale(1.05); /* Ingrandisce l'immagine del 5% quando il mouse è sopra */
+    transition: transform 0.3s ease; /* Aggiunge una transizione fluida */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Aggiunge un'ombra che sporge */
+}
+
+.img-fluid {
+    transition: transform 0.1s ease; /* Aggiunge una transizione fluida per il ritorno all'originale */
+    /* Altri stili dell'immagine, se necessario */
+    width: 100%; /* Fai sì che l'immagine copra completamente l'altezza della card */
+    height: 100%;
+
+display: block;
+border-radius: 3px;
+position: relative;
+box-shadow: 0px 6px 12px rgba(0,0,0,0.3);
+transition: transform 200ms ease-in, box-shadow 200ms ease-in;
+padding-left: 0px;
+object-fit: cover; 
+}
+.img-fluid:hover {
+box-shadow: 0px 11px 18px rgba(0,0,0,0.3);
+transform: scale(1.025);
+}
 
 
+
+    .carousel-control-next-icon {
+		background-image: url('/img/ROSSO-2.png');
+		margin-left: 50px;
+		box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+		border-radius: 50%;
+		
+		}
+	.carousel-control-prev-icon {
+		background-image: url('/img/ROSSO-1.png');		
+		margin-right: 50px;
+		box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+		border-radius: 50%;
+		vertical-align: middle;
+		}
+	.carousel-control-next, .carousel-control-prev {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		z-index: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 15%;
+		padding: 0;
+		text-align: center;
+		background: 0 0;
+		border: 0;
+		opacity: 1;
+		transition: .1s ease; 
+		
+		}
+.active{
+	margin-right: 0px;
+}
+.about{
+	box-shadow: none;
+}
+.about:hover{
+	box-shadow: none;
+	transform: none;
+}
+
+.body{
+	margin-top: 70px;
+}
 
 
 
