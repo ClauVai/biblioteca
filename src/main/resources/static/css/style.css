@@ -34,7 +34,6 @@ body {
     padding-bottom: 16px;
     font-size: 20px;
     font-family: 'Montserrat', sans-serif;
-    
     border: none;
     justify-content: center;
 }
@@ -87,7 +86,7 @@ body {
    
   }
   
-  
+ 
   
   /* Dropdown Content (Hidden by Default) */
   .dropdown-content {
@@ -119,13 +118,14 @@ body {
   img{
     width: auto;
     height: auto;
-    padding-left: 50px;
+ 
   }
   
   #logo{
 	  width: 400px;
 	  height: auto;
 	  padding-bottom: 5px;
+	     padding-left: 50px;
   }
   #logofooter{
 	  max-width: 100%; /* Imposta la larghezza massima al 100% del contenitore padre */
@@ -136,8 +136,10 @@ body {
             padding: 0px;
   }
  #covercatalogo{
-	 padding-right: 50px;
-	 padding-top: 30px;
+	 padding-top:30px;
+	 padding-left: 30px;
+	 padding-right: 30px;
+	 
  }
  
  .intro{
@@ -277,6 +279,11 @@ margin: 10px;
 .modal-title{
 	color: #ffffff;
 }
+
+.minicard{
+	font-size: 18px;
+}
+
 
     
     .btn-outline-success{
@@ -626,8 +633,7 @@ padding-top: 20px;
 .img-fluid {
     transition: transform 0.1s ease; /* Aggiunge una transizione fluida per il ritorno all'originale */
     /* Altri stili dell'immagine, se necessario */
-    width: 100%; /* Fai sì che l'immagine copra completamente l'altezza della card */
-    height: 100%;
+    
 
 display: block;
 border-radius: 3px;
@@ -646,17 +652,24 @@ transform: scale(1.025);
 
     .carousel-control-next-icon {
 		background-image: url('/img/ROSSO-2.png');
-		margin-left: 50px;
+		margin-left: 50%;
 		box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
 		border-radius: 50%;
-		
+		background-size: contain; /* Imposta la dimensione dell'immagine in modo che si adatti al contenitore */
+    width: 3vw; /* Imposta la larghezza in modo relativo alla larghezza della viewport */
+    height: 3vw;
+		  cursor: pointer;
 		}
 	.carousel-control-prev-icon {
 		background-image: url('/img/ROSSO-1.png');		
-		margin-right: 50px;
+		margin-right: 50%;
 		box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
 		border-radius: 50%;
 		vertical-align: middle;
+		background-size: contain; /* Imposta la dimensione dell'immagine in modo che si adatti al contenitore */
+    width: 3vw; /* Imposta la larghezza in modo relativo alla larghezza della viewport */
+    height: 3vw;
+      cursor: pointer;
 		}
 	.carousel-control-next, .carousel-control-prev {
 		position: absolute;
@@ -675,6 +688,10 @@ transform: scale(1.025);
 		transition: .1s ease; 
 		
 		}
+		
+		
+		
+
 .active{
 	margin-right: 0px;
 }
@@ -690,8 +707,67 @@ transform: scale(1.025);
 	margin-top: 70px;
 }
 
+.roboto{
+	font-family: 'Roboto Slab', serif;
+}
+.monserrat{
+	font-family: 'Montserrat', sans-serif;
+}
+
+.rosso-bc{
+	background-color: #EF7E6B;
+	color: #ffffff;
+}
+.rosso{
+	color: #EF7E6B;
+}
+.verde-bc{
+	background-color: #9AD0C3;
+	color: #ffffff;
+}
+.verde{
+	color: #9AD0C3;
+}
+.azzurro-bc{
+	background-color: #98D4E1;
+	color: #ffffff;
+}
+.azzurro{
+	color: #98D4E1;
+}
+.giallo-bc{
+	background-color: #FFC86D;
+	color: #ffffff;
+}
+.giallo{
+	color: #FFC86D;
+}
+.arancione-bc{
+	background-color: #F89765;
+	color: #ffffff;
+}
+.arancione{
+	color: #F89765;
+}
+.blu-bc{
+	background-color: #7892BD;
+	color: #ffffff;
+}
+.blu{
+	color: #7892BD;
+}
 
 
 
+.product-image {
+display: block;
+border-radius: 3px;
+
+position: relative;
+box-shadow: 0px 6px 12px rgba(0,0,0,0.3);
+transition: transform 200ms ease-in, box-shadow 200ms ease-in;
+margin-left: 0px;
+padding-left: 0px;
+}
 
 
