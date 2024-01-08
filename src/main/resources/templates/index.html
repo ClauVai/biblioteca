@@ -102,7 +102,7 @@
 			        <div th:each="libro, iterStat : ${ultimiLibri}" th:classappend="${iterStat.index == 0} ? 'carousel-item active' : 'carousel-item'">
 			            <div class="col-md-3">
 			                <div class="card card-body caroselcard1">
-			                    <img class="img-fluid" th:src="${libro.copertina}">
+			                    <a th:href="@{/dettaglio(id=${libro.id})}"> <img class="img-fluid" th:src="${libro.copertina}"></a>
 			                </div>
 			            </div>
 			        </div>
@@ -124,7 +124,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img th:src="${preferiti[0].copertina}" class="img-fluid rounded-start zoom-image" alt="...">
+                              <a th:href="@{/dettaglio(id=${preferiti[0].id})}"><img th:src="${preferiti[0].copertina}" class="img-fluid rounded-start zoom-image" alt="..."></a>
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
@@ -140,7 +140,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img th:src="${preferiti[1].copertina}" class="img-fluid rounded-start zoom-image" alt="...">
+ <a th:href="@{/dettaglio(id=${preferiti[1].id})}"><img th:src="${preferiti[1].copertina}" class="img-fluid rounded-start zoom-image" alt="..."></a>
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
@@ -156,7 +156,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img th:src="${preferiti[2].copertina}" class="img-fluid rounded-start zoom-image" alt="...">
+                               <a th:href="@{/dettaglio(id=${preferiti[2].id})}"><img th:src="${preferiti[2].copertina}" class="img-fluid rounded-start zoom-image" alt="..."></a>
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
@@ -174,7 +174,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img th:src="${preferiti[3].copertina}" class="img-fluid rounded-start zoom-image" alt="...">
+                               <a th:href="@{/dettaglio(id=${preferiti[3].id})}"><img th:src="${preferiti[3].copertina}" class="img-fluid rounded-start zoom-image" alt="..."></a>
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
@@ -190,7 +190,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img th:src="${preferiti[4].copertina}" class="img-fluid rounded-start zoom-image" alt="...">
+                               <a th:href="@{/dettaglio(id=${preferiti[4].id})}"><img th:src="${preferiti[4].copertina}" class="img-fluid rounded-start zoom-image" alt="..."></a>
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
@@ -206,7 +206,7 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img th:src="${preferiti[5].copertina}" class="img-fluid rounded-start zoom-image" alt="...">
+                               <a th:href="@{/dettaglio(id=${preferiti[5].id})}"><img th:src="${preferiti[5].copertina}" class="img-fluid rounded-start zoom-image" alt="..."></a>
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
