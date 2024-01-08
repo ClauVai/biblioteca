@@ -140,7 +140,7 @@
 
 			<nav id="navbar2" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 				<div class="container-fluid">
-					<a class="navbar-brand" th:href="@{index}"><img th:src="@{'/img/logo-lungo.png'}" alt="logo Bibliothè" id="logo"/></a>
+					<a class="navbar-brand" th:href="@{/}"><img th:src="@{'/img/logo-lungo.png'}" alt="logo Bibliothè" id="logo"/></a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
 						aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -148,7 +148,7 @@
 					<div class="collapse navbar-collapse" id="navbarNav">
 						<ul class="navbar-nav">
 							<li class="nav-item">
-								<a class="nav-link" th:href="@{index}">Home</a>
+								<a class="nav-link" th:href="@{/}">Home</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" th:href="@{about}">Chi siamo</a>
@@ -176,12 +176,12 @@
 										th:src="${dettaglio.copertina}" alt="cover" class="img-responsive"></div>
 							</div>
 							<div class="col-lg-6 col-md-12 col-sm-12">
-								<h4 th:text="${dettaglio.titolo}" class="box-title mt-5 titoloDett"></h4>
+								<h4 id="dettTitolo"th:text="${dettaglio.titolo}" class="box-title titoloDett"></h4>
 								<h6 th:text="${dettaglio.autore.nomeAutore}+' '+${dettaglio.autore.cognome}"
-									class="box-title mt-5"></h6>
-								<p th:text="${dettaglio.autore.biografia}"></p>
+									class="box-title mt-3"></h6>
+								<p  class="box-title mt-3" th:text="${dettaglio.autore.biografia}"></p>
 								<h5 class="box-title mt-5 titoloDett">Dettagli</h5>
-								<ul class="list-unstyled">
+								<ul class="list-unstyled mt-3">
 									<li th:text="'Genere: '+${dettaglio.genere.nomeGenere}"></li>
 									<li th:text="'Casa editrice: '+${dettaglio.casaEditrice.nomeCasa}"></li>
 									<li th:text="'Anno di pubblicazione: '+${dettaglio.annoEdizione}"></li>
@@ -189,14 +189,15 @@
 								</ul>
 								<ul class="list-unstyled">
 									<li th:text="'Stato: '+${dettaglio.stato ? 'Non disponibile' : 'Disponibile'}"></li>
-									<div th:if="${alert}" th:text="'Libro Prenotato!'" class="alert alert-success"
-										role="alert"></div>
-									<button id="apriPopupButton" class="btn btn-primary btn-rounded"
+									<div th:if="${alert}" th:text="'Libro prenotato! Vieni a ritirarlo in sede, ti aspettiamo!'" class="alert alert-success mt-3"
+										role="alert">									
+										</div>
+									<button id="apriPopupButton" class="btn btn-secondary btn-rounded"
 										th:if="${dettaglio.stato == false}"> Richiedi prenotazione </button>
 
 
 									<!-- Model -->
-									<div class="modal fade" id="mioPopup" tabindex="-1" role="dialog"
+										<div class="modal fade" id="mioPopup" tabindex="-1" role="dialog"
 										aria-labelledby="mioPopupLabel" aria-hidden="true">
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">
@@ -204,35 +205,41 @@
 													<!-- aggiungere il "prenota" prima del testo titolo -->
 													<h5 class="modal-title" id="mioPopupLabel"
 														th:text="${dettaglio.titolo}"></h5>
-													<button id="chiudiPopupButton" type="button" class="close"
-														data-dismiss="modal" aria-label="Close">
-														<span aria-hidden="true"></span>
-													</button>
+													<button id="chiudiPopupButton" type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+											          <span aria-hidden="true"></span>
+											        </button>
 												</div>
 												<div class="modal-body">
 													<!-- Contenuto del tuo popup -->
+													
 													<form th:action="@{/dettaglio/prenota(id=${dettaglio.id})}"
 														method="post">
-														<label for="nome">Nome:</label>
-														<input type="text" id="nome" name="nome" required />
-
-														<label for="cognome">Cognome:</label>
-														<input type="text" id="cognome" name="cognome" required />
-
-														<button type="submit"
-															class="btn btn-primary btn-sm">Prenota</button>
+														<div class="form-group">
+															<label for="recipient-name" class="col-form-label" required>Nome:</label>
+															<input class="form-control" type="text" id="nome" name="nome" required />
+														</div>
+														
+														<div class="form-group">
+															<label for="recipient-surname" class="col-form-label">Cognome:</label>
+															<input class="form-control" type="text" id="cognome" name="cognome" required />
+														</div>
+														<div class="modal-footer">						
+															<button type="submit"
+																	class="btn btn-secondary btn-rounded">Prenota</button>
+														</div>
 													</form>
-												</div>
+												</div>							
 											</div>
 										</div>
-									</div>
+									</div>									
+								
 							</div>
 
 						</div>
 						<div id="sinossi" class="col-lg-12 col-md-12 col-sm-12">
 							<h5 class="box-title mt-5 titoloDett">Sinossi</h5>
 							<div class="table-responsive">
-								<p th:text="${dettaglio.trama}"></p>
+								<p class="box-title mt-3" th:text="${dettaglio.trama}"></p>
 							</div>
 						</div>
 
@@ -327,7 +334,7 @@
 								<h5 class="widget-title pb-2">Link veloci</h5>
 								<ul class="menu-list list-unstyled text-uppercase">
 									<li class="menu-item pb-2">
-										<a th:href="@{/index}">Home</a>
+										<a th:href="@{/}">Home</a>
 									</li>
 									<li class="menu-item pb-2">
 										<a th:href="@{/about}">Chi siamo</a>

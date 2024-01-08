@@ -250,10 +250,12 @@ margin: 10px;
 	font-family: 'Roboto Slab', serif;
 
 }
-
+#dettTitolo{
+	margin-top: 30px; 
+}
 
 /* Stile del pulsante */
-    .btn-rounded{
+   .btn-rounded{
         
         color: #EF7E6B; /* Colore di sfondo */
         border-color: #EF7E6B; /* Colore del bordo */
@@ -263,11 +265,14 @@ margin: 10px;
     }
 
     /* Effetto hover */
-    .btn-rounded:hover {
+     .btn-rounded:hover {
         background-color: #EF7E6B; /* Colore di sfondo durante l'hover */
         border-color: #FFEABB; /* Colore del bordo durante l'hover */
         color: #ffffff;
     }
+    
+
+
     
     .btn-outline-success{
         
