@@ -267,11 +267,16 @@ margin: 10px;
     /* Effetto hover */
      .btn-rounded:hover {
         background-color: #EF7E6B; /* Colore di sfondo durante l'hover */
-        border-color: #FFEABB; /* Colore del bordo durante l'hover */
+        border-color: #EF7E6B; /* Colore del bordo durante l'hover */
         color: #ffffff;
     }
     
-
+.modal-header{
+	background-color: #9AD0C3;
+}
+.modal-title{
+	color: #ffffff;
+}
 
     
     .btn-outline-success{
@@ -285,7 +290,7 @@ margin: 10px;
     /* Effetto hover */
     .btn-outline-success:hover {
         background-color: #EF7E6B; /* Colore di sfondo durante l'hover */
-        border-color: #FFEABB; /* Colore del bordo durante l'hover */
+        border-color: rgb(224, 132, 112); /* Colore del bordo durante l'hover */
         color: #ffffff;
     }
     

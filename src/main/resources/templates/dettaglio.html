@@ -203,8 +203,8 @@
 											<div class="modal-content">
 												<div class="modal-header">
 													<!-- aggiungere il "prenota" prima del testo titolo -->
-													<h5 class="modal-title" id="mioPopupLabel"
-														th:text="${dettaglio.titolo}"></h5>
+													<h5 class="modal-title" id="mioPopupLabel" 
+														>Prenota</h5>
 													<button id="chiudiPopupButton" type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
 											          <span aria-hidden="true"></span>
 											        </button>
@@ -214,18 +214,27 @@
 													
 													<form th:action="@{/dettaglio/prenota(id=${dettaglio.id})}"
 														method="post">
+														<div>
+													
+
+															<label class="col-form-label" style="font-size: 18px; color: #7892BD;"
+														th:utext="'Libro richiesto: <em>' + ${dettaglio.titolo} + '</em> di ' + ${dettaglio.autore.nomeAutore}+' '+${dettaglio.autore.cognome} "></label>
+															
+															
+														</div>
 														<div class="form-group">
-															<label for="recipient-name" class="col-form-label" required>Nome:</label>
+															<label for="recipient-name" class="col-form-label" required>Il tuo nome:</label>
 															<input class="form-control" type="text" id="nome" name="nome" required />
 														</div>
 														
 														<div class="form-group">
-															<label for="recipient-surname" class="col-form-label">Cognome:</label>
+															<label for="recipient-surname" class="col-form-label">Il tuo cognome:</label>
 															<input class="form-control" type="text" id="cognome" name="cognome" required />
 														</div>
-														<div class="modal-footer">						
-															<button type="submit"
-																	class="btn btn-secondary btn-rounded">Prenota</button>
+														
+														<div class="modal-footer">	
+																	<label class="col-form-label"><span style="color: #EF7E6B;">Attenzione!</span> <br> Non appena il libro sarà prenotato, avrai <span style="color: #FABA44;">7 giorni</span> per ritirarlo in sede. Allo scadere dei giorni, il libro tornerà disponibile.</label>					
+															<button type="submit" class="btn btn-secondary btn-rounded">Prenota</button>
 														</div>
 													</form>
 												</div>							
@@ -268,7 +277,7 @@
 						<p id="rating-value"></p>
 					</div>
 					<div class="comment-area">
-						<input type="text" class="form-control" id="name" placeholder="nickname">
+						<input type="text" class="form-control" id="name" placeholder="Username">
 						<textarea class="form-control" placeholder="Commenta" rows="4"></textarea>
 					</div>
 					<div class="comment-btns mt-2">
