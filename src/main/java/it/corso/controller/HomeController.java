@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 // localhost:8080/home
 @Controller
-@RequestMapping("/index")
+@RequestMapping("/")
 public class HomeController
 {	
 	//@Autowired
