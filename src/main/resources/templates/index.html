@@ -116,7 +116,7 @@
                <span class="visually-hidden">Next</span>
                </button>
             </div>
-            <h4 id="scrollspyHeading2">Consigliati dalla redazione</h4>
+            <h4 id="scrollspyHeading2">Consigliati dallo staff</h4>
             <p>Ecco i nostri libri preferiti del mese!</p>
             <div class="col-md-12 mx-auto">
                <div id="lista" class="row justify-content-center">
@@ -124,12 +124,13 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
+                              <img th:src="${preferiti[0].copertina}" class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
-                                 <h5 class="card-title">Card title</h5>
-                                 <p class="card-text">This is a wider card with supporting text below as a natura.</p>
+                                 <h5 th:text="${preferiti[0].titolo}" class="card-title"></h5>
+                                 <p th:text="${preferiti[0].autore.nomeAutore}+' '+${preferiti[0].autore.cognome}" class="card-text"></p>
+                                 <p th:text="'Stato: '+${preferiti[0].stato ? 'Non disponibile' : 'Disponibile'}"></p>
                               </div>
                            </div>
                         </div>
@@ -139,12 +140,13 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
+                              <img th:src="${preferiti[1].copertina}" class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
-                                 <h5 class="card-title">Card title</h5>
-                                 <p class="card-text">This is a wider card with supporting text below as a natura.</p>
+                                 <h5 th:text="${preferiti[1].titolo}" class="card-title"></h5>
+                                 <p th:text="${preferiti[1].autore.nomeAutore}+' '+${preferiti[1].autore.cognome}" class="card-text"></p>
+                                 <p th:text="'Stato: '+${preferiti[1].stato ? 'Non disponibile' : 'Disponibile'}"></p>
                               </div>
                            </div>
                         </div>
@@ -154,12 +156,13 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
+                              <img th:src="${preferiti[2].copertina}" class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
-                                 <h5 class="card-title">Card title</h5>
-                                 <p class="card-text">This is a wider card with supporting text below as a natura.</p>
+                                 <h5 th:text="${preferiti[2].titolo}" class="card-title"></h5>
+                                 <p th:text="${preferiti[2].autore.nomeAutore}+' '+${preferiti[2].autore.cognome}" class="card-text"></p>
+                                 <p th:text="'Stato: '+${preferiti[2].stato ? 'Non disponibile' : 'Disponibile'}"></p>
                               </div>
                            </div>
                         </div>
@@ -171,12 +174,13 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
+                              <img th:src="${preferiti[3].copertina}" class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
-                                 <h5 class="card-title">Card title</h5>
-                                 <p class="card-text">This is a wider card with supporting text below as a natura.</p>
+                                 <h5 th:text="${preferiti[3].titolo}" class="card-title"></h5>
+                                 <p th:text="${preferiti[3].autore.nomeAutore}+' '+${preferiti[3].autore.cognome}" class="card-text"></p>
+                                 <p th:text="'Stato: '+${preferiti[3].stato ? 'Non disponibile' : 'Disponibile'}"></p>
                               </div>
                            </div>
                         </div>
@@ -186,12 +190,13 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
+                              <img th:src="${preferiti[4].copertina}" class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
-                                 <h5 class="card-title">Card title</h5>
-                                 <p class="card-text">This is a wider card with supporting text below as a natura.</p>
+                                 <h5 th:text="${preferiti[4].titolo}" class="card-title"></h5>
+                                 <p th:text="${preferiti[4].autore.nomeAutore}+' '+${preferiti[4].autore.cognome}" class="card-text"></p>
+                                 <p th:text="'Stato: '+${preferiti[4].stato ? 'Non disponibile' : 'Disponibile'}"></p>
                               </div>
                            </div>
                         </div>
@@ -201,12 +206,13 @@
                      <div class="card mb-3">
                         <div class="row g-0">
                            <div class="col-md-4">
-                              <img src="..." class="img-fluid rounded-start zoom-image" alt="...">
+                              <img th:src="${preferiti[5].copertina}" class="img-fluid rounded-start zoom-image" alt="...">
                            </div>
                            <div class="col-md-8">
                               <div class="card-body">
-                                 <h5 class="card-title">Card title</h5>
-                                 <p class="card-text">This is a wider card with supporting text below as a natura.</p>
+                                 <h5 th:text="${preferiti[5].titolo}" class="card-title"></h5>
+                                 <p th:text="${preferiti[5].autore.nomeAutore}+' '+${preferiti[5].autore.cognome}" class="card-text"></p>
+                                 <p th:text="'Stato: '+${preferiti[5].stato ? 'Non disponibile' : 'Disponibile'}"></p>
                               </div>
                            </div>
                         </div>
