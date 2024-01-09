@@ -1,31 +1,28 @@
 package it.corso.service;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import it.corso.dao.DettaglioLibroDao;
 import it.corso.model.DettaglioLibro;
 
 @Service
-public class CatalogoServiceImpl implements CatalogoService
-{
-	
+public class CatalogoServiceImpl implements CatalogoService {
+
 	@Autowired
 	private DettaglioLibroDao dettaglioLibroDao;
 
 	@Override
 	public void resetStato() {
-		dettaglioLibroDao.updateStatoToZeroForAllRecords();		
+		dettaglioLibroDao.updateStatoToZeroForAllRecords();
 	}
 
 	@Override
 	public List<DettaglioLibro> getCatalogoDettaglio() {
 		return dettaglioLibroDao.findAllByOrderByTitoloAsc();
 	}
-	
-	
+
+	@Override
 	public List<DettaglioLibro> getByFilter(
 			int autoreId,
 			int genereId,
@@ -49,5 +46,11 @@ public class CatalogoServiceImpl implements CatalogoService
                 .collect(Collectors.toList());
 
         return libriFiltrati;
-    }
+	}
+	
+	@Override
+	public List<DettaglioLibro> getLibriFiltro(Integer idGenere, Integer idAutore, Integer idCasaEditrice,
+			Integer idLingua, String titolo, Boolean stato) {
+		return dettaglioLibroDao.getLibriFilter(idGenere, idAutore, idCasaEditrice, idLingua, titolo, stato);
+	}
 }

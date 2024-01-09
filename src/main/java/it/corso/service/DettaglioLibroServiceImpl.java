@@ -79,7 +79,4 @@ public class DettaglioLibroServiceImpl implements DettaglioLibroService
 	public List<DettaglioLibro> getUltimiLibri() {
 		return dettaglioLibroDao.findUltimiOttoLibri();
 	}
-
-
-
 }
