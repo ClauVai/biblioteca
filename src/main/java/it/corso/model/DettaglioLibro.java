@@ -1,4 +1,7 @@
 package it.corso.model;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -6,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -48,6 +52,9 @@ public class DettaglioLibro
 	@ManyToOne
     @JoinColumn(name = "lingua_id", referencedColumnName = "id")
     private Lingua lingua;
+	
+	@OneToMany(mappedBy = "dettaglioLibro", cascade = CascadeType.ALL)
+    private List<Recensione> recensioni;
 	
 	@Column(name = "stato")
 	private boolean stato;

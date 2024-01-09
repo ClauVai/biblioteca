@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import it.corso.model.Recensione;
 import it.corso.service.AutoreService;
 import it.corso.service.CasaEditriceService;
 import it.corso.service.DettaglioLibroService;
 import it.corso.service.GenereService;
+import it.corso.service.RecensioneService;
 import jakarta.servlet.http.HttpSession;
 
 // localhost:8080/dettaglio
@@ -26,6 +28,9 @@ public class DettaglioLibroController
 	private GenereService genereService;
 	@Autowired
 	private AutoreService autoreService;
+	@Autowired
+	private RecensioneService recensioneService;
+	
 	
 	@GetMapping
 	public String getPage(Model model,
@@ -35,6 +40,9 @@ public class DettaglioLibroController
 		model.addAttribute("caseEditrici", casaEditriceService.getCaseEditrici());
 		model.addAttribute("generi", genereService.getGeneri());
 		model.addAttribute("autori", autoreService.getAutori());
+		model.addAttribute("nuovaRecensione", new Recensione());
+		model.addAttribute("listaRecensioni", recensioneService.getRecensioniByLibroId(id));
+		//System.out.println("listaRecensioni" + recensioneService.getRecensioniByLibroId(id).get(0).getRanked());
 		return "dettaglio";
 	}
 	
@@ -46,15 +54,19 @@ public class DettaglioLibroController
 	    return "redirect:/dettaglio?id=" + id;
 	}
 	
-	
-	/*
-	@PostMapping("/comment")
-    public String handleCommentForm(@ModelAttribute CommentForm commentForm, Model model) {
-        // Logica per gestire il form e salvare i dati
-
-        // Imposta un attributo nel modello per indicare che il form è stato compilato e inviato con successo
-        model.addAttribute("commentFormSubmitted", true);
-
-        return "redirect:/pagina-del-tuo-form"; // Puoi reindirizzare l'utente ad una pagina specifica dopo l'invio del form
-    }*/
+	@PostMapping("/inserisciRecensione")
+	public String inserisciRecensione(
+			// questo id è quello di dettaglio
+			@RequestParam(name = "id", required = true) int id,
+			@RequestParam(name = "commento", required = true) String commento,
+			@RequestParam(name = "username", required = true) String username,
+			@RequestParam(name = "ranked", required = true) Integer ranked,
+			Model model) 
+	{
+		model.addAttribute("nuovaRecensione", new Recensione());
+		recensioneService.registraRecensione(commento, username, ranked, id);
+		return "redirect:/dettaglio?id=" + id;
+	}
 }
+
+
