@@ -9,6 +9,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link th:href="@{/css/style.css}" rel="stylesheet" />
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" th:src="@{/js/catalogo.js}"></script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet">
@@ -16,46 +17,8 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
-
-	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			var titles = document.querySelectorAll('.pro-title');
-
-			titles.forEach(function (title) {
-				title.addEventListener('mouseover', function () {
-					var randomColor = getRandomColor();
-					title.style.backgroundColor = randomColor;
-				});
-
-				title.addEventListener('mouseout', function () {
-					title.style.backgroundColor = ''; // Resetta il colore di sfondo
-				});
-			});
-
-			// Funzione per ottenere un colore casuale dalla tua lista
-			function getRandomColor() {
-				var colors = ['#EF7E6B', '#9AD0C3', '#FCDD98', '#F58247', '#98D4E1'];
-				var randomIndex = Math.floor(Math.random() * colors.length);
-				return colors[randomIndex];
-			}
-		});
-	</script>
-	<script th:inline="javascript">
-		function pulisciForm() {
-			document.getElementById('genereSelect').selectedIndex = 0;
-			document.getElementById('autoreSelect').selectedIndex = 0;
-			document.getElementById('casaSelect').selectedIndex = 0;
-			document.getElementById('linguaSelect').selectedIndex = 0;
-			document.getElementById('titolo').value = '';
-			document.getElementById('statoDisp').checked = false;
-			document.getElementById('statoNonDisp').checked = false;
-		}
-	</script>
-
 </head>
-
 <body>
-
 	<div class="container">
 		<div class="head">
 			<nav id="navbar"
@@ -110,10 +73,7 @@
 				</div>
 			</nav>
 		</div>
-
-
 		<h5 class="body">
-
 			<div class="col-lg-10 mx-auto ">
 				<h1 id="libri" class="text-center">libri</h1>
 				<div class="intro">
@@ -121,10 +81,9 @@
 					<p>Qui potrai vedere tutti i libri che abbiamo nella nostra biblioteca.<br>
 						Scegliamo con cura ogni titolo, e speriamo che troverai il tuo prossimo libro del cuore!</p>
 				</div>
-
 				<div id="filtroForm" class="text-center my-3">
 					<h5 class="d-block mx-auto my-2">Cerca</h5>
-					<form th:action="@{'/catalogo/ricerca'}" method="post" class="d-flex">
+					<form th:action="@{'/catalogo/ricerca'}" method="post" onsubmit="return gestisciRicerca()" class="d-flex">
 						<select class="form-select form-select-sm" id="genereSelect" name="idGenere">
 							<option selected disabled>Genere</option>
 							<option th:text="'Tutti'" th:value="null"></option>
