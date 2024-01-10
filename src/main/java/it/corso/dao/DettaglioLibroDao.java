@@ -28,18 +28,4 @@ public interface DettaglioLibroDao extends CrudRepository<DettaglioLibro, Intege
     @Modifying
     @Query(value = "UPDATE Libri l SET l.stato = false",  nativeQuery = true)
 	void updateStatoToZeroForAllRecords();
-    
-    /*@Query(value = "SELECT * FROM Prodotti p where "
-    		+ " (:fkCategoria IS NOT NULL && :fkCategoria == p.fk_categoria ) "
-    		+ " AND "
-    		+ " (:fkMarca IS NOT NULL && :fkMarca == p.fk_marca)"
-    		+ " AND"
-    		+ " (:condizione is not null && :condizione == p.condizione) ", nativeQuery = true)
-    List<Prodotto> getGeneric(
-    		@Param("fkCategoria") int fkCategoria,
-    		@Param("fkMarca") int fkMarca,
-    		@Param("condizione") String condizione
-    		)*/
-	
-
 }
