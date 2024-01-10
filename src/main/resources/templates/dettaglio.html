@@ -22,78 +22,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
       <!-- Includi MDB JS da un CDN -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
-      <script>
-         $(document).ready(function () {
-         	$('#apriPopupButton').on('click', function () {
-         		$('#mioPopup').modal('show');
-         	});
-         
-         	$('#chiudiPopupButton').on('click', function () {
-         		$('#mioPopup').modal('hide');
-         	});
-         
-         	// Inizializza il rating
-         	$('#star-rating .star').click(function () {
-         		var rating = $(this).data('rating');
-         
-         		// Rimuovi la classe 'selected' da tutte le stelle
-         		$('#star-rating .star').removeClass('selected');
-         
-         		// Aggiungi la classe 'selected' solo alle stelle selezionate
-         		$('#star-rating .star:lt(' + rating + ')').addClass('selected');
-         
-         		if (rating == 1) {
-         			$('#rating-value').text('Hai dato ' + rating + ' punto!');
-         		} else {
-         			$('#rating-value').text('Hai dato ' + rating + ' punti!');
-         		}
-         		
-         		const rankedInput = document.getElementById('ranked');
-        		rankedInput.value = rating;
-         	});
-         
-         });
-         
-      </script>
-      <script>
-         $(document).ready(function () {
-         	// Array di nomi delle immagini
-         	var imageNames = [
-         		'bimba1',
-         		'bimba2',
-         		'bimba3',
-         		// Aggiungi altri nomi delle immagini secondo necessità
-         	];
-         
-         	// Ottieni un numero casuale per selezionare un nome di immagine dal array
-         	var randomIndex = Math.floor(Math.random() * imageNames.length);
-         
-         	// Costruisci l'URL completo dell'immagine
-         	var imageUrl = '/img/' + imageNames[randomIndex] + '.png';
-         
-                   // Crea un nuovo elemento immagine
-                   var imgElement = $('#bimba');
-                   imgElement.attr('src', imageUrl);
-         
-         });
-      </script>
-      <script>
-         document.addEventListener('DOMContentLoaded', function () {
-         	var titles = document.querySelectorAll('.titoloDett, .sinossi-content');
-         
-         	titles.forEach(function (title) {
-         		var randomColor = getRandomColor();
-         		title.style.backgroundColor = randomColor;
-         	});
-         
-         	// Funzione per ottenere un colore casuale dalla tua lista
-         	function getRandomColor() {
-         		var colors = ['#EF7E6B', '#9AD0C3', '#F8C77A', '#98D4E1'];
-         		var randomIndex = Math.floor(Math.random() * colors.length);
-         		return colors[randomIndex];
-         	}
-         });
-      </script>
+      <script type="text/javascript" th:src="@{/js/dettaglio.js}"></script>     
    </head>
    <body>
       <div class="container">
@@ -258,7 +187,8 @@
                         <div class="row">
                            <div class="col-6">
                               <div class="pull-left">
-                                 <button class="btn btn-success btn-sm">Cancella</button>
+								                      <button type="button" class="btn btn-success btn-sm" onclick="pulisciFormRewiev()">Cancella</button>
+
                               </div>
                            </div>
                            <div class="col-6">
