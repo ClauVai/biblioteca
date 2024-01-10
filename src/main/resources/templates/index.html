@@ -258,7 +258,7 @@
                 <div id="myCarousel2" class="carousel slide container" data-bs-ride="carousel">
                     <div class="carousel-inner w-100">
 					
-                        <div th:each="r, iterStat : ${topRewiew}" th:classappend="${iterStat.index == 0} ? 'carousel-item active' : 'carousel-item'">
+                        <div th:each="r, iterStat : ${recensioni}" th:classappend="${iterStat.index == 0} ? 'carousel-item active' : 'carousel-item'">
                             <div class="col-md-3">
                                 <div class="card card-body caroselcard1">
                                     <a th:href="@{/dettaglio(id=${r.dettaglioLibro.id})}"> <img class="img-fluid" th:src="${r.dettaglioLibro.copertina}"></a>
@@ -277,7 +277,6 @@
                 </div>
             </div>
             <!-- FINE TOP 10-->
-
             <div class="bg-light p-5">
                 <h4 class="roboto arancione" id="scrollspyHeading5">Selezione di tè</h4>
                 <p>Questi sono i tè che troverai da noi. Ogni mese ne portiamo di nuovi!</p>

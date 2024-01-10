@@ -27,7 +27,6 @@ public class AboutController
 		model.addAttribute("caseEditrici", casaEditriceService.getCaseEditrici());
 		model.addAttribute("generi", genereService.getGeneri());
 		model.addAttribute("autori", autoreService.getAutori());
-		//model.addAttribute("preferiti", dettaglioLibroService.getPreferitiRedazione());
 		return "about";
 	}
 	

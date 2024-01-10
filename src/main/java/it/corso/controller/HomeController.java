@@ -24,13 +24,11 @@ public class HomeController
 	private GenereService genereService;
 	@Autowired
 	private AutoreService autoreService;
-	
 	@Autowired
 	private DettaglioLibroService dettaglioLibroService;
-	
 	@Autowired
 	private RecensioneService recensioneService;
-	
+
 	@GetMapping
 	public String getPage(Model model)
 	{
@@ -39,13 +37,8 @@ public class HomeController
 		model.addAttribute("autori", autoreService.getAutori());
 		model.addAttribute("ultimiLibri", dettaglioLibroService.getUltimiLibri());
 		model.addAttribute("preferiti", dettaglioLibroService.getPreferitiRedazione());
-		// model.addAttribute("topRewiew", dettaglioLibroService.getTopRewiev());
-		// System.out.println("topRewiew" + dettaglioLibroService.getTopRewiev().size());
-		// model.addAttribute("libri", dettaglioLibroService.getCopertina());
-		
-		model.addAttribute("topRewiew", recensioneService.getTopRewiev());
-
-		// System.out.println("topRewiew" + recensioneService.getTopRewiev().size());
+		model.addAttribute("recensioni", recensioneService.getTopTen());
+	   // System.out.println("recensioni" + recensioneService.getTopTen().size());
 
 		return "index";
 	}

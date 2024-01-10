@@ -8,8 +8,6 @@ public interface DettaglioLibroService
 
 	void prenota(int id) throws Exception;
 
-	List<DettaglioLibro> getUltimiUsciti();
-
 	List<DettaglioLibro> getPreferitiRedazione();
 	
     List<DettaglioLibro> getUltimiLibri();

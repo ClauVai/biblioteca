@@ -37,12 +37,6 @@ public class DettaglioLibroServiceImpl implements DettaglioLibroService
 	}
 	
 	
-	// get libri dall'anno di pubblica e mi prendi gli ultimi 15
-	@Override
-	public List<DettaglioLibro> getUltimiUsciti() {
-		return dettaglioLibroDao.findTop15ByOrderByAnnoEdizioneDesc();
-	}
-	
 	public List<DettaglioLibro> getByFilter(
 			int autoreId,
 			int genereId,
@@ -79,10 +73,5 @@ public class DettaglioLibroServiceImpl implements DettaglioLibroService
 	public List<DettaglioLibro> getUltimiLibri() {
 		return dettaglioLibroDao.findUltimiOttoLibri();
 	}
-
-//	@Override
-//	public List<DettaglioLibro> getTopRewiev() {
-//		return dettaglioLibroDao.getTopTen();
-//	}
 
 }
