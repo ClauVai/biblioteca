@@ -80,6 +80,9 @@ public class DettaglioLibroServiceImpl implements DettaglioLibroService
 		return dettaglioLibroDao.findUltimiOttoLibri();
 	}
 
-
+//	@Override
+//	public List<DettaglioLibro> getTopRewiev() {
+//		return dettaglioLibroDao.getTopTen();
+//	}
 
 }

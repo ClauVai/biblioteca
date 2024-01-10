@@ -7,6 +7,8 @@ import it.corso.service.AutoreService;
 import it.corso.service.CasaEditriceService;
 import it.corso.service.DettaglioLibroService;
 import it.corso.service.GenereService;
+import it.corso.service.RecensioneService;
+
 import org.springframework.web.bind.annotation.GetMapping;
 
 // localhost:8080/home
@@ -26,6 +28,9 @@ public class HomeController
 	@Autowired
 	private DettaglioLibroService dettaglioLibroService;
 	
+	@Autowired
+	private RecensioneService recensioneService;
+	
 	@GetMapping
 	public String getPage(Model model)
 	{
@@ -34,6 +39,14 @@ public class HomeController
 		model.addAttribute("autori", autoreService.getAutori());
 		model.addAttribute("ultimiLibri", dettaglioLibroService.getUltimiLibri());
 		model.addAttribute("preferiti", dettaglioLibroService.getPreferitiRedazione());
+		// model.addAttribute("topRewiew", dettaglioLibroService.getTopRewiev());
+		// System.out.println("topRewiew" + dettaglioLibroService.getTopRewiev().size());
+		// model.addAttribute("libri", dettaglioLibroService.getCopertina());
+		
+		model.addAttribute("topRewiew", recensioneService.getTopRewiev());
+
+		// System.out.println("topRewiew" + recensioneService.getTopRewiev().size());
+
 		return "index";
 	}
 	

@@ -1,4 +1,5 @@
 package it.corso.service;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,9 +42,14 @@ public class RecensioneServiceImpl implements RecensioneService {
 
 	@Override
 	public List<Recensione> getRecensioniByLibroId(int libroId) {
-		
 		return recensioneDao.findAllByDettaglioLibroId(libroId);
 	}
 
+	
+	@Override
+	public List<Recensione> getTopRewiev() {
+		List<Recensione> listRecensioni = recensioneDao.getTopTen();
+		return listRecensioni;
+	}
 }
 

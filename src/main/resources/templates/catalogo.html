@@ -9,65 +9,40 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link th:href="@{/css/style.css}" rel="stylesheet" />
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-	<script type="text/javascript" src="/src/main/resources/static/js/script.js"></script>
+	<script type="text/javascript" th:src="@{/js/catalogo.js}"></script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet">
-
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
-
-	<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var titles = document.querySelectorAll('.pro-title');
-
-    titles.forEach(function(title) {
-        title.addEventListener('mouseover', function() {
-            var randomColor = getRandomColor();
-            title.style.backgroundColor = randomColor;
-        });
-
-        title.addEventListener('mouseout', function() {
-            title.style.backgroundColor = ''; // Resetta il colore di sfondo
-        });
-    });
-
-    // Funzione per ottenere un colore casuale dalla tua lista
-    function getRandomColor() {
-        var colors = ['#EF7E6B', '#9AD0C3', '#FCDD98', '#F58247', '#98D4E1'];
-        var randomIndex = Math.floor(Math.random() * colors.length);
-        return colors[randomIndex];
-    }
-});
-</script>
-
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
 	<div class="container">
 		<div class="head">
-						<nav id="navbar"
+			<nav id="navbar"
 				class="navbar navbar-toggleable-sm bg-faded navbar-light fixed-top fixed-top-2 justify-content-center mb-0">
 				<div class="d-flex align-items-center">
 					<div class="dropdown">
 						<button class="dropbtn">Autori</button>
 						<div class="dropdown-content">
-							<a th:each="a: ${autori}" th:text="${a.cognome}" th:href="@{/catalogo/autore/{id}(id=${a.id})}"></a>
+							<a th:each="a: ${autori}" th:text="${a.cognome}"
+								th:href="@{/catalogo/autore/{id}(id=${a.id})}"></a>
 						</div>
 					</div>
 					<div class="dropdown">
 						<button class="dropbtn">Generi</button>
 						<div class="dropdown-content">
-							<a th:each="g: ${generi}" th:text="${g.nomeGenere}" th:href="@{/catalogo/genere/{id}(id=${g.id})}"></a>
+							<a th:each="g: ${generi}" th:text="${g.nomeGenere}"
+								th:href="@{/catalogo/genere/{id}(id=${g.id})}"></a>
 						</div>
 					</div>
 					<div class="dropdown">
 						<button class="dropbtn">Editori</button>
 						<div class="dropdown-content">
-							<a th:each="c: ${caseEditrici}"  th:text="${c.nomeCasa}" th:href="@{/catalogo/caseEditrici/{id}(id=${c.id})}"></a>
+							<a th:each="c: ${caseEditrici}" th:text="${c.nomeCasa}"
+								th:href="@{/catalogo/caseEditrici/{id}(id=${c.id})}"></a>
 						</div>
 					</div>
 				</div>
@@ -75,7 +50,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			<nav id="navbar2" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 				<div class="container-fluid">
-					<a class="navbar-brand" th:href="@{/}"><img th:src="@{'/img/logo-lungo.png'}" alt="logo Bibliothè" id="logo"/></a>
+					<a class="navbar-brand" th:href="@{/}"><img th:src="@{'/img/logo-lungo.png'}" alt="logo Bibliothè"
+							id="logo" /></a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
 						aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -91,16 +67,13 @@ document.addEventListener('DOMContentLoaded', function() {
 							<li class="nav-item">
 								<a class="nav-link" th:href="@{/catalogo}">Libri</a>
 							</li>
-							
+
 						</ul>
 					</div>
 				</div>
 			</nav>
 		</div>
-
-
-		<div class="body">
-
+		<h5 class="body">
 			<div class="col-lg-10 mx-auto ">
 				<h1 id="libri" class="text-center">libri</h1>
 				<div class="intro">
@@ -108,57 +81,63 @@ document.addEventListener('DOMContentLoaded', function() {
 					<p>Qui potrai vedere tutti i libri che abbiamo nella nostra biblioteca.<br>
 						Scegliamo con cura ogni titolo, e speriamo che troverai il tuo prossimo libro del cuore!</p>
 				</div>
+				<div id="filtroForm" class="text-center my-3">
+					<h5 class="d-block mx-auto my-2">Cerca</h5>
+					<form th:action="@{'/catalogo/ricerca'}" method="post" onsubmit="return gestisciRicerca()" class="d-flex">
+						<select class="form-select form-select-sm" id="genereSelect" name="idGenere">
+							<option selected disabled>Genere</option>
+							<option th:text="'Tutti'" th:value="null"></option>
+							<option th:each="g: ${generi}" th:text="${g.nomeGenere}" th:value="${g.id}"
+								th:selected="${idGenere != null AND idGenere == g.id}"></option>
+						</select>
+						<select class="form-select form-select-sm" id="autoreSelect" name="idAutore">
+							<option selected disabled>Autore</option>
+							<option th:text="'Tutti'" th:value="null"></option>
+							<option th:each="a: ${autori}" th:text="${a.nomeAutore}" th:value="${a.id}"
+								th:selected="${idAutore != null AND idAutore == a.id}"></option>
+						</select>
+						<select class="form-select form-select-sm" id="casaSelect" name="idCasaEditrice">
+							<option selected disabled>Casa Editrice</option>
+							<option th:text="'Tutte'" th:value="null"></option>
+							<option th:each="ce: ${caseEditrici}" th:text="${ce.nomeCasa}" th:value="${ce.id}"
+								th:selected="${idCasaEditrice != null AND idCasaEditrice == ce.id}"></option>
+						</select>
+						<select class="form-select form-select-sm" id="linguaSelect" name="idLingua">
+							<option selected disabled>Lingua</option>
+							<option th:text="'Tutte'" th:value="null"></option>
+							<option th:each="l: ${lingue}" th:text="${l.idioma}" th:value="${l.id}"
+								th:selected="${idLingua != null AND idLingua == l.id}"></option>
+						</select>
+						<label class="" th:text="'Titolo: '"></label>
+						<input type="text" class="form-control" id="titolo" name="titolo" th:value="${titolo}">
+						<label class="" id="stato" th:text="'Stato: '"></label>
+						<input type="checkbox" name="stato" th:value="false" id="statoDisp" th:checked="${stato == false}"
+							class="form-check-input" /> Disponibile
+						<input type="checkbox" name="stato" th:value="true" id="statoNonDisp" th:checked="${stato == true}"
+							class="form-check-input" /> Non disponibile
+						<input type="submit" class="btn btn-outline-success" th:value="'Applica'">
+						<input type="button" class="btn btn-outline-success" value="Pulisci" onclick="pulisciForm()">
+					</form>
 
-	<div id="filtroForm" class="text-center my-3">
-		<h5 class="d-block mx-auto my-2">Cerca</h5>
-		<form class="d-flex">
-        <select class="form-select form-select-sm" id="genereSelect" name="genere">
-            <option value="genere" selected disabled>Genere</option>
-            <option>1</option>
-        </select>
-        <select class="form-select form-select-sm" id="autoreSelect" name="autore">
-            <option value="" selected disabled>Autore</option>
-            <option>1</option>
-        </select>
-        <select class="form-select form-select-sm" id="annoSelect" name="anno">
-            <option value="" selected disabled>Anno</option>
-            <option>1</option>
-        </select>
-        <!-- Aggiungi altri select e input per altri filtri se necessario -->
-    </form>
-    <form class="d-flex">
-        <select class="form-select form-select-sm" id="genereSelect" name="genere">
-            <option value="genere" selected disabled>Casa editrice</option>
-            <option>1</option>
-        </select>
-        <select class="form-select form-select-sm" id="autoreSelect" name="autore">
-            <option value="" selected disabled>Autore</option>
-            <option>1</option>
-        </select>
-        <select class="form-select form-select-sm" id="annoSelect" name="anno">
-            <option value="" selected disabled>Anno</option>
-            <option>1</option>
-        </select>
-        <!-- Aggiungi altri select e input per altri filtri se necessario -->
-    </form>
-   <button type="button" class="btn btn-outline-success">Applica</button>
-</div>
+				</div>
 
 			</div>
-			
-			<div  class="col-md-10 mx-auto">				
-				<div id="lista"class="row product-list justify-content-center">
-					<div th:each="c : ${catalogo}" class="col-xl-3 col-lg-4 col-md-5 col-sm-12 card-with-shadow">
+			<h5 th:if="${risultati.isEmpty()}" th:text="'Nessun risultato per la tua ricerca'"></h5>
+			<h5 th:unless="${risultati.isEmpty()}" th:text="'Risultano ' + ${risultati.size()} + ' libri in lista'"></h5>
+
+			<div class="col-md-10 mx-auto">
+				<div id="lista" class="row product-list justify-content-center">
+					<div th:each="r : ${risultati}" class="col-xl-3 col-lg-4 col-md-5 col-sm-12 card-with-shadow">
 						<section class="panel">
 							<div class="pro-img-box ">
-								<img id="covercatalogo" th:src="${c.copertina}" alt="cover"  />
+								<img id="covercatalogo" th:src="${r.copertina}" alt="cover" />
 							</div>
 							<div class="panel-body text-center">
 								<h5 id="titolocat">
-									<a th:text="${c.titolo}" th:href="@{/dettaglio(id=${c.id})}" class="pro-title"></a>
+									<a th:text="${r.titolo}" th:href="@{/dettaglio(id=${r.id})}" class="pro-title"></a>
 								</h5>
-                            <p th:text="${c.autore.nomeAutore}+' '+${c.autore.cognome}"></p>
-                                <p th:text="'Stato: '+${c.stato ? 'Non disponibile' : 'Disponibile'}"></p>
+								<p th:text="${r.autore.nomeAutore}+' '+${r.autore.cognome}"></p>
+								<p th:text="'Stato: '+${r.stato ? 'Non disponibile' : 'Disponibile'}"></p>
 							</div>
 						</section>
 					</div>
@@ -247,8 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					</div>
 					<div class="col-md-4 col-sm-6">
 						<div class="Shipping d-flex">
-							<p> Contattaci su: <a 
-					href="mailto:info@bibliothe.it">info@bibliothe.it</a></p>
+							<p> Contattaci su: <a href="mailto:info@bibliothe.it">info@bibliothe.it</a></p>
 
 						</div>
 					</div>
