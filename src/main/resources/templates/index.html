@@ -14,10 +14,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
     <script>
+		
         document.addEventListener('DOMContentLoaded', function() {
          	    var titles = document.querySelectorAll('.pro-title');
          	
@@ -120,11 +126,12 @@
 			<picture>
                     <img class="w-full" th:src="@{'/img/home.png'}">
             </picture>
-            <hr>
+            
              <!-- INIZIO NOVITà-->           
             <div class="bg-white p-5">
-				 <h4 class="roboto blu" id="scrollspyHeading1">Novità</h4>
+				<h4 class="roboto blu" id="scrollspyHeading1">Novità</h4>
                 <P>Gli ultimi arrivi ogni settimana!</P>
+                <!--
                 <div id="myCarousel" class="carousel slide container col-10" data-bs-ride="carousel">
                     <div class="carousel-inner w-100">
                         <div th:each="libro, iterStat : ${ultimiLibri}" th:classappend="${iterStat.index == 0} ? 'carousel-item active' : 'carousel-item'">
@@ -143,8 +150,26 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
-                </div>
+                </div>-->
+                
+     
+                <div class="container col-10"> 
+					 <div class="swiper mySwiper">
+                       <div class="swiper-wrapper">
+                         <div th:each="libro : ${ultimiLibri}" class="swiper-slide">
+								
+			 
+	                            <a th:href="@{/dettaglio(id=${libro.id})}"> <img class="imgSwiper img-fluid" th:src="${libro.copertina}"></a>
+                         </div>
+                       </div>
+                   		<div class="swiper-pagination"></div>
+						<div class="swiper-button-next"></div>
+    					<div class="swiper-button-prev"></div>
+					</div>
+               	 </div>
+				</div>       
             </div>
+            
             <!-- FINE NOVITà-->
             
            <div class="bg-light p-5">
@@ -256,29 +281,24 @@
             <div class="bg-white p-5">
                 <h4 class="roboto azzurro"  id="scrollspyHeading3">Top 10</h4>
                 <p>Questi sono i libri più recensiti e votati da voi!</p>
-                <div id="myCarousel2" class="carousel slide container" data-bs-ride="carousel">
-                    <div class="carousel-inner w-100">
-					
-                        <div th:each="r, iterStat : ${topRewiew}" th:classappend="${iterStat.index == 0} ? 'carousel-item active' : 'carousel-item'">
-                            <div class="col-md-3">
-                                <div class="card card-body caroselcard1">
-                                    <a th:href="@{/dettaglio(id=${r.dettaglioLibro.id})}"> <img class="img-fluid" th:src="${r.dettaglioLibro.copertina}"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel2" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel2" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
+                  <div class="container col-10"> 
+					 <div class="swiper mySwiper">
+                       <div class="swiper-wrapper">
+                         <div th:each="libro : ${ultimiLibri}" class="swiper-slide">
+								
+			 
+	                            <a th:href="@{/dettaglio(id=${libro.id})}"> <img class="imgSwiper img-fluid" th:src="${libro.copertina}"></a>
+                         </div>
+                       </div>
+                   		<div class="swiper-pagination"></div>
+						<div class="swiper-button-next"></div>
+    					<div class="swiper-button-prev"></div>
+					</div>
+               	 </div>
+				</div>       
+            </div>
             </div>
             <!-- FINE TOP 10-->
-
             <div class="bg-light p-5">
                 <h4 class="roboto arancione" id="scrollspyHeading5">Selezione di tè</h4>
                 <p>Questi sono i tè che troverai da noi. Ogni mese ne portiamo di nuovi!</p>
@@ -437,9 +457,10 @@
                             </div>
                         </div>
                     </div>
-               
+                </div>
             </div>
         </div>
+    </div>
         <!--FOOTER-->
         <footer id="footer" class="overflow-hidden">
             <div class="container">
@@ -523,7 +544,7 @@
                     </div>
                 </div>
             </div>
-        </footer>
+       </footer>
         <!-- Script jQuery per inizializzare i carousel -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
         <script>
@@ -610,6 +631,40 @@
                  });
              });
         </script>
+        
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      autoplay: {
+        delay: 5000, // Tempo di attesa tra le slide in millisecondi (in questo caso, 5 secondi)
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 50,
+        },
+      },
+    });
+  </script>
+  
         
         
 </body>

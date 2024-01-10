@@ -63,16 +63,13 @@ public class DettaglioLibroController
 			@RequestParam(name = "ranked", required = true) Integer ranked,
 			Model model) 
 	{
-		// controllo che sia l'id del libro, sia il commento sia lo username sia il ranked devono essere diversi da vuoto
-		if( id == 0 || commento.isBlank() || username.isBlank() || ranked == null || ranked.equals(0)) {
-			return "redirect:/dettaglio?id=" + id;
-		} else {
+
 			// se tutti i campi sono pieni, inserisci nel database
 			model.addAttribute("nuovaRecensione", new Recensione());
 			recensioneService.registraRecensione(commento, username, ranked, id);
 			return "redirect:/dettaglio?id=" + id;
 		}
 	}
-}
+//}
 
 

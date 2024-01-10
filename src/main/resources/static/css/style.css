@@ -801,10 +801,7 @@ transition: transform 200ms ease-in, box-shadow 200ms ease-in;
 padding-left: 0px;
 object-fit: cover; 
 }
-.img-fluid:hover {
-box-shadow: 0px 11px 18px rgba(0,0,0,0.3);
-transform: scale(1.025);
-}
+
 
 
 
@@ -940,6 +937,54 @@ padding-left: 0px;
     margin-right: auto;
    
   }
+  
+  
+  .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+	  height: 100%;
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 0px !important;
+      
+    }
+    
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #9AD0C3 !important; /* Colore verde */
+   
+      font-size: 30px;
+    }
+    
+    .imgSwiper{
+	 transition: transform 0.1s ease; /* Aggiunge una transizione fluida per il ritorno all'originale */
+    /* Altri stili dell'immagine, se necessario */
+		width: 80%;
+		height: auto;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		border-radius: 3px;
+		position: relative;
+		box-shadow: 0px 6px 12px rgba(0,0,0,0.3);
+		transition: transform 200ms ease-in, box-shadow 200ms ease-in;
+		padding-left: 0px;
+		object-fit: cover; 
+		overflow: hidden;
+		}
+.imgSwiper:hover {
+	box-shadow: 0px 11px 18px rgba(0,0,0,0.3);
+	transform: scale(1.025);
+	}
+ 
   
  
   

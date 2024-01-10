@@ -7,18 +7,19 @@ import org.springframework.data.repository.CrudRepository;
 
 import it.corso.model.Recensione;
 
-public interface RecensioneDao extends CrudRepository<Recensione, Integer>{
-//	List<Recensione> findAllByOrderById();
-	
+public interface RecensioneDao extends CrudRepository<Recensione, Integer>{	
 	//mi serve per verificare se una recensione esiste già controllando l'username e dettagliolibri id 
 	Optional<Recensione> findByUsernameAndDettaglioLibroId(String username, int dettaglioLibroId);
 
 	List<Recensione> findAllByDettaglioLibroId(int dettaglioLibroId);
 	
-    
-    @Query(value = "SELECT r.* FROM recensioni r " +
-            "JOIN libri l ON r.libro_id = l.id " +
-            "ORDER BY r.ranked DESC LIMIT 10",  nativeQuery = true)
+	@Query(value = "SELECT r.*,l.copertina , AVG(r.ranked) AS mediaRecensioni " +
+	        "FROM Recensioni r " +
+	        "JOIN Libri l ON r.libro_id = l.id " +
+	        "GROUP BY r.libro_id " +
+	        "ORDER BY AVG(r.ranked) DESC " + 
+	        "LIMIT 10", nativeQuery = true)
 	List<Recensione> getTopTen();
+
 }
 
