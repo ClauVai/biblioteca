@@ -1,10 +1,10 @@
 package it.corso.dao;
 import java.util.List;
-
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 //import org.springframework.data.jpa.repository.Query;//
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 //import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,4 +28,21 @@ public interface DettaglioLibroDao extends CrudRepository<DettaglioLibro, Intege
     @Modifying
     @Query(value = "UPDATE Libri l SET l.stato = false",  nativeQuery = true)
 	void updateStatoToZeroForAllRecords();
+
+    @Query(value = "SELECT * FROM Libri l WHERE "
+    		+ "        (:idGenere IS NULL OR :idGenere = l.genere_id OR (:idGenere = 0 AND l.genere_id = 0))"
+    		+ "    AND (:idAutore IS NULL OR :idAutore = l.autore_id)"
+    		+ "    AND (:idCasaEditrice IS NULL OR :idCasaEditrice = l.casa_editrice_id)"
+    		+ "    AND (:idLingua IS NULL OR :idLingua = l.lingua_id)"
+    		+ "    AND (:titolo IS NULL OR LOWER(l.titolo) LIKE LOWER(CONCAT('%', :titolo, '%')))"
+    		+ "    AND (:stato IS NULL OR :stato IS NOT NULL AND :stato = l.stato)", nativeQuery = true)
+
+    List<DettaglioLibro> getLibriFilter(
+    		@Param("idGenere") Integer idGenere, 
+    		@Param("idAutore") Integer idAutore,
+            @Param("idCasaEditrice") Integer idCasaEditrice, 
+            @Param("idLingua") Integer idLingua,
+            @Param("titolo") String titolo, 
+            @Param("stato") Boolean stato);
+
 }

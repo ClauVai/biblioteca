@@ -85,6 +85,4 @@ public class DettaglioLibroServiceImpl implements DettaglioLibroService
 //		return dettaglioLibroDao.getTopTen();
 //	}
 
-
-
 }
