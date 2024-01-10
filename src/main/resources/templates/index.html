@@ -49,6 +49,7 @@
 			<nav id="navbar" class="navbar navbar-toggleable-sm bg-faded navbar-light fixed-top fixed-top-2 justify-content-center mb-0">
 			    <div id="contenitoreNav2"class="d-flex align-items-center">
 			        <div class="dropdown custom-dropdown">
+						
 			            <button class="dropbtn">Autori</button>
 			            <div class="dropdown-content custom-dropdown-content">
 			                <a th:each="a: ${autori}" th:text="${a.cognome}" th:href="@{/catalogo/autore/{id}(id=${a.id})}"></a>
