@@ -2,136 +2,37 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bibliothè | Home</title>
-	<link rel="icon" type="image/png" th:href="@{/img/favicon.ico}">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link th:href="@{/css/style.css}" rel="stylesheet" />
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-	<!-- Link Swiper's CSS -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
-	<link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
-	<script>
-
-		document.addEventListener('DOMContentLoaded', function () {
-			var titles = document.querySelectorAll('.pro-title');
-
-			titles.forEach(function (title) {
-				title.addEventListener('mouseover', function () {
-					var randomColor = getRandomColor();
-					title.style.backgroundColor = randomColor;
-				});
-
-				title.addEventListener('mouseout', function () {
-					title.style.backgroundColor = ''; // Resetta il colore di sfondo
-				});
-			});
-
-			// Funzione per ottenere un colore casuale dalla tua lista
-			function getRandomColor() {
-				var colors = ['#EF7E6B', '#9AD0C3', '#FCDD98', '#F58247', '#98D4E1'];
-				var randomIndex = Math.floor(Math.random() * colors.length);
-				return colors[randomIndex];
-			}
-		});
-	</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliothè | Home</title>
+    <link rel="icon" type="image/png" th:href="@{/img/favicon.ico}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet" />   
+	<script type="text/javascript" th:src="@{/js/GENERICO.js}"></script>
+	<script type="text/javascript" th:src="@{/js/index.js}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  	<!-- Link Swiper's CSS -->
+  	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
 </head>
 
-<body>
-	<div class="container">
+<divbody>
+    <div class="container">
 		<div class="head">
-
-			<nav id="navbar"
-				class="navbar navbar-toggleable-sm bg-faded navbar-light fixed-top fixed-top-2 justify-content-center mb-0">
-				<div id="contenitoreNav2" class="d-flex align-items-center">
-					<div class="dropdown custom-dropdown">
-
-						<button class="dropbtn">Autori</button>
-						<div class="dropdown-content custom-dropdown-content">
-							<a th:each="a: ${autori}" th:text="${a.cognome}"
-								th:href="@{/catalogo/autore/{id}(id=${a.id})}"></a>
-						</div>
-					</div>
-					<div class="dropdown custom-dropdown">
-						<button class="dropbtn">Generi</button>
-						<div class="dropdown-content custom-dropdown-content">
-							<a th:each="g: ${generi}" th:text="${g.nomeGenere}"
-								th:href="@{/catalogo/genere/{id}(id=${g.id})}"></a>
-						</div>
-					</div>
-					<div class="dropdown custom-dropdown">
-						<button class="dropbtn">Editori</button>
-						<div class="dropdown-content custom-dropdown-content right">
-							<a th:each="c: ${caseEditrici}" th:text="${c.nomeCasa}"
-								th:href="@{/catalogo/caseEditrici/{id}(id=${c.id})}"></a>
-						</div>
-					</div>
-				</div>
-				<nav id="navbar2" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-					<div class="container-fluid">
-						<a class="navbar-brand" th:href="@{/}"><img th:src="@{'/img/logo-lungo.png'}"
-								alt="logo Bibliothè" id="logo" /></a>
-						<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-							data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-							aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-						<div class="collapse navbar-collapse" id="navbarNav">
-							<ul class="navbar-nav">
-								<li class="nav-item">
-									<a class="nav-link" th:href="@{/}">Home</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" th:href="@{about}">Chi siamo</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" th:href="@{catalogo}">Libri</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</nav>
-			</nav>
-
-
-			<nav id="navbar3" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-				<div class="container-fluid">
-					<a class="navbar-brand" th:href="@{/}"><img th:src="@{'/img/logo-lungo.png'}" alt="logo Bibliothè"
-							id="logo" /></a>
-					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-						aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse" id="navbarNav">
-						<ul class="navbar-nav">
-							<li class="nav-item">
-								<a class="nav-link" th:href="@{/}">Home</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" th:href="@{about}">Chi siamo</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" th:href="@{catalogo}">Libri</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-			<hr>
-
+			<!--navbar-->
+        	<div th:replace="~{fragments :: navbar(autori=${autori}, generi=${generi}, caseEditrici=${caseEditrici})}"></div>
 		</div>
-		<div class="body bg-white mt-3">
+        <!--body-->
+        <div class="body bg-white mt-3">
 			<picture>
 				<img class="w-full" th:src="@{'/img/home.png'}">
 			</picture>
@@ -147,6 +48,221 @@
                             <div class="col-md-3">
                                 <div class="card card-body caroselcard1">
                                     <a th:href="@{/dettaglio(id=${libro.id})}"> <img class="img-fluid" th:src="${libro.copertina}"></a>
+                <P>Gli ultimi arrivi ogni settimana!</P>
+               
+                <div class="container col-10 pt-3"> 
+					 <div class="swiper mySwiper">
+                       <div class="swiper-wrapper">
+                         <div th:each="libro : ${ultimiLibri}" class="swiper-slide">							
+	                            <a th:href="@{/dettaglio(id=${libro.id})}"> <img class="imgSwiper img-fluid" th:src="${libro.copertina}"></a>
+                         </div>
+                       </div>
+                   		<div class="swiper-pagination"></div>
+						<div class="swiper-button-next"></div>
+    					<div class="swiper-button-prev"></div>
+					</div>
+               	 </div>
+				</div>       
+            </div>
+            
+            <!-- FINE NOVITà-->
+            
+           <div class="bg-light p-5">
+                <h4 class="roboto verde" id="scrollspyHeading2">Consigliati dallo staff</h4>
+                <p>Ecco i nostri libri preferiti del mese!</p>
+                <div class="col-md-12 mx-auto">
+                    <div id="lista" class="row justify-content-center">     
+                            <div class="card mb-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 bg-light">
+                                <div class="row g-0 bg-light">
+                                    <div class="col-md-4">
+                                        <a th:href="@{/dettaglio(id=${preferiti[0].id})}"><img th:src="${preferiti[0].copertina}" class="img-fluid zoom-image" alt="..."></a>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h6 th:text="${preferiti[0].titolo}" class="card-title roboto blu pb-3"></h6>
+                                            <p th:text="${preferiti[0].autore.nomeAutore}+' '+${preferiti[0].autore.cognome}" class="card-text"></p>
+                                            <p th:text="'Stato: '+${preferiti[0].stato ? 'Non disponibile' : 'Disponibile'}"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                            <div class="card mb-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 bg-light">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <a th:href="@{/dettaglio(id=${preferiti[1].id})}"><img th:src="${preferiti[1].copertina}" class="img-fluid zoom-image" alt="..."></a>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h6 th:text="${preferiti[1].titolo}" class="card-title roboto azzurro pb-3"></h6>
+                                            <p th:text="${preferiti[1].autore.nomeAutore}+' '+${preferiti[1].autore.cognome}" class="card-text"></p>
+                                            <p th:text="'Stato: '+${preferiti[1].stato ? 'Non disponibile' : 'Disponibile'}"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        
+                            <div class="card mb-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 bg-light">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <a th:href="@{/dettaglio(id=${preferiti[2].id})}"><img th:src="${preferiti[2].copertina}" class="img-fluid zoom-image" alt="..."></a>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h6 th:text="${preferiti[2].titolo}" class="card-title roboto verde pb-3"></h6>
+                                            <p th:text="${preferiti[2].autore.nomeAutore}+' '+${preferiti[2].autore.cognome}" class="card-text"></p>
+                                            <p th:text="'Stato: '+${preferiti[2].stato ? 'Non disponibile' : 'Disponibile'}"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                    </div>
+                    <div class="row justify-content-center">
+                        
+                            <div class="card mb-4 col-xl-4 col-lg-4 col-md-12  col-sm-12 bg-light">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <a th:href="@{/dettaglio(id=${preferiti[3].id})}"><img th:src="${preferiti[3].copertina}" class="img-fluid zoom-image" alt="..."></a>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h6 th:text="${preferiti[3].titolo}" class="card-title roboto giallo pb-3"></h6>
+                                            <p th:text="${preferiti[3].autore.nomeAutore}+' '+${preferiti[3].autore.cognome}" class="card-text"></p>
+                                            <p th:text="'Stato: '+${preferiti[3].stato ? 'Non disponibile' : 'Disponibile'}"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        
+                            <div class="card mb-4 col-xl-4 col-lg-4 col-md-12  col-sm-12 bg-light">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <a th:href="@{/dettaglio(id=${preferiti[4].id})}"><img th:src="${preferiti[4].copertina}" class="img-fluid zoom-image" alt="..."></a>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h6 th:text="${preferiti[4].titolo}" class="card-title roboto arancione pb-3"></h6>
+                                            <p th:text="${preferiti[4].autore.nomeAutore}+' '+${preferiti[4].autore.cognome}" class="card-text"></p>
+                                            <p th:text="'Stato: '+${preferiti[4].stato ? 'Non disponibile' : 'Disponibile'}"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        
+                            <div class="card mb-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 bg-light">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <a th:href="@{/dettaglio(id=${preferiti[5].id})}"><img th:src="${preferiti[5].copertina}" class="img-fluid zoom-image" alt="..."></a>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h6 th:text="${preferiti[5].titolo}" class="card-title roboto rosso pb-3"></h6>
+                                            <p th:text="${preferiti[5].autore.nomeAutore}+' '+${preferiti[5].autore.cognome}" class="card-text"></p>
+                                            <p th:text="'Stato: '+${preferiti[5].stato ? 'Non disponibile' : 'Disponibile'}"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                      
+                    </div>
+                </div>
+            </div>
+            <!-- INIZIO TOP 10-->     
+            <div class="bg-white p-5">
+                <h4 class="roboto azzurro"  id="scrollspyHeading3">Top 10</h4>
+                <p>Questi sono i libri più recensiti e votati da voi!</p>
+                  <div class="container col-10 pt-3"> 
+					 <div class="swiper mySwiper">
+                       <div class="swiper-wrapper">
+                        <div th:each="r : ${recensioni}" class="swiper-slide">
+								<a th:href="@{/dettaglio(id=${r.dettaglioLibro.id})}"> <img class="imgSwiper img-fluid" th:src="${r.dettaglioLibro.copertina}"></a>
+                        </div>
+                        </div>
+	                   		<div class="swiper-pagination"></div>
+							<div class="swiper-button-next"></div>
+	    					<div class="swiper-button-prev"></div>
+						</div>
+               	    </div>
+				</div>                 
+            <!-- FINE TOP 10-->
+            <div class="bg-light p-5">
+                <h4 class="roboto arancione" id="scrollspyHeading5">Selezione di tè</h4>
+                <p>Questi sono i tè che troverai da noi. Ogni mese ne portiamo di nuovi!</p>
+                <div class="col-md-12 mx-auto">
+                    <div id="lista" class="row justify-content-center">
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-8 col-8 card-with-shadow">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="..." class="img-fluid  zoom-image" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">This is a wider card with supporting text below as a natura.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-8 col-8 card-with-shadow">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="..." class="img-fluid  zoom-image" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">This is a wider card with supporting text below as a natura.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-8 col-8 card-with-shadow">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="..." class="img-fluid zoom-image" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">This is a wider card with supporting text below as a natura.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-8 col-8 card-with-shadow">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="..." class="img-fluid  zoom-image" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">This is a wider card with supporting text below as a natura.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-8 col-8 card-with-shadow">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="..." class="img-fluid zoom-image" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">This is a wider card with supporting text below as a natura.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -633,6 +749,129 @@
 	</script>
 
 
+                    <div id="lista" class="row justify-content-center">
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-8 col-8 card-with-shadow">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="..." class="img-fluid zoom-image" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">This is a wider card with supporting text below as a natura.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-8 col-8 card-with-shadow">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="..." class="img-fluid zoom-image" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">This is a wider card with supporting text below as a natura.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-8 col-8 card-with-shadow">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="..." class="img-fluid zoom-image" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">This is a wider card with supporting text below as a natura.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-8 col-8 card-with-shadow">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="..." class="img-fluid zoom-image" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">This is a wider card with supporting text below as a natura.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-8 col-8 card-with-shadow">
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="..." class="img-fluid zoom-image" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">This is a wider card with supporting text below as a natura.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          
+    		</div>
+    	</div>
+        <!--FOOTER-->
+        <div th:replace="~{fragments :: footer}"></div>
+       
+     <!--	QUESTI ENTRANO IN CONFLITTO CON LA NAVBAR-->  
+        <!-- Script jQuery per inizializzare i carousel -->
+		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+       
+         <script>
+        // Your script code here
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            autoplay: {
+                delay: 5000,
+                // Tempo di attesa tra le slide in millisecondi (in questo caso, 5 secondi)
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                960: {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                },
+                1024: {
+                    slidesPerView: 5,
+                    spaceBetween: 50,
+                },
+            },
+        });
+    </script>
+       
+       
 
 </body>
 
