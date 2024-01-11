@@ -136,7 +136,7 @@
 	</div>
 	<!--FORM PER LASCIARE UN COMMENTO-->
 	<div class="card col-9 mx-auto" style="margin-top: 80px;">
-		<div th:if="${loggato}">
+		<div th:if="${loggato and !dupliceRec}">
 			<form id="commentForm" th:action="@{'dettaglio/inserisciRecensione?id=' + ${dettaglio.id}}" method="POST"
 				th:object="${nuovaRecensione}">
 				<div class="row ">
@@ -183,6 +183,9 @@
 					</div>
 				</div>
 			</form>
+		</div>
+		<div th:if="${dupliceRec}">
+			<p th:text="'Hai già recensito questo libro'"></p>
 		</div>
 		<div th:unless="${loggato}">
 			<a th:text="'Per prenotare i nostri libri, registrati o effettua il login'" th:href="@{login}"></a>
