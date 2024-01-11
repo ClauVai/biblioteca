@@ -279,6 +279,9 @@ body {
  a:hover{
 	 color: #EF7E6B;
  }
+  .none a:hover{
+	  color: black;
+  }
  
  h1{
 	 font-family: 'Barrio', system-ui;
@@ -956,7 +959,7 @@ object-fit: cover;
 	color: #ffffff;
 }
 .giallo{
-	color: #FFC86D;
+	color: rgb(237, 175, 113); /* FFC86D */
 }
 .arancione-bc{
 	background-color: #F89765;

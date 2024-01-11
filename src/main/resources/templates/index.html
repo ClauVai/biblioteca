@@ -47,6 +47,7 @@
     <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
 
     <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
+    
 
 </head>
 
@@ -109,6 +110,7 @@
             </div>
 
         </div>
+        
 
         <!-- FINE NOVITà-->
         <!-- INIZIO CONSIGLIATI DALLO STAFF-->
@@ -122,128 +124,28 @@
             <div class="col-md-12 mx-auto">
         <!-- INIZIO PRIMA RIGA-->
 				
-<div id="lista" class="row justify-content-center">
-    <div th:each="libro, iterStat : ${preferiti}" th:if="${iterStat.index le 5}" class="card mb-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 bg-light">
-        <div class="row g-0 bg-light">
-            <div class="col-md-4">
-                <a th:href="@{/dettaglio(id=${libro.id})}">
-                    <img th:src="${libro.copertina}" class="img-fluid zoom-image" alt="...">
-                </a>
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h6 th:text="${libro.titolo}" class="card-title roboto pb-3"></h6>
-                    <p th:text="${libro.autore.nomeAutore} + ' ' + ${libro.autore.cognome}" class="card-text"></p>
-                    <p th:text="'Stato: ' + ${libro.stato ? 'Non disponibile' : 'Disponibile'}"></p>
-                </div>
-            </div>
-        </div>
+			<div id="lista" class="row justify-content-center">
+			    <div th:each="libro, iterStat : ${preferiti}" th:if="${iterStat.index le 5}" class="card mb-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 bg-light">
+			        <div class="row g-0 bg-light">
+			            <div class="col-md-4">
+			                <a th:href="@{/dettaglio(id=${libro.id})}">
+			                    <img th:src="${libro.copertina}" class="img-fluid zoom-image" alt="...">
+			                </a>
+			            </div>
+			            <div class="col-md-8">
+			                <div class="card-body">
+			                    <a th:href="@{/dettaglio(id=${libro.id})}"><h6 th:text="${libro.titolo}" class="card-title roboto giallo pb-3"></h6></a>
+			                    <p th:text="${libro.autore.nomeAutore} + ' ' + ${libro.autore.cognome}" class="card-text"></p>
+			                    <p th:text="'Stato: ' + ${libro.stato ? 'Non disponibile' : 'Disponibile'}"></p>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+ 		</div>
+ </div>
 
-
-
-
-
-
-        <!-- FINE PRIMA RIGA-->
-        <!-- INIZIO SECONDA RIGA-->
-
-
-              
-
-
-             <!--     <div class="row justify-content-center"> 
-				    <div class="card mb-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 bg-light">
-
-                        <div class="row g-0">
-
-                            <div class="col-md-4">
-
-                                <a th:href="@{/dettaglio(id=${preferiti[3].id})}"><img th:src="${preferiti[3].copertina}" class="img-fluid zoom-image" alt="..."></a>
-
-                            </div>
-
-                            <div class="col-md-8">
-
-                                <div class="card-body">
-
-                                    <h6 th:text="${preferiti[3].titolo}" class="card-title roboto giallo pb-3"></h6>
-
-                                    <p th:text="${preferiti[3].autore.nomeAutore}+' '+${preferiti[3].autore.cognome}" class="card-text"></p>
-
-                                    <p th:text="'Stato: '+${preferiti[3].stato ? 'Non disponibile' : 'Disponibile'}"></p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
 
                     </div>
-
-                    <div class="card mb-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 bg-light">
-
-                        <div class="row g-0">
-
-                            <div class="col-md-4">
-
-                                <a th:href="@{/dettaglio(id=${preferiti[4].id})}"><img th:src="${preferiti[4].copertina}" class="img-fluid zoom-image" alt="..."></a>
-
-                            </div>
-
-                            <div class="col-md-8">
-
-                                <div class="card-body">
-
-                                    <h6 th:text="${preferiti[4].titolo}" class="card-title roboto arancione pb-3"></h6>
-
-                                    <p th:text="${preferiti[4].autore.nomeAutore}+' '+${preferiti[4].autore.cognome}" class="card-text"></p>
-
-                                    <p th:text="'Stato: '+${preferiti[4].stato ? 'Non disponibile' : 'Disponibile'}"></p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="card mb-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 bg-light">
-
-                        <div class="row g-0">
-
-                            <div class="col-md-4">
-
-                                <a th:href="@{/dettaglio(id=${preferiti[5].id})}"><img th:src="${preferiti[5].copertina}" class="img-fluid zoom-image" alt="..."></a>
-
-                            </div>
-
-                            <div class="col-md-8">
-
-                                <div class="card-body">
-
-                                    <h6 th:text="${preferiti[5].titolo}" class="card-title roboto rosso pb-3"></h6>
-
-                                    <p th:text="${preferiti[5].autore.nomeAutore}+' '+${preferiti[5].autore.cognome}" class="card-text"></p>
-
-                                    <p th:text="'Stato: '+${preferiti[5].stato ? 'Non disponibile' : 'Disponibile'}"></p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-            -->
-        <!-- FINE SECONDA RIGA-->
-            
-
-        </div>
         <!-- FINE CONSIGLIATI DALLO STAFF-->
 
 
@@ -307,6 +209,7 @@
 			</div>
 		</div>
 	</div>
+    </div>
 	
 	<!-- FINE TOP 10-->
 
@@ -320,70 +223,43 @@
     <!-- Script jQuery per inizializzare i carousel -->
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <script>
-        // Your script code here
-        
-        var swiper = new Swiper(".mySwiper", {
-        
-        slidesPerView: 1,
-        
-        spaceBetween: 10,
-        
-        pagination: {
-        
+<script>
+   var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    loop: true,               // Abilita il looping
+    loopedSlides: 4,          // Numero totale di slide, considerando duplicati all'inizio e alla fine
+    pagination: {
         el: ".swiper-pagination",
-        
         clickable: true,
-        
-        },
-        
-        navigation: {
-        
+    },
+    navigation: {
         nextEl: ".swiper-button-next",
-        
         prevEl: ".swiper-button-prev",
-        
-        },
-        
-        autoplay: {
-        
-        delay: 5000,
-        
-        // Tempo di attesa tra le slide in millisecondi (in questo caso, 5 secondi)
-        
-        },
-        
-        breakpoints: {
-        
+    },
+    autoplay: {
+        delay: 3000,
+        // Tempo di attesa tra le slide in millisecondi (in questo caso, 3 secondi)
+    },
+    breakpoints: {
         640: {
-        
-        slidesPerView: 2,
-        
-        spaceBetween: 20,
-        
+            slidesPerView: 2,
+            spaceBetween: 20,
         },
-        
         960: {
-        
-        slidesPerView: 3,
-        
-        spaceBetween: 40,
-        
+            slidesPerView: 3,
+            spaceBetween: 30,
         },
-        
         1024: {
-        
-        slidesPerView: 5,
-        
-        spaceBetween: 50,
-        
+            slidesPerView: 4,
+            spaceBetween: 40,
         },
-        
-        },
-        
-        });
-    </script>
+    },
+});
+
+</script>
+
+
 
 
 

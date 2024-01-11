@@ -35,7 +35,80 @@
 						Scegliamo con cura ogni titolo, e speriamo che troverai il tuo prossimo libro del cuore!</p>
 				</div>
 				<div id="filtroForm" class="text-center my-3">
+					
 					<h5 class="d-block mx-auto my-2">Cerca</h5>
+					<div class="row">
+                <!-- Prima riga: Cerca con la linea -->
+                <div class="col-lg-12 text-center my-1">
+                    
+                    <form th:action="@{'/catalogo/ricerca'}" method="post" onsubmit="return gestisciRicerca()"
+                        class="d-flex flex-wrap">
+                        <label class="col-lg-2" th:text="'Titolo: '"></label>
+                        <input type="text" class="form-control col-lg-10" id="titolo" name="titolo"
+                            th:value="${titolo}">
+                        <!-- Linea -->
+                        <hr class="my-3 col-lg-12">
+                   
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Terza riga: Genere, Autore, Casa Editrice, Lingua -->
+                <div class="col-lg-3 my-2">
+                    <h5>Genere</h5>
+                    <select class="form-select form-select-sm" id="genereSelect" name="idGenere">
+                        <option selected disabled>Genere</option>
+                        <option th:each="genere : ${generi}" th:value="${genere.id}" th:text="${genere.nomeGenere}">
+                        </option>
+                    </select>
+                </div>
+                <div class="col-lg-3 my-2">
+                    <h5>Autore</h5>
+                    <select class="form-select form-select-sm" id="autoreSelect" name="idAutore">
+                        <option selected disabled>Autore</option>
+                        <option th:each="autore : ${autori}" th:value="${autore.id}" th:text="${autore.nomeAutore}">
+                        </option>
+                    </select>
+                </div>
+                <div class="col-lg-3 my-2">
+                    <h5>Casa Editrice</h5>
+                    <select class="form-select form-select-sm" id="casaSelect" name="idCasaEditrice">
+                        <option selected disabled>Casa Editrice</option>
+                        <option th:each="casa : ${caseEditrici}" th:value="${casa.id}" th:text="${casa.nomeCasa}">
+                        </option>
+                    </select>
+                </div>
+                <div class="col-lg-3 my-2">
+                    <h5>Lingua</h5>
+                    <select class="form-select form-select-sm" id="linguaSelect" name="idLingua">
+                        <option selected disabled>Lingua</option>
+                        <option th:each="lingua : ${lingue}" th:value="${lingua.id}" th:text="${lingua.idioma}">
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 my-2">
+                    <label class="" id="stato" th:text="'Stato: '"></label>&nbsp; <br>
+                    <input type="checkbox" name="stato" th:value="false" id="statoDisp" th:checked="${stato == false}"
+                        class="form-check-input" /> Disponibile
+                    <input type="checkbox" name="stato" th:value="true" id="statoNonDisp"
+                        th:checked="${stato == true}" class="form-check-input" /> Non disponibile
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Quarta riga: Button Applica e Pulisci -->
+                <div class="col-lg-12 text-center my-2">
+                    <div class="ms-auto mt-2">
+                        <input type="submit" class="btn btn-outline-success" th:value="'Applica'">
+						<input type="button" class="btn btn-outline-success" value="Pulisci" onclick="pulisciForm()">
+                    </div>
+                </div>
+            </div>
+             </form>
+					<!--
 					<form th:action="@{'/catalogo/ricerca'}" method="post" onsubmit="return gestisciRicerca()" class="d-flex">
 						<select class="form-select form-select-sm" id="genereSelect" name="idGenere">
 							<option selected disabled>Genere</option>
@@ -70,13 +143,13 @@
 							class="form-check-input" /> Non disponibile
 						<input type="submit" class="btn btn-outline-success" th:value="'Applica'">
 						<input type="button" class="btn btn-outline-success" value="Pulisci" onclick="pulisciForm()">
-					</form>
+					</form>-->
 
 				</div>
 
 			</div>
-			<h5 th:if="${risultati.isEmpty()}" th:text="'Nessun risultato per la tua ricerca'"></h5>
-			<h5 th:unless="${risultati.isEmpty()}" th:text="'Risultano ' + ${risultati.size()} + ' libri in lista'"></h5>
+			<h6 style="text-align: center;" class="mt-3" th:if="${risultati.isEmpty()}" th:text="'Nessun risultato per la tua ricerca'"></h6>
+			<h6 style="text-align: center;" class="mt-3" th:unless="${risultati.isEmpty()}" th:text="'Risultano ' + ${risultati.size()} + ' libri in lista'"></h6>
 
 			<div class="col-md-10 mx-auto">
 				<div id="lista" class="row product-list justify-content-center">
