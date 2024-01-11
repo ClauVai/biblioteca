@@ -46,6 +46,7 @@ public class DettaglioLibroController {
 			throws Exception {
 		Utente utente = (Utente) session.getAttribute("utente");
 		boolean loggato;
+		boolean dupliceRec = false;
 		if (utente == null) {
 			loggato = false;
 		} else {
@@ -54,9 +55,9 @@ public class DettaglioLibroController {
 			Optional<Recensione> esisteGiaRecensione = recensioneDao.findByUtenteIdAndDettaglioLibroId(utenteId, id);
 			// se esiste già allora non mi salva la nuova recensione 
 			if(esisteGiaRecensione.isPresent()) {
-				boolean dupliceRec = true;
-				model.addAttribute("dupliceRec", dupliceRec);
+				dupliceRec = true;
 			}
+			model.addAttribute("dupliceRec", dupliceRec);
 			model.addAttribute("nomeUtente", utente.getNome());
 			model.addAttribute("cognomeUtente", utente.getCognome());
 		}
