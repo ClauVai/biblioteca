@@ -25,17 +25,6 @@ public class DettaglioLibroServiceImpl implements DettaglioLibroService
 		}
 		
 	}
-
-	@Override
-	public void prenota(int id) throws Exception {
-		// prendo dettaglio libro da DB
-		DettaglioLibro dettaglioLibro = getDettaglioLibro(id);
-		// cambio prenotato a true
-		dettaglioLibro.setStato(true);
-		// salva nel database come prenotato (true in quanto boolean)
-		dettaglioLibroDao.save(dettaglioLibro);
-	}
-	
 	
 	public List<DettaglioLibro> getByFilter(
 			int autoreId,
