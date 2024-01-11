@@ -59,7 +59,7 @@
 								<ul class="list-unstyled">
 									<li th:text="'Stato: '+${dettaglio.stato ? 'Non disponibile' : 'Disponibile'}"></li>
 									<div th:unless="${loggato}">
-										<a th:text="'Per prenotare i nostri libri, registrati o effettua il login'" th:href="@{login}">
+										<a th:text="'Per prenotare i nostri libri, registrati o effettua il login'" th:href="@{login}"></a>
 									</div>
 									<div th:if="${alert}"
 										th:text="'Libro prenotato! Vieni a ritirarlo in sede, ti aspettiamo!'"
