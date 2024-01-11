@@ -39,6 +39,8 @@
 					<button type="submit">Accedi</input>
 				</form>
 			</div>
+			<div th:if="${loginError}"><p th:text="${messaggio}"></p>
+			</div>
 			<div class="row mt-4">
 				<h2>Registrazione</h2>
 				<form th:action="@{'/login/registra'}" method="post" th:object="${utente}">

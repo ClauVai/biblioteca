@@ -20,8 +20,8 @@ public class UtenteServiceImpl implements UtenteService {
 		if (result == null) {
 			utenteDao.save(utente);
 			session.setAttribute("utente", utente);
-		}
-		session.setAttribute("utente", result);
+		} else {
+		session.setAttribute("utente", result);}
 
 	}
 
