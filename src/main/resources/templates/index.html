@@ -111,6 +111,7 @@
         </div>
 
         <!-- FINE NOVITà-->
+        <!-- INIZIO CONSIGLIATI DALLO STAFF-->
 
         <div class="bg-light p-5">
 
@@ -119,98 +120,39 @@
             <p>Ecco i nostri libri preferiti del mese!</p>
 
             <div class="col-md-12 mx-auto">
-
-                <div id="lista" class="row justify-content-center">
-
-                    <div class="card mb-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 bg-light">
-
-                        <div class="row g-0 bg-light">
-
-                            <div class="col-md-4">
-
-                                <a th:href="@{/dettaglio(id=${preferiti[0].id})}"><img th:src="${preferiti[0].copertina}" class="img-fluid zoom-image" alt="..."></a>
-
-                            </div>
-
-                            <div class="col-md-8">
-
-                                <div class="card-body">
-
-                                    <h6 th:text="${preferiti[0].titolo}" class="card-title roboto blu pb-3"></h6>
-
-                                    <p th:text="${preferiti[0].autore.nomeAutore}+' '+${preferiti[0].autore.cognome}" class="card-text"></p>
-
-                                    <p th:text="'Stato: '+${preferiti[0].stato ? 'Non disponibile' : 'Disponibile'}"></p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="card mb-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 bg-light">
-
-                        <div class="row g-0">
-
-                            <div class="col-md-4">
-
-                                <a th:href="@{/dettaglio(id=${preferiti[1].id})}"><img th:src="${preferiti[1].copertina}" class="img-fluid zoom-image" alt="..."></a>
-
-                            </div>
-
-                            <div class="col-md-8">
-
-                                <div class="card-body">
-
-                                    <h6 th:text="${preferiti[1].titolo}" class="card-title roboto azzurro pb-3"></h6>
-
-                                    <p th:text="${preferiti[1].autore.nomeAutore}+' '+${preferiti[1].autore.cognome}" class="card-text"></p>
-
-                                    <p th:text="'Stato: '+${preferiti[1].stato ? 'Non disponibile' : 'Disponibile'}"></p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="card mb-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 bg-light">
-
-                        <div class="row g-0">
-
-                            <div class="col-md-4">
-
-                                <a th:href="@{/dettaglio(id=${preferiti[2].id})}"><img th:src="${preferiti[2].copertina}" class="img-fluid zoom-image" alt="..."></a>
-
-                            </div>
-
-                            <div class="col-md-8">
-
-                                <div class="card-body">
-
-                                    <h6 th:text="${preferiti[2].titolo}" class="card-title roboto verde pb-3"></h6>
-
-                                    <p th:text="${preferiti[2].autore.nomeAutore}+' '+${preferiti[2].autore.cognome}" class="card-text"></p>
-
-                                    <p th:text="'Stato: '+${preferiti[2].stato ? 'Non disponibile' : 'Disponibile'}"></p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
+        <!-- INIZIO PRIMA RIGA-->
+				
+<div id="lista" class="row justify-content-center">
+    <div th:each="libro, iterStat : ${preferiti}" th:if="${iterStat.index le 5}" class="card mb-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 bg-light">
+        <div class="row g-0 bg-light">
+            <div class="col-md-4">
+                <a th:href="@{/dettaglio(id=${libro.id})}">
+                    <img th:src="${libro.copertina}" class="img-fluid zoom-image" alt="...">
+                </a>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h6 th:text="${libro.titolo}" class="card-title roboto pb-3"></h6>
+                    <p th:text="${libro.autore.nomeAutore} + ' ' + ${libro.autore.cognome}" class="card-text"></p>
+                    <p th:text="'Stato: ' + ${libro.stato ? 'Non disponibile' : 'Disponibile'}"></p>
                 </div>
+            </div>
+        </div>
 
-                <div class="row justify-content-center">
 
-                    <div class="card mb-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 bg-light">
+
+
+
+
+        <!-- FINE PRIMA RIGA-->
+        <!-- INIZIO SECONDA RIGA-->
+
+
+              
+
+
+             <!--     <div class="row justify-content-center"> 
+				    <div class="card mb-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 bg-light">
 
                         <div class="row g-0">
 
@@ -297,8 +239,13 @@
                 </div>
 
             </div>
+            -->
+        <!-- FINE SECONDA RIGA-->
+            
 
         </div>
+        <!-- FINE CONSIGLIATI DALLO STAFF-->
+
 
         <!-- INIZIO TOP 10-->
 
