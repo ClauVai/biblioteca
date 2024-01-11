@@ -22,9 +22,13 @@
 </head>
 
 <body>
-	<div th:replace="~{fragments :: navbar(autori=${autori}, generi=${generi}, caseEditrici=${caseEditrici})}"></div>
+	
 	<div class="container">
 		<div class="head">
+			<!--navbar-->
+        	<div th:replace="~{fragments :: navbar(autori=${autori}, generi=${generi}, caseEditrici=${caseEditrici})}"></div>
+		</div>
+		<!--BODY-->
 		<div class="bg-light">
 			<div class="container py-5">
 				<div class="row h-100 align-items-center py-5">
@@ -32,7 +36,6 @@
 						<h1 id="about">Chi siamo</h1>
 						<p class="lead text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
 							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						
 					</div>
 					<div class="col-lg-6 d-none d-lg-block"><img th:src="@{'/img/noi.png'}" alt="" class="img-fluid about">
 					</div>
@@ -190,6 +193,7 @@
 
 	</div>
 </div>
+<!--FRAGMENT FOOTER-->
 <div th:replace="~{fragments :: footer}"></div>
 </body>
 

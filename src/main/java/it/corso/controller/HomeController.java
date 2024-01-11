@@ -8,6 +8,7 @@ import it.corso.service.CasaEditriceService;
 import it.corso.service.DettaglioLibroService;
 import it.corso.service.GenereService;
 import it.corso.service.RecensioneService;
+import it.corso.service.TheService;
 
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -28,6 +29,8 @@ public class HomeController
 	private DettaglioLibroService dettaglioLibroService;
 	@Autowired
 	private RecensioneService recensioneService;
+	@Autowired
+	private TheService theService;
 
 	@GetMapping
 	public String getPage(Model model)
@@ -38,7 +41,10 @@ public class HomeController
 		model.addAttribute("ultimiLibri", dettaglioLibroService.getUltimiLibri());
 		model.addAttribute("preferiti", dettaglioLibroService.getPreferitiRedazione());
 		model.addAttribute("recensioni", recensioneService.getTopTen());
-	   // System.out.println("recensioni" + recensioneService.getTopTen().size());
+		model.addAttribute("the", theService.getThe());
+		// System.out.println("recensioni" + recensioneService.getTopTen().size());
+
+	  // System.out.println("the" + theService.getThe(1).size());
 
 		return "index";
 	}

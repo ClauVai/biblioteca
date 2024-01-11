@@ -9,36 +9,96 @@
 <body>
 	<!-- NAVBAR 1 -->
 	<div th:fragment="navbar(autori, generi, caseEditrici)" class="container-fluid col-12 fixed-top">
-		<div class="navbar navbar-expand-lg navbar-light bg-white" id="navbar2">
-			<div class="container-fluid">
-				<a class="navbar-brand col-5 " th:href="@{/}"><img th:src="@{'/img/logo-lungo.png'}"
-						alt="logo Bibliothè" id="logo" /></a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+        <div class="navbar navbar-expand-lg navbar-light bg-white" id="navbar2">
+            <div class="container-fluid">
+                <a class="navbar-brand col-5" th:href="@{/}"><img th:src="@{'/img/logo-lungo.png'}" alt="logo Bibliothè" id="logo" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <aside class="navbar main active" data-active="main">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/about}">Chi siamo</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/catalogo}">Libri</a>
+                            </li>
 
-				<div class="collapse navbar-collapse col-3" id="navbarNav">
-					<ul class="navbar-nav">
-						<li class="nav-item">
-							<a class="nav-link" th:href="@{/}">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" th:href="@{/about}">Chi siamo</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" th:href="@{/catalogo}">Libri</a>
-						</li>
-						<!-- INIZIO COLLEGAMENTO UTENTE!! -->
-						<li class="nav-item">
-							<a class="nav-link" th:href="@{/login}">Area Riservata</a>
-						</li>
-						<!-- FINE COLLEGAMENTO UTENTE!! -->
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="row" style="background-color: #b3e2d7;">
+                            <li class="d-lg-none nav-item">
+                                <a class="nav-link d-flex" href="#" data-action="autori" data-subnav-target-id="autori">Autori
+                                    <img class="d-inline"src="https://rails-assets-us.bookshop.org/ds/images/chevron-right.7be3f13058fcb4713eaf7866bad97d0f6a752ed3.svg" title="Autori"> 
+                                </a>
+                            </li>
+                            <li class="d-lg-none nav-item">
+                                <a class="nav-link d-flex" href="#" data-action="generi" data-subnav-target-id="generi">Generi
+                                    <img class="d-inline" src="https://rails-assets-us.bookshop.org/ds/images/chevron-right.7be3f13058fcb4713eaf7866bad97d0f6a752ed3.svg" title="Generi"> 
+                                </a>
+                            </li>
+                            <li class="d-lg-none nav-item">
+                                <a class="nav-link d-flex" href="#" data-action="editori" data-subnav-target-id="editori">Editori
+                                    <img class="d-inline" src="https://rails-assets-us.bookshop.org/ds/images/chevron-right.7be3f13058fcb4713eaf7866bad97d0f6a752ed3.svg" title="Editori"> 
+                                </a>
+                            </li>
+                            <!-- INIZIO COLLEGAMENTO UTENTE!! -->
+							<li class="nav-item">
+								<a class="nav-link" th:href="@{/login}">Area Riservata</a>
+							</li>
+							<!-- FINE COLLEGAMENTO UTENTE!! -->
+                        </ul>
+                    </aside>
+                    <aside class="navbar secondary" data-subnav-id="autori">
+                        <ul class="navbar-nav">
+                            <li >
+						        <a href="#" data-action="main" class="tornaIndietro nav-link">
+						          <img src="
+						https://rails-assets-us.bookshop.org/ds/images/chevron-left.c204156dc670372f40706c7696d741a465917f43.svg
+						" title="Autori">
+						          Autori
+						        </a>
+     						 </li>
+                            <li th:each="a: ${autori}">
+                                <a class="nav-link" th:text="${a.cognome}" th:href="@{/catalogo/autore/{id}(id=${a.id})}"></a>
+                            </li>
+                        </ul>
+                    </aside>
+                    <aside class="navbar secondary" data-subnav-id="generi">		
+                        <ul class="navbar-nav">
+							<li>
+						        <a href="#" data-action="main" class="tornaIndietro nav-link">
+						          <img src="
+						https://rails-assets-us.bookshop.org/ds/images/chevron-left.c204156dc670372f40706c7696d741a465917f43.svg
+						" title="Generi">
+						          Generi
+						        </a>
+     						 </li>
+                            <li th:each="g: ${generi}">
+                                <a class="nav-link" th:text="${g.nomeGenere}" th:href="@{/catalogo/genere/{id}(id=${g.id})}"></a>
+                            </li>
+                        </ul>
+                    </aside>
+                    <aside class="navbar secondary" data-subnav-id="editori">
+                        <ul class="navbar-nav">
+							<li>
+						        <a href="#" data-action="main" class="tornaIndietro nav-link">
+						          <img src="
+						https://rails-assets-us.bookshop.org/ds/images/chevron-left.c204156dc670372f40706c7696d741a465917f43.svg
+						" title="Editori">
+						          Editori
+						        </a>
+     						 </li>
+                            <li th:each="c: ${caseEditrici}">
+                                <a class="nav-link" th:text="${c.nomeCasa}" th:href="@{/catalogo/caseEditrici/{id}(id=${c.id})}"></a>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+	</div>
+		<div class="row d-none d-sm-none d-lg-block d-xl-block" style="background-color: #b3e2d7;">
 			<div id="navbar" class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-sx-6 container-fluid mr-3">
 				<div class="d-flex align-items-center">
 					<div class="dropdown custom-dropdown">
@@ -147,7 +207,6 @@
 					<div class="col-md-4 col-sm-6">
 						<div class="Shipping d-flex">
 							<p> Contattaci su: <a href="mailto:info@bibliothe.it">info@bibliothe.it</a></p>
-
 						</div>
 					</div>
 				</div>
