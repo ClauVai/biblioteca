@@ -1011,6 +1011,10 @@ padding-left: 0px;
 
   
  /* Aggiungi queste regole al tuo stile */
+ .navbar.main{
+	 overflow-y: auto; /* Abilita lo scrolling verticale se necessario */
+  max-height: calc(100vh - 70px); /* Imposta l'altezza massima */
+ }
 .navbar.secondary {
   overflow-y: auto; /* Abilita lo scrolling verticale se necessario */
   max-height: calc(100vh - 70px); /* Imposta l'altezza massima */
@@ -1026,11 +1030,11 @@ ul.navbar-nav li {
   margin: 0;
   padding: 0;
 }
-
+/*
 .custom-dropdown-content {
-  max-height: 200px; /* Imposta l'altezza massima per il dropdown se necessario */
-  overflow-y: auto; /* Abilita lo scrolling verticale se necessario */
-}
+  max-height: 200px; 
+  overflow-y: auto; 
+}*/
 
   
 
