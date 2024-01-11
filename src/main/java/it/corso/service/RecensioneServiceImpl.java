@@ -33,14 +33,7 @@ public class RecensioneServiceImpl implements RecensioneService {
 		// scarico dal database un dettaglilibro dando in input un dettagliolibroid
 		DettaglioLibro dettaglioLibro = dettaglioLibroDao.findById(dettaglioLibroId).get();
 		recensioneDaSalvare.setDettaglioLibro(dettaglioLibro);
-		//recensioneDaSalvare.setLibroId(dettaglioLibroId);
-		// controlla se esiste già una recensione associata allo stesso username e allo stesso libro 
-		Optional<Recensione> esisteGiaRecensione = recensioneDao.findByUtenteIdAndDettaglioLibroId(utenteId, dettaglioLibroId);
-		// se esiste già allora non mi salva la nuova recensione 
-		if(!esisteGiaRecensione.isPresent()) {
-			recensioneDao.save(recensioneDaSalvare);
-		}
-		
+		recensioneDao.save(recensioneDaSalvare);	
 	}
 
 	@Override
