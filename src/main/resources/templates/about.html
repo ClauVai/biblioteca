@@ -14,12 +14,9 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet">
-
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-
-
 </head>
 
 <body>
@@ -35,8 +32,12 @@
 				<div class="row h-100 align-items-center py-5">
 					<div class="col-lg-6">
 						<h1 id="about">Chi siamo</h1>
-						<p class="lead text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p class="lead text-muted mb-0">
+							Benvenuto su Bibliothè, il tuo luogo di libri e thè preferito! <br>
+							Esplora la nostra vasta selezione di libri prenotabili online e ritira le tue storie preferite nel nostro accogliente negozio. <br>
+							Assapora la freschezza e la varietà dei nostri thè, scelti con cura per soddisfare ogni tuo gusto.<br>
+							Bibliothè, dove la lettura e il thè si incontrano per creare esperienze indimenticabili!  
+						</p>
 					</div>
 					<div class="col-lg-6 d-none d-lg-block"><img th:src="@{'/img/noi.png'}" alt="" class="img-fluid about">
 					</div>
@@ -51,26 +52,30 @@
 							class="img-fluid about mb-4 mb-lg-0"></div>
 					<div class="col-lg-6"><i class="fa fa-leaf fa-2x mb-3 text-primary"></i>
 						<h2 class="font-weight-light blu">Portare novità</h2>
-						<p class="font-italic text-muted mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p class="font-italic text-muted mb-4">
+							Esplora le ultime novità su biblioThè! <br>
+							Consulta il nostro sito regolarmente per rimanere aggiornato sugli ultimi libri appena usciti e disponibili nella nostra selezione. <br>
+							Scopri le ultime tendenze letterarie, segna i tuoi preferiti e prenota i tuoi nuovi compagni di lettura quando preferisci.
+						</p>
 					</div>
 				</div>
 				<div class="row align-items-center mb-5">
 					<div class="col-lg-6 order-2 order-lg-1"><i class="fa fa-bar-chart fa-2x mb-3 text-primary"></i>
-						<h2 class="font-weight-light azzurro">La selezione di tè</h2>
-						<p class="font-italic text-muted mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<h2 class="font-weight-light azzurro">La selezione di thè</h2>
+						<p class="font-italic text-muted mb-4">
+							 Scopri la nostra selezione di thè pregiati, appositamente scelti per offrirti freschezza e varietà senza pari.  <br>
+							 Ogni thè è stato attentamente selezionato per soddisfare i gusti più raffinati. <br>
+                             Esplora la nostra esclusiva collezione di thè, disponibile solo nel nostro negozio. <br>
+                             Ti aspettiamo con entusiasmo per farti vivere l'incredibile sinergia tra libri e thè.
+						</p>
 					</div>
 					<div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img id="noPadd" th:src="@{'/img/selezione2.png'}" alt="img"
 							class="img-fluid about mb-4 mb-lg-0"></div>
 				</div>
-			</div>
-			
-			
+			</div>	
 			<div id="cardContact" class="container mt-5 card shadow p-3 mb-5 rounded">
         <div class="row">
             
-
             <!-- Colonna destra - Riepilogo dei contatti -->
             <div class="col-md-6">
                 <div class="riepilogo">
@@ -78,7 +83,17 @@
                     <p >info@bibliothe.it</p>
                     <p>+39 111 222 333 44</p>
                     <p>via Jacopo della Quercia, 64, Roma</p>
-                    <!-- Aggiungi altri dettagli di contatto se necessario -->
+				    <p>
+				        <a href="#" target="_blank" title="Instagram">
+				            <img th:src="@{'/img/instagram.png'}" style="margin-right: 20px;"></img>
+				        </a>
+				         <a href="#" target="_blank" title="Facebook">
+				            <img th:src="@{'/img/facebook.png'}" style="margin-right: 20px;"></img>
+				        </a>  
+				         <a href="#" target="_blank" title="Tiktok">
+				            <img th:src="@{'/img/tiktok.png'}" style="margin-right: 20px;" ></img>
+				        </a>                 
+				    </p>
                 </div>
             </div>
             <!-- Colonna sinistra - Form di contatto -->
@@ -98,21 +113,18 @@
         </div>
     </div>
 		</div>
-		
-		
-	
-		
-		
-		
-		
-
 		<div class="bg-light py-5">
 			
 			<div class="container py-5">
 				<div class="row mb-4">
-					<div class="col-lg-5">
+					<div class="col-lg-10">
 						<h2 class="display-4">Il nostro team</h2>
-						<p class="font-italic text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+						<p class="font-italic text-muted">
+							Il nostro team unisce passione per libri, thè e programmazione!<br>
+							Amiamo la magia della lettura, i sapori unici dei thè e creare un'esperienza digitale coinvolgente. <br>
+							Unisciti a noi in questa avventura di creatività appassionata dietro bibliothè. <br>
+							Bibliothè, dove la passione crea esperienze uniche! 
+						</p>
 					</div>
 				</div>
 
@@ -122,7 +134,7 @@
 						<div class="bg-white rounded shadow-sm py-5 px-4"><img
 								th:src="@{'/img/mary.png'}" alt="" width="100"
 								class="img-fluid rounded-circle mb-3 shadow-sm">
-							<h5 class="mb-0">Maria Elena<br>Marrocco</h5><span class="small text-uppercase text-muted">FRONTEND
+							<h5 class="mb-0">M. Elena<br>Marrocco</h5><span class="small text-uppercase text-muted">FRONTEND
 							</span>
 
 						</div>
@@ -182,7 +194,6 @@
 						</div>
 					</div>
 					<!-- End-->
-
 				</div>
 			</div>
 		</div>
