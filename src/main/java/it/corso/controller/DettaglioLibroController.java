@@ -1,5 +1,7 @@
 package it.corso.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import it.corso.dao.RecensioneDao;
 import it.corso.model.Recensione;
 import it.corso.model.Utente;
 import it.corso.service.AutoreService;
@@ -34,6 +38,8 @@ public class DettaglioLibroController {
 	private RecensioneService recensioneService;
 	@Autowired
 	private PrenotazioneService prenotazioneService;
+	@Autowired
+	private RecensioneDao recensioneDao;
 
 	@GetMapping
 	public String getPage(Model model, HttpSession session, @RequestParam(name = "id", required = true) Integer id)
@@ -44,6 +50,13 @@ public class DettaglioLibroController {
 			loggato = false;
 		} else {
 			loggato = true;
+			int utenteId = utente.getId();
+			Optional<Recensione> esisteGiaRecensione = recensioneDao.findByUtenteIdAndDettaglioLibroId(utenteId, id);
+			// se esiste già allora non mi salva la nuova recensione 
+			if(esisteGiaRecensione.isPresent()) {
+				boolean dupliceRec = true;
+				model.addAttribute("dupliceRec", dupliceRec);
+			}
 			model.addAttribute("nomeUtente", utente.getNome());
 			model.addAttribute("cognomeUtente", utente.getCognome());
 		}
