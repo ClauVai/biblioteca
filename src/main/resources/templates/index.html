@@ -122,7 +122,7 @@
             <p>Ecco i nostri libri preferiti del mese!</p>
 
             <div class="col-md-12 mx-auto">
-        <!-- INIZIO PRIMA RIGA-->
+       
 				
 			<div id="lista" class="row justify-content-center">
 			    <div th:each="libro, iterStat : ${preferiti}" th:if="${iterStat.index le 5}" class="card mb-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 bg-light">
@@ -183,7 +183,7 @@
 
         </div>
 
-	<!-- INIZIO TOP 10-->
+	<!-- INIZIO SELEZIONE THÈ-->
 
 	<div class="bg-light p-5">
 		<h4 class="roboto arancione" id="scrollspyHeading5">Selezione di tè</h4>
@@ -210,6 +210,35 @@
 		</div>
 	</div>
     </div>
+    
+    
+     <div class="bg-light p-5">
+
+            <h4 class="roboto verde" id="scrollspyHeading2">Selezione di tè</h4>
+
+            <p>Questi sono i tè che troverai da noi.
+			Ogni mese ne portiamo di nuovi!</p>
+
+            <div class="col-md-12 mx-auto">
+       	<div id="lista" class="row justify-content-center">
+			    <div th:each="libro, iterStat : ${preferiti}" th:if="${iterStat.index le 5}" class="card mb-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 bg-light">
+			        <div class="row g-0 bg-light">
+			            <div class="col-md-4">
+			                <a th:href="@{/dettaglio(id=${libro.id})}">
+			                    <img th:src="${libro.copertina}" class="img-fluid zoom-image" alt="...">
+			                </a>
+			            </div>
+			            <div class="col-md-8">
+			                <div class="card-body">
+			                    <a th:href="@{/dettaglio(id=${libro.id})}"><h6 th:text="${libro.titolo}" class="card-title roboto giallo pb-3"></h6></a>
+			                    <p th:text="${libro.autore.nomeAutore} + ' ' + ${libro.autore.cognome}" class="card-text"></p>
+			                    <p th:text="'Stato: ' + ${libro.stato ? 'Non disponibile' : 'Disponibile'}"></p>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+ 		</div>
+ </div>
 	
 	<!-- FINE TOP 10-->
 
