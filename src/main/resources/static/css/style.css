@@ -70,8 +70,7 @@ body {
   padding: 0px;
   color: #333;
   }
-  
-  
+
   .custom-dropdown-content {
     width: 200% !important; 
     column-gap: 0px; 
@@ -320,21 +319,45 @@ body {
 
 
 li{
+	width: 100%;
 	text-decoration: none;
 	
 }
 
-
-.navbar-nav .nav-item {
-    text-align: center; /* Centra il testo all'interno dei pulsanti */
+@media only screen and (max-width: 992px) {
+	ul{
+		overflow: auto;
+		max-height: 992px;
+	}
+	li{
+		border-bottom: 1px solid #eae9ed;
+	}
+li:hover{
+	background-color: rgb(215, 245, 235);
 }
+.nav-link{
+	font-size: 150%;
+	justify-content: space-between !important;
+}
+a.nav-link{
+	padding: 1rem 1.375rem!important;
+	white-space: nowrap!important;
+}
+a.nav-link:hover {
+	color: #383b43 !important;
+	padding: 1rem 1.375rem;
+	white-space: nowrap;
+	
+}
+
+}
+
 .head{
   background-color: #ffffff;
 }
 .navbar-nav .nav-link {
     padding: 0.5rem 1rem; /* Aggiusta il padding dei pulsanti per uno spaziamento uniforme */
     padding-right: 15px;
-  
 }
 .navbar-toggler{
 	
@@ -985,7 +1008,29 @@ padding-left: 0px;
 	transform: scale(1.025);
 	}
  
+
   
- 
+ /* Aggiungi queste regole al tuo stile */
+.navbar.secondary {
+  overflow-y: auto; /* Abilita lo scrolling verticale se necessario */
+  max-height: calc(100vh - 70px); /* Imposta l'altezza massima */
+}
+
+ul.navbar-nav {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+ul.navbar-nav li {
+  margin: 0;
+  padding: 0;
+}
+
+.custom-dropdown-content {
+  max-height: 200px; /* Imposta l'altezza massima per il dropdown se necessario */
+  overflow-y: auto; /* Abilita lo scrolling verticale se necessario */
+}
+
   
 
