@@ -81,3 +81,23 @@
             element.style.color = randomColor;
         });
     });
+    
+    
+     function adjustContainer() {
+            var container = document.querySelector('.container');
+            var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+            if (windowWidth <= 980) {
+                container.classList.remove('container');
+                container.classList.add('container-fluid');
+            } else {
+                container.classList.remove('container-fluid');
+                container.classList.add('container');
+            }
+        }
+
+        // Aggiorna la classe del container all'avvio e ogni volta che la finestra viene ridimensionata
+        window.addEventListener('resize', adjustContainer);
+        window.addEventListener('load', adjustContainer);
+    
+    

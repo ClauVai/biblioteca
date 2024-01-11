@@ -337,7 +337,9 @@ body {
     width: 100%; /* Fai sì che la navbar occupi l'intera larghezza */
 }
 
+
 @media only screen and (max-width: 989px) {
+	
 	
 li{
 	width: 100%;
@@ -353,6 +355,7 @@ li{
 li:hover{
 	background-color: rgb(215, 245, 235);
 }
+
 
 .navbar{
   justify-content: left;
@@ -1002,24 +1005,7 @@ padding-left: 0px;
    
   }
   
-  
-  .swiper {
-      width: 100%;
-      height: 100%;
-    }
-
-    .swiper-slide {
-	  height: 100%;
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-right: 0px !important;
-      
-    }
-    
+   
 
     .swiper-button-next,
     .swiper-button-prev {
@@ -1035,22 +1021,39 @@ padding-left: 0px;
 		height: auto;
 		margin-left: auto;
 		margin-right: auto;
-		display: block;
+		
 		border-radius: 3px;
-		position: relative;
+		
 		box-shadow: 0px 6px 12px rgba(0,0,0,0.3);
 		transition: transform 200ms ease-in, box-shadow 200ms ease-in;
 		padding-left: 0px;
-		object-fit: cover; 
-		overflow: hidden;
+		
 		}
 .imgSwiper:hover {
 	box-shadow: 0px 11px 18px rgba(0,0,0,0.3);
 	transform: scale(1.025);
 	}
  
+ 
+.wrapper{
+  width:100%;
+  padding-top: 20px;
+  text-align:center;
+}
+h2{
+  font-family:sans-serif;
+  color:#fff;
+}
 
-  
+.swiper-slide{
+	overflow-y: visible;
+}
+
+
+.swiper{
+	overflow-x: hidden;
+    overflow-y: visible;
+}
 
 /*
 .custom-dropdown-content {
