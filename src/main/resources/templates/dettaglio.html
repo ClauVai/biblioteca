@@ -162,8 +162,10 @@
 								<input type="hidden" id="ranked" name="ranked" th:value="*{ranked}" />
 							</div>
 							<div class="comment-area">
-								<textarea id="commento" th:field="*{commento}" class="form-control"
-									placeholder="Commenta (max 250 caratteri)" rows="4" required="required" maxlength="250"></textarea>
+   							 <input type="text" name="commento" id="commento"  class="form-control"
+				              placeholder="Commenta (max 250 caratteri)"  required="required" maxlength="250"
+				              th:value="${commento}">
+				              </input>
 							</div>
 							<div class="comment-btns mt-2">
 								<div class="row">

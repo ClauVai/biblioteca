@@ -43,7 +43,8 @@ public class DettaglioLibroController {
 	private RecensioneDao recensioneDao;
 
 	@GetMapping
-	public String getPage(Model model, HttpSession session, @RequestParam(name = "id", required = true) Integer id)
+	public String getPage(Model model, HttpSession session, @RequestParam(name = "id", required = true) Integer id
+			)
 			throws Exception {
 		Utente utente = (Utente) session.getAttribute("utente");
 		boolean loggato;
@@ -96,7 +97,7 @@ public class DettaglioLibroController {
 	public String inserisciRecensione(
 			// questo id è quello di dettaglio
 			@RequestParam(name = "id", required = true) int id,
-			@RequestParam(name = "commento", required = true) String commento,
+			@ModelAttribute(name = "commento") String commento,
 			@RequestParam(name = "ranked", required = true) Integer ranked, 
 			@ModelAttribute Recensione recensione, HttpSession session, Model model, RedirectAttributes redirectAttributes) {
 		
@@ -108,13 +109,16 @@ public class DettaglioLibroController {
 		
 		if (ranked == 0) {
 			redirectAttributes.addFlashAttribute("errore", "Devi selezionare una valutazione");
-	        return "redirect:/dettaglio?id=" + id;
+			model.addAttribute("commento", commento);
+			redirectAttributes.addFlashAttribute("commento", commento);
+			System.out.println("commento va?" +  recensione.getCommento());
+			return "redirect:/dettaglio?id=" + id;
 	    }
 		
 		int utenteId = utenteAttivo.getId();
 		model.addAttribute("utenteAttivo", utenteAttivo);
 		model.addAttribute("nuovaRecensione", new Recensione());
-		recensioneService.registraRecensione(commento, utenteId, ranked, id);
+		recensioneService.registraRecensione(recensione.getCommento(), utenteId, ranked, id);
 		return "redirect:/dettaglio?id=" + id;
 	}
 }
