@@ -82,7 +82,7 @@
 		    <h2 class="roboto blu" id="scrollspyHeading1">Novità</h2>
 		    <p style="font-size: 20px;">Gli ultimi arrivi ogni settimana!</p>
 		    <div class="container col-12 pt-3">
-		        <div class="swiper-container swiper mySecondSwiper">
+		        <div class="swiper mySwiper">
 		            <div class="swiper-wrapper">
 		                <div th:each="libro : ${ultimiLibri}" class="swiper-slide">
 		                    <a th:href="@{/dettaglio(id=${libro.id})}">
@@ -96,6 +96,9 @@
 		    </div>
 		</div>
         </div>
+        
+        
+         
 
         <!-- FINE NOVITà-->
         <!-- INIZIO CONSIGLIATI DALLO STAFF-->

@@ -29,7 +29,7 @@
 	<script type="text/javascript" th:src="@{/js/GENERICO.js}"></script>
 </head>
 
-<body>
+<div>
 	<div class="container">
 		<div class="head">
 			<div th:replace="~{fragments :: navbar(autori=${autori}, generi=${generi}, caseEditrici=${caseEditrici})}">
@@ -43,11 +43,11 @@
 				<div id="cardDett" class="card card-with-shadow">
 					<div class="card-body">
 						<div class="row">
-							<div class="col-lg-6 col-md-12 col-sm-12">
+							<div class="col-xl-6 col-lg-8 col-md-12 col-sm-12">
 								<div class="white-box text-center"><img id="covercatalogo"
 										th:src="${dettaglio.copertina}" alt="cover" class="img-responsive"></div>
 							</div>
-							<div class="col-lg-6 col-md-12 col-sm-12">
+							<div class="col-xl-6 col-lg-4 col-md-12 col-sm-12">
 								<h4 id="dettTitolo" th:text="${dettaglio.titolo}" class="box-title titoloDett"></h4>
 								<h6 th:text="${dettaglio.autore.nomeAutore}+' '+${dettaglio.autore.cognome}"
 									class="box-title mt-3"></h6>
@@ -60,15 +60,20 @@
 									<li th:text="'ISBN: ' + ${dettaglio.ISBN}"></li>
 								</ul>
 								<ul class="list-unstyled">
-									<li th:text="'Stato: '+${dettaglio.stato ? 'Non disponibile' : 'Disponibile'}"></li>
-									<div th:unless="${loggato}">
-										<a th:text="'Per prenotare i nostri libri, registrati o effettua il login'"
-											th:href="@{/login(id=${libroId})}"></a>
-									</div>
-									<div th:if="${alert}"
-										th:text="'Libro prenotato! Vieni a ritirarlo in sede, ti aspettiamo!'"
-										class="alert alert-success mt-3" role="alert">
-									</div>
+									<li th:text="${dettaglio.stato ? 'Non disponibile' : 'Disponibile'}"></li>
+									<ul class="list-unstyled mt-3">
+										<li th:unless="${loggato}" class="alert alert-warning mt-4" role="alert">
+											Per prenotare  e recensire i nostri libri,<br> 
+											<a class="alert-link" th:text="'registrati'"
+												th:href="@{/login(id=${libroId})}"></a> o effettua il <a class="alert-link" th:text="'login'"
+												th:href="@{/login(id=${libroId})}"></a>
+										</li>
+										<li th:if="${alert}"
+											th:text="'Libro prenotato! Vieni a ritirarlo in sede, ti aspettiamo!'"
+											class="alert alert-success mt-3" role="alert">
+										</li>
+									</ul>
+									
 									<div th:if="${loggato}">
 										<button id="apriPopupButton" class="btn btn-secondary btn-rounded"
 											th:if="${dettaglio.stato == false}"> Richiedi prenotazione </button>
@@ -157,18 +162,18 @@
 									<span class="star" data-rating="3">&#9733;</span>
 									<span class="star" data-rating="4">&#9733;</span>
 									<span class="star" data-rating="5">&#9733;</span>
-									<p th:if="${errore}"><p th:text="${errore}" class="text-danger"></p></p>
+									<p th:if="${errore}"><p th:text="${errore}" class="rosso"></p></p>
 								</div>
 
 								<p id="rating-value"></p>
 								<input type="hidden" id="ranked" name="ranked" th:value="*{ranked}" />
 							</div>
-							<div class="comment-area">
-   							 <input type="text" name="commento" id="commento"  class="form-control"
+							<div class="comment-area col-10">
+   							 <input type="text" name="commento" id="commento"  class="form-control" style="height: 100px;"
 				              placeholder="Commenta (max 250 caratteri)"  required="required" maxlength="250"
 				              th:value="${commento}">
 				              </input>
-							</div>
+							
 							<div class="comment-btns mt-2">
 								<div class="row">
 									<div class="col-6">
@@ -191,18 +196,23 @@
 					</div>
 				</div>
 			</form>
+			
 		</div>
-		<div th:if="${dupliceRec}">
-			<p th:text="'Hai già recensito questo libro'"></p>
-		</div>					       			        
-		<div th:unless="${loggato}">
-			<a th:text="'Per recensire i nostri libri, registrati o effettua il login'" th:href="@{/login(id=${libroId})}"></a>
-		</div>
-	</div>
+		<div class="col-12" th:if="${dupliceRec}">
+		 
+				<ul class="list-unstyled mt-3 text-center">
+					<li class="alert alert-warning mt-4" role="alert" th:text="'Hai già recensito questo libro'">
+					</li>
+					
+				</ul>
+			</div>
+							       			        
+		
+		
 	<!--FINE FORM-->
 	<!--AREA COMMENTI-->
 	<div th:unless="${#lists.isEmpty(listaRecensioni)}" class="be-comment-block">
-        <h1 class="comments-title">Commenti</h1>
+        <h1 class="comments-title p-4"style="font-size: 20px;">Recensioni</h1>
         <div th:each="r : ${listaRecensioni}" class="be-comment-content">
             <span class="be-comment-name">
                 <a th:text="${r.utente.profilo.username} + '&nbsp; &nbsp;' "></a>
@@ -218,9 +228,10 @@
             </p>
         </div>
     </div>
-
+</div>
 	<!--FINE AREA COMMENTI -->
 	<!--FOOTER-->
+</div>
 	<div th:replace="~{fragments :: footer}"></div>
 </body>
 

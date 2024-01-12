@@ -78,9 +78,12 @@ body {
         }
 #cardDett{
 	margin-top:40px;
+	box-shadow: 1px 4px 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-
+.alert-link{
+	font-family: 'Roboto Slab', serif;
+}
 
   .custom-dropdown-content {
     width: 200% !important; 
@@ -707,8 +710,8 @@ padding-top: 20px;
 .be-comment-block {
     margin-bottom: 50px !important;
     border: 1px solid #edeff2;
-    border-radius: 2px;
-    padding: 50px 70px;
+    border-radius: 4px;
+    padding: 5% 10%;
     border:1px solid #ffffff;
 }
 
@@ -718,7 +721,7 @@ padding-top: 20px;
     background-color: #BACDED;
     margin-bottom: 15px;
     font-family: 'Roboto Slab', serif;
-    padding: 10px;
+    margin-bottom: 5%;
     
 }
 
@@ -744,8 +747,10 @@ padding-top: 20px;
 }
 
 .be-comment-name {
-    font-size: 13px;
+    font-size: 17px;
     font-family: 'Montserrat', sans-serif;
+    margin-top:1rem;
+    
 }
 
 .be-comment-content a {
@@ -758,23 +763,18 @@ padding-top: 20px;
     margin-bottom: 15px;
 }
 
-.be-comment-time {
-    text-align: right;
-}
-
-.be-comment-time {
-    font-size: 11px;
-    color: #b4b7c1;
-}
 
 .be-comment-text {
-    font-size: 13px;
+    font-size: 17px;
     line-height: 18px;
     color: #7a8192;
     display: block;
     background: #f6f6f7;
     border: 1px solid #edeff2;
+    border-radius: 7px;
     padding: 15px 20px 20px 20px;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
 

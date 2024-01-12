@@ -61,13 +61,6 @@
          		});
          		
          		
-         		
-         		
-         		
-         		
-         		
-         		
-
     document.addEventListener('DOMContentLoaded', function () {
         // Array di colori disponibili
         var colors = ["#EF7E6B", "#9AD0C3", "#edaf71", "#F58247", "#98D4E1"];
@@ -83,21 +76,4 @@
     });
     
     
-     function adjustContainer() {
-            var container = document.querySelector('.container');
-            var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-
-            if (windowWidth <= 980) {
-                container.classList.remove('container');
-                container.classList.add('container-fluid');
-            } else {
-                container.classList.remove('container-fluid');
-                container.classList.add('container');
-            }
-        }
-
-        // Aggiorna la classe del container all'avvio e ogni volta che la finestra viene ridimensionata
-        window.addEventListener('resize', adjustContainer);
-        window.addEventListener('load', adjustContainer);
-    
-    
+     
