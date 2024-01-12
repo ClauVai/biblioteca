@@ -141,12 +141,9 @@
 				</form>
 			</div>
 	</div>
-	<h6 style="text-align: center;" class="mt-3" th:if="${risultati.isEmpty()}"
-		th:text="'Nessun risultato per la tua ricerca'"></h6>
-	<h6 style="text-align: center;" class="mt-3" th:if="${risultati.size() == 0}"
-		th:text="'Abbiamo trovato ' + ${risultati.size()}' libro'"></h6>
-	<h6 style="text-align: center;" class="mt-3" th:if="${risultati.size() > 0}"
-		th:text="'Abbiamo trovato ' + ${risultati.size()} + ' libri'"></h6>
+	<h6 style="text-align: center;" class="mt-3" th:if="${risultati.isEmpty()}" th:text="'Nessun risultato per la tua ricerca'"></h6>
+	<h6 style="text-align: center;" class="mt-3" th:if="${risultati.size() == 1}" th:text="'Abbiamo trovato ' + ${risultati.size()} + ' libro'"></h6>
+	<h6 style="text-align: center;" class="mt-3" th:if="${risultati.size() > 1}" th:text="'Abbiamo trovato ' + ${risultati.size()} + ' libri'"></h6>
 	<div class="col-11 mx-auto">
 		<div id="lista" class="row product-list justify-content-center">
 			<div th:each="r : ${risultati}" class="col-xl-2 col-lg-3 col-md-5 col-sm-12 card-with-shadow">
