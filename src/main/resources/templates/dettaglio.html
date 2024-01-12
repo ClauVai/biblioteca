@@ -32,7 +32,8 @@
 <body>
 	<div class="container">
 		<div class="head">
-			<div th:replace="~{fragments :: navbar(autori=${autori}, generi=${generi}, caseEditrici=${caseEditrici})}"></div>
+			<div th:replace="~{fragments :: navbar(autori=${autori}, generi=${generi}, caseEditrici=${caseEditrici})}">
+			</div>
 		</div>
 		<!--FINE NAVBAR-->
 		<!--BODY DELLA PAGINA DETTAGLIO-->
@@ -61,7 +62,8 @@
 								<ul class="list-unstyled">
 									<li th:text="'Stato: '+${dettaglio.stato ? 'Non disponibile' : 'Disponibile'}"></li>
 									<div th:unless="${loggato}">
-										<a th:text="'Per prenotare i nostri libri, registrati o effettua il login'" th:href="@{login}"></a>
+										<a th:text="'Per prenotare i nostri libri, registrati o effettua il login'"
+											th:href="@{/login(id=${libroId})}"></a>
 									</div>
 									<div th:if="${alert}"
 										th:text="'Libro prenotato! Vieni a ritirarlo in sede, ti aspettiamo!'"
@@ -194,7 +196,7 @@
 			<p th:text="'Hai già recensito questo libro'"></p>
 		</div>					       			        
 		<div th:unless="${loggato}">
-			<a th:text="'Per recensire i nostri libri, registrati o effettua il login'" th:href="@{login}"></a>
+			<a th:text="'Per recensire i nostri libri, registrati o effettua il login'" th:href="@{/login(id=${libroId})}"></a>
 		</div>
 	</div>
 	<!--FINE FORM-->
@@ -202,7 +204,7 @@
 	<div th:unless="${#lists.isEmpty(listaRecensioni)}" class="be-comment-block">
         <h1 class="comments-title">Commenti</h1>
         <div th:each="r : ${listaRecensioni}" class="be-comment-content">
-            <span class="be-comment-name" >
+            <span class="be-comment-name">
                 <a th:text="${r.utente.profilo.username} + '&nbsp; &nbsp;' "></a>
                 <svg class="gig-rating" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15"
                     height="15">
@@ -216,9 +218,10 @@
             </p>
         </div>
     </div>
+
 	<!--FINE AREA COMMENTI -->
 	<!--FOOTER-->
-<div th:replace="~{fragments :: footer}"></div>
+	<div th:replace="~{fragments :: footer}"></div>
 </body>
 
 </html>

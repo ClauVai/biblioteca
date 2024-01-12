@@ -64,6 +64,8 @@ public class DettaglioLibroController {
 			model.addAttribute("nomeUtente", utente.getNome());
 			model.addAttribute("cognomeUtente", utente.getCognome());
 		} 
+		
+		model.addAttribute("libroId", id);
 		model.addAttribute("loggato", loggato);
 		model.addAttribute("dettaglio", dettaglioLibroService.getDettaglioLibro(id));
 		model.addAttribute("caseEditrici", casaEditriceService.getCaseEditrici());
