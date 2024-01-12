@@ -11,6 +11,24 @@ body {
     
 }
 
+    .card-the {
+        width: 18rem;
+        margin-top: 1rem;
+       
+    }
+
+    .card-the-top {
+        position: relative;
+        height: 10rem;
+        overflow: hidden;
+    }
+
+    .the {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
 
 
 #descrizione{
