@@ -30,10 +30,11 @@ public class LoginController {
 	private AutoreService autoreService;
 
 	@GetMapping
-	public String getPage(Model model, HttpSession session) {
+	public String getPage(Model model, HttpSession session, @RequestParam(name = "id", required = false) Integer id) {
 		model.addAttribute("caseEditrici", casaEditriceService.getCaseEditrici());
 		model.addAttribute("generi", genereService.getGeneri());
 		model.addAttribute("autori", autoreService.getAutori());
+		model.addAttribute("id", id);
 		if (session.getAttribute("utente") != null)
 			return "redirect:/riservata";
 		model.addAttribute("utente", new Utente());
@@ -42,9 +43,12 @@ public class LoginController {
 
 	@PostMapping("/accedi")
 	public String formManager(Model model, @RequestParam("username") String username,
-			@RequestParam("password") String password, HttpSession session) {
+			@RequestParam("password") String password, HttpSession session,
+			@RequestParam(name = "id", required = false) Integer id) {
 		if (utenteService.controlloLogin(username, password, session)) {
-			return "redirect:/riservata";
+			if (id == null)
+				return "redirect:/riservata";
+			return "redirect:/dettaglio?id=" + id;
 		}
 		model.addAttribute("caseEditrici", casaEditriceService.getCaseEditrici());
 		model.addAttribute("generi", genereService.getGeneri());
@@ -56,9 +60,12 @@ public class LoginController {
 	}
 
 	@PostMapping("/registra")
-	public String formManager(Model model, @ModelAttribute("utente") Utente utente, HttpSession session) {
+	public String formManager(Model model, @ModelAttribute("utente") Utente utente, HttpSession session,
+			@RequestParam(name = "id", required = false) Integer id) {
 		model.addAttribute("utente", new Utente());
 		utenteService.registraUtente(utente, session);
-		return "redirect:/riservata";
+		if (id == null)
+			return "redirect:/riservata";
+		return "redirect:/dettaglio?id=" + id;
 	}
 }
