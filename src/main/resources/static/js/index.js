@@ -73,7 +73,7 @@
         var colors = ["#EF7E6B", "#9AD0C3", "#edaf71", "#F58247", "#98D4E1"];
 
         // Seleziona tutti gli elementi con la classe "card-title"
-        var titleElements = document.querySelectorAll('.card-title');
+        var titleElements = document.querySelectorAll('.pro-title');
 
         // Cicla attraverso gli elementi e imposta un colore casuale
         titleElements.forEach(function (element) {

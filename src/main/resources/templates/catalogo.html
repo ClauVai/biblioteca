@@ -29,34 +29,65 @@
 		</div>
 
 		<h5 class="body">
-			<div class="col-lg-10 mx-auto ">
+			<div class="container">
 				<h1 id="libri" class="text-center">libri</h1>
 				<div class="intro">
 					<h3>Benvenuto tra i nostri libri!</h3>
+					
 					<p>Qui potrai vedere tutti i libri che abbiamo nella nostra biblioteca.<br>
+						
 						Scegliamo con cura ogni titolo, e speriamo che troverai il tuo prossimo libro del cuore!</p>
 				</div>
-				<div id="filtroForm" class="text-center my-3">
-					<h5 class="d-block mx-auto my-2">Cerca</h5>
-					<div class="row">
+				
+				
+				<div id="filtroForm" class="">	
+					<div class="pt-2 pb-2 azzurro-bc mt-0">
+						<h5 class="mx-auto text-center roboto">Cerca</h5>
+					</div>
+					<div class="row mt-3 mb-3">
 						<!-- Prima riga: Cerca con la linea -->
-						<div class="col-lg-12 text-center my-1">
-
-							<form th:action="@{'/catalogo/ricerca'}" method="post" onsubmit="return gestisciRicerca()"
-								class="d-flex flex-wrap">
-								<label class="col-lg-2" th:text="'Titolo: '"></label>
-								<input type="text" class="form-control col-lg-10" id="titolo" name="titolo"
-									th:value="${titolo}">
-								<!-- Linea -->
-								<hr class="my-3 col-lg-12">
-						</div>
+							<div class="row col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4">
+								<div class="col-xl-2 col-lg-2 col-md-4 col-sm-4">
+									<label id="stato" >Titolo:</label>
+								</div>
+								<div class="col-xl-10 col-lg-10 col-md-8 col-sm-8">
+									<form th:action="@{'/catalogo/ricerca'}" method="post" onsubmit="return gestisciRicerca()">
+									<input class="form-control form-control-sm" type="text" placeholder="Inserisci titolo"
+								    aria-label="Search" id="titolo" name="titolo" th:value="${titolo}">
+								  
+								</div>
+							</div>
+						
+							<div class="row col-xl-6 col-lg-6 col-md-6 col-sm-12 text-right">							
+							            <div class="col-xl-4 col-lg-4 col-md-12 d-flex justify-content-center">
+							                <div class="form-check">
+							                    <input type="radio" name="stato" th:value="false" id="statoDisp"
+							                        th:checked="${stato == false}" class="form-check-input" />
+							                    <label for="statoDisp" class="form-check-label">Disponibile</label>
+							                </div>
+							            </div>
+							            <div class="col-xl-4 col-lg-4 col-md-12 d-flex justify-content-center">
+							                <div class="form-check">
+							                    <input type="radio" name="stato" th:value="true" id="statoNonDisp"
+							                        th:checked="${stato == true}" class="form-check-input" />
+							                    <label for="statoNonDisp" class="form-check-label">Non disponibile</label>
+							                </div>
+							            </div>
+							            <div class="col-xl-4 col-lg-4 col-md-12 d-flex justify-content-center">
+							                <div class="form-check">
+							                    <input type="radio" name="stato" th:value="null" id="statoBoth"
+							                        th:checked="${stato == null}" class="form-check-input" checked />
+							                    <label for="statoBoth" class="form-check-label">Entrambi</label>
+							                </div>
+							            </div>							        
+							</div>
 					</div>
 
 					<div class="row">
 						<!-- Terza riga: Genere, Autore, Casa Editrice, Lingua -->
-						<div class="col-lg-3 my-2">
-							<h5>Genere</h5>
-							<select class="form-select form-select-sm" id="genereSelect" name="idGenere">
+						<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 pb-3">
+							<label id="genere" >Genere:</label>
+							<select class="form-select form-select-sm" id="genereSelect" name="idGenere" style="margin-left: 0px!important;">
 								<option th:text="'Genere'" th:value="null" selected></option>
 								<option th:each="genere : ${generi}" th:value="${genere.id}"
 									th:text="${genere.nomeGenere}"
@@ -64,9 +95,9 @@
 								</option>
 							</select>
 						</div>
-						<div class="col-lg-3 my-2">
-							<h5>Autore</h5>
-							<select class="form-select form-select-sm" id="autoreSelect" name="idAutore">
+						<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+							<label id="autore" >Autore:</label>
+							<select class="form-select form-select-sm" id="autoreSelect" name="idAutore" style="margin-left: 0px!important;">
 								<option th:text="'Autore'" th:value="null" selected></option>
 								<option th:each="autore : ${autori}" th:value="${autore.id}"
 									th:text="${autore.nomeAutore} + ${autore.cognome}"
@@ -74,9 +105,9 @@
 								</option>
 							</select>
 						</div>
-						<div class="col-lg-3 my-2">
-							<h5>Casa Editrice</h5>
-							<select class="form-select form-select-sm" id="casaSelect" name="idCasaEditrice">
+						<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+							<label id="editore" >Casa editrice:</label>
+							<select class="form-select form-select-sm" id="casaSelect" name="idCasaEditrice" style="margin-left: 0px!important;">
 								<option th:text="'Casa Editrice'" th:value="null" selected></option>
 								<option th:each="casa : ${caseEditrici}" th:value="${casa.id}"
 									th:text="${casa.nomeCasa}"
@@ -84,9 +115,9 @@
 								</option>
 							</select>
 						</div>
-						<div class="col-lg-3 my-2">
-							<h5>Lingua</h5>
-							<select class="form-select form-select-sm" id="linguaSelect" name="idLingua">
+						<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+							<label id="lingua" >Lingua:</label>
+							<select class="form-select form-select-sm" id="linguaSelect" name="idLingua" style="margin-left: 0px!important;">
 								<option th:text="'Lingua'" th:value="null" selected></option>
 								<option th:each="lingua : ${lingue}" th:value="${lingua.id}" th:text="${lingua.idioma}"
 									th:selected="${idLingua != null AND idLingua == lingua.id}"></option>
@@ -95,55 +126,49 @@
 						</div>
 					</div>
 
-					<div class="row">
-						<div class="col-lg-12 my-2">
-							<label class="" id="stato" th:text="'Stato: '"></label>&nbsp; <br>
-							<input type="radio" name="stato" th:value="false" id="statoDisp"
-								th:checked="${stato == false}" class="form-check-input" /> Disponibile
-							<input type="radio" name="stato" th:value="true" id="statoNonDisp"
-								th:checked="${stato == true}" class="form-check-input" /> Non disponibile
-							<input type="radio" name="stato" th:value="null" id="statoBoth"
-								th:checked="${stato == null}" class="form-check-input" checked /> Entrambi
-						</div>
-					</div>
+					
 
-					<div class="row">
+					<div class="row text-center">
 						<!-- Quarta riga: Button Applica e Pulisci -->
-						<div class="col-lg-12 text-center my-2">
+						<div class="col-lg-12">
 							<div class="ms-auto mt-2">
-								<input type="submit" class="btn btn-outline-success" th:value="'Applica'">
+								
 								<input type="button" class="btn btn-outline-success" value="Pulisci"
 									onclick="pulisciForm()">
+								<input type="submit" class="btn btn-outline-success" th:value="'Applica'">
 							</div>
 						</div>
 					</div>
-					</form>
 				</div>
-			</div>
-			<h6 style="text-align: center;" class="mt-3" th:if="${risultati.isEmpty()}"
-				th:text="'Nessun risultato per la tua ricerca'"></h6>
-			<h6 style="text-align: center;" class="mt-3" th:unless="${risultati.isEmpty()}"
-				th:text="'Risultano ' + ${risultati.size()} + ' libri in lista'"></h6>
-
-			<div class="col-md-10 mx-auto">
-				<div id="lista" class="row product-list justify-content-center">
-					<div th:each="r : ${risultati}" class="col-xl-3 col-lg-4 col-md-5 col-sm-12 card-with-shadow">
-						<section class="panel">
-							<div class="pro-img-box ">
-								<img id="covercatalogo" th:src="${r.copertina}" alt="cover" />
-							</div>
-							<div class="panel-body text-center">
-								<h5 id="titolocat">
-									<a th:text="${r.titolo}" th:href="@{/dettaglio(id=${r.id})}" class="pro-title"></a>
-								</h5>
-								<p th:text="${r.autore.nomeAutore}+' '+${r.autore.cognome}"></p>
-								<p th:text="'Stato: '+${r.stato ? 'Non disponibile' : 'Disponibile'}"></p>
-							</div>
-						</section>
+				</form>
+				</div>
 					</div>
-				</div>
+					<h6 style="text-align: center;" class="mt-3" th:if="${risultati.isEmpty()}"
+						th:text="'Nessun risultato per la tua ricerca'"></h6>
+					<h6 style="text-align: center;" class="mt-3" th:unless="${risultati.isEmpty()}"
+						th:text="'Abbiamo trovato ' + ${risultati.size()} + ' libri'"></h6>
+		
+					<div class="col-11 mx-auto">
+						<div id="lista" class="row product-list justify-content-center">
+							<div th:each="r : ${risultati}" class="col-xl-2 col-lg-3 col-md-5 col-sm-12 card-with-shadow">
+								<section class="panel">
+									<div class="pro-img-box ">
+										<a th:href="@{/dettaglio(id=${r.id})}">
+											<img id="covercatalogo" th:src="${r.copertina}" alt="cover"  class="img-fluid zoom-image" style="border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important;"/>
+										</a>
+									</div>
+									<div class="panel-body text-center">
+										<h5 id="titolocat">
+											<a th:text="${r.titolo}" th:href="@{/dettaglio(id=${r.id})}" class="pro-title"></a>
+										</h5>
+										<p th:text="${r.autore.nomeAutore}+' '+${r.autore.cognome}"></p>
+										<p th:text="'Stato: '+${r.stato ? 'Non disponibile' : 'Disponibile'}"></p>
+									</div>
+								</section>
+							</div>
+						</div>
+					</div>
 			</div>
-	</div>
 	<!--FRAGMENT FOOTER-->
 	<div th:replace="~{fragments :: footer}"></div>
 </body>

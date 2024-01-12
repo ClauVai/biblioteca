@@ -269,9 +269,11 @@ body {
             padding: 0px;
   }
  #covercatalogo{
-	 padding-top:30px;
+	/* padding-top:30px;
 	 padding-left: 30px;
-	 padding-right: 30px;
+	 padding-right: 30px;*/
+	 margin:15px;
+	 margin-left: 0px;
 	 
  }
  
@@ -1072,6 +1074,14 @@ h2{
 	overflow-x: hidden;
     overflow-y: visible;
 }
+
+.form-check-input {
+        font-size: 15px; /* Adjust the font size as needed */
+    }
+    
+    .form-check-label{
+		font-size: 17px;
+	}
 
 /*
 .custom-dropdown-content {
