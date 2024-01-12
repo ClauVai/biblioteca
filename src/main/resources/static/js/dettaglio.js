@@ -1,6 +1,8 @@
 //Funzione per pulire il form di recensioni 
 function pulisciFormRewiev() {
 	document.getElementById("commentForm").reset();
+	//per pulire anche dopo l'invio quando setto il commento
+	document.getElementById("commento").value = "";
 }
 
 document.addEventListener('DOMContentLoaded', function() {
