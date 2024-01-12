@@ -9,8 +9,6 @@ import it.corso.model.DettaglioLibro;
 import it.corso.model.Recensione;
 import it.corso.model.Utente;
 
-import java.util.Optional;
-
 @Service
 public class RecensioneServiceImpl implements RecensioneService {
 	@Autowired

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,11 +43,13 @@ public class DettaglioLibroController {
 	private RecensioneDao recensioneDao;
 
 	@GetMapping
-	public String getPage(Model model, HttpSession session, @RequestParam(name = "id", required = true) Integer id)
+	public String getPage(Model model, HttpSession session, @RequestParam(name = "id", required = true) Integer id
+			)
 			throws Exception {
 		Utente utente = (Utente) session.getAttribute("utente");
 		boolean loggato;
 		boolean dupliceRec = false;
+		
 		if (utente == null) {
 			loggato = false;
 		} else {
@@ -60,7 +63,9 @@ public class DettaglioLibroController {
 			model.addAttribute("dupliceRec", dupliceRec);
 			model.addAttribute("nomeUtente", utente.getNome());
 			model.addAttribute("cognomeUtente", utente.getCognome());
-		}
+		} 
+		
+		model.addAttribute("libroId", id);
 		model.addAttribute("loggato", loggato);
 		model.addAttribute("dettaglio", dettaglioLibroService.getDettaglioLibro(id));
 		model.addAttribute("caseEditrici", casaEditriceService.getCaseEditrici());
@@ -68,6 +73,7 @@ public class DettaglioLibroController {
 		model.addAttribute("autori", autoreService.getAutori());
 		model.addAttribute("nuovaRecensione", new Recensione());
 		model.addAttribute("listaRecensioni", recensioneService.getRecensioniByLibroId(id));
+		
 		// System.out.println("listaRecensioni" +
 		// recensioneService.getRecensioniByLibroId(id).get(0).getRanked());
 		return "dettaglio";
@@ -93,18 +99,29 @@ public class DettaglioLibroController {
 	public String inserisciRecensione(
 			// questo id è quello di dettaglio
 			@RequestParam(name = "id", required = true) int id,
-			@RequestParam(name = "commento", required = true) String commento,
-			@RequestParam(name = "ranked", required = true) Integer ranked, HttpSession session, Model model) {
+			@ModelAttribute(name = "commento") String commento,
+			@RequestParam(name = "ranked", required = true) Integer ranked, 
+			@ModelAttribute Recensione recensione, HttpSession session, Model model, RedirectAttributes redirectAttributes) {
+		
 		// se tutti i campi sono pieni, inserisci nel database
 		Utente utenteAttivo = (Utente) session.getAttribute("utente");
 		if (utenteAttivo == null) {
 			return "redirect:/dettaglio?id=" + id;
-		}
+		}  
+		
+		if (ranked == 0) {
+			redirectAttributes.addFlashAttribute("errore", "Devi selezionare una valutazione");
+			model.addAttribute("commento", commento);
+			redirectAttributes.addFlashAttribute("commento", commento);
+			System.out.println("commento va?" +  recensione.getCommento());
+			return "redirect:/dettaglio?id=" + id;
+	    }
+		
 		int utenteId = utenteAttivo.getId();
 		model.addAttribute("utenteAttivo", utenteAttivo);
 		model.addAttribute("nuovaRecensione", new Recensione());
-		recensioneService.registraRecensione(commento, utenteId, ranked, id);
+		recensioneService.registraRecensione(recensione.getCommento(), utenteId, ranked, id);
 		return "redirect:/dettaglio?id=" + id;
 	}
 }
-//}
+

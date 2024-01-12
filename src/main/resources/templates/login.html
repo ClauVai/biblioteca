@@ -19,17 +19,17 @@
 </head>
 
 <body>
-	<div class="head">
-		<!--navbar-->
-		<div th:replace="~{fragments :: navbar(autori=${autori}, generi=${generi}, caseEditrici=${caseEditrici})}">
+	<div class="container">
+		<div class="head">
+			<!--navbar-->
+			<div th:replace="~{fragments :: navbar(autori=${autori}, generi=${generi}, caseEditrici=${caseEditrici})}">
+			</div>
 		</div>
-	</div>
-	<div>
-		<h2>EFFETTUA IL LOGIN O REGISTRATI PER ACCEDERE ALLA TUA AREA</h2>
-		<div class="container">
-			<div class="row mt-4">
-				<h2>Login</h2>
-				<form th:action="@{'/login/accedi'}" method="post">
+		<div class="body">
+			<h2>EFFETTUA IL LOGIN O REGISTRATI PER ACCEDERE ALLA TUA AREA</h2>
+			<div class="col mt-4">
+				<h2 th:text="'Login'" class="box-title titoloDett"></h2>
+				<form th:action="@{/login/accedi(id=${id})}" method="post">
 					<label for="username" th:text="'Username: '"></label>
 					<input type="text" id="username" name="username" required>
 					<br>
@@ -39,11 +39,12 @@
 					<button type="submit">Accedi</input>
 				</form>
 			</div>
-			<div th:if="${loginError}"><p th:text="${messaggio}"></p>
+			<div th:if="${loginError}">
+				<p th:text="${messaggio}"></p>
 			</div>
-			<div class="row mt-4">
+			<div>
 				<h2>Registrazione</h2>
-				<form th:action="@{'/login/registra'}" method="post" th:object="${utente}">
+				<form th:action="@{/login/registra(id=${id})}" method="post" th:object="${utente}">
 					<label for="nome" th:text="'Nome: '"></label>
 					<input type="text" id="nome" th:field="*{nome}" required>
 					<br>
