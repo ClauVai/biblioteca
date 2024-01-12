@@ -322,12 +322,15 @@ body {
 	color: #ffffff;
 }
 
-.img-responsive{
-	width: 80%;
-	margin:0px;
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    
 }
 
 #dettaglio{
+	
 	color: #98D4E1;
 }
 
