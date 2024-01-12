@@ -61,11 +61,11 @@ public class LoginController {
 
 	@PostMapping("/registra")
 	public String formManager(Model model, @ModelAttribute("utente") Utente utente, HttpSession session,
-			@RequestParam(name = "id", required = false) Integer id) {
+			@RequestParam(name = "idLibro", required = false) Integer idLibro) {
 		model.addAttribute("utente", new Utente());
 		utenteService.registraUtente(utente, session);
-		if (id == null)
+		if (idLibro == null)
 			return "redirect:/riservata";
-		return "redirect:/dettaglio?id=" + id;
+		return "redirect:/dettaglio?id=" + idLibro;
 	}
 }

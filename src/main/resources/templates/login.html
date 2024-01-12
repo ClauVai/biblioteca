@@ -67,7 +67,7 @@
        
         <h1 class="roboto giallo">Registrati</h1>
      
-        <form th:action="@{'/login/registra'}" method="post" th:object="${utente}">
+        <form th:action="@{/login/registra(idLibro=${id})}" method="post" th:object="${utente}">
           <div class="form-group">
             <div class="input-group">
 				
