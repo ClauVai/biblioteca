@@ -26,6 +26,7 @@
 			<div th:replace="~{fragments :: navbar(autori=${autori}, generi=${generi}, caseEditrici=${caseEditrici})}">
 			</div>
 		</div>
+
   <main>
 	  
     <div class="row">
@@ -33,6 +34,7 @@
       <div class="login-block col-xl-6 col-lg-6 col-md-8 col-sm-12 col-sm-12" id="accessoDiv">
         <img th:src="@{'/img/login.png'}" alt="logo login" style="width: 100%;">
         <h1 class="roboto azzurro">Accedi</h1>
+
 
         <form th:action="@{/login/accedi(id=${id})}" method="post">
           <div class="form-group">
