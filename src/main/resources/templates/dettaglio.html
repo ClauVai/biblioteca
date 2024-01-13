@@ -44,11 +44,11 @@
 					<div class="card-body">
 						<div class="row">
 							<div class="col-xl-6 col-lg-8 col-md-12 col-sm-12">
-								<div class="white-box text-center"><img id="covercatalogo"
-										th:src="${dettaglio.copertina}" alt="cover" class="img-responsive"></div>
+								<div class="white-box"><img id="covercatalogo"
+										th:src="${dettaglio.copertina}" alt="cover" class="img-responsive mx-auto"></div>
 							</div>
 							<div class="col-xl-6 col-lg-4 col-md-12 col-sm-12">
-								<h4 id="dettTitolo" th:text="${dettaglio.titolo}" class="box-title titoloDett"></h4>
+								<h4 id="dettTitolo" th:text="${dettaglio.titolo}" class="box-title titoloDett" style="margin-top: 15px;"></h4>
 								<h6 th:text="${dettaglio.autore.nomeAutore}+' '+${dettaglio.autore.cognome}"
 									class="box-title mt-3"></h6>
 								<p class="box-title mt-3" th:text="${dettaglio.autore.biografia}"></p>

@@ -1,6 +1,8 @@
 //Funzione per pulire il form di recensioni 
 function pulisciFormRewiev() {
 	document.getElementById("commentForm").reset();
+	//per pulire anche dopo l'invio quando setto il commento
+	document.getElementById("commento").value = "";
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -76,5 +78,27 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 })();
 
-
+   //FUNZIONE CHE FUNZIONA ->  da verificare 
+        document.addEventListener('DOMContentLoaded', function() {
+         	    var titles = document.querySelectorAll('.pro-title');
+         	
+         	    titles.forEach(function(title) {
+         	        title.addEventListener('mouseover', function() {
+         	            var randomColor = getRandomColor();
+         	            title.style.backgroundColor = randomColor;
+         	        });
+         	
+         	        title.addEventListener('mouseout', function() {
+         	            title.style.backgroundColor = ''; // Resetta il colore di sfondo
+         	        });
+         	    });
+         	
+         	    // Funzione per ottenere un colore casuale dalla tua lista
+         	    function getRandomColor() {
+         	        var colors = ['#EF7E6B', '#9AD0C3', '#FCDD98', '#F58247', '#98D4E1'];
+         	        var randomIndex = Math.floor(Math.random() * colors.length);
+         	        return colors[randomIndex];
+         	    }
+         		});
+         		
 
