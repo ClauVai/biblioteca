@@ -57,3 +57,16 @@
         });
     });
     
+// FUNZIONE per cambiare il colore dello stato
+function changeStatusColor(element) {
+    var status = $(element).data('status');
+    var color = (status === 'disponibile') ? 'green' : 'red';
+    $(element).css('color', color);
+
+    // Cambia lo stato
+     var newStatus = (status === 'disponibile') ? 'non-disponibile' : 'disponibile';
+     $(element).data('status', newStatus);
+}
+    
+
+    
