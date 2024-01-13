@@ -147,21 +147,21 @@
 	<div class="col-11 mx-auto">
 		<div id="lista" class="row product-list justify-content-center">
 			<div th:each="r : ${risultati}" class="col-xl-2 col-lg-3 col-md-5 col-sm-12 card-with-shadow">
-				<section class="panel">
-					<div class="pro-img-box ">
+				<div class="card panel">
+					<div class="pro-img-box mx-auto">
 						<a th:href="@{/dettaglio(id=${r.id})}">
-							<img id="covercatalogo" th:src="${r.copertina}" alt="cover" class="img-fluid zoom-image"
-								style="border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important;" />
+							<img id="covercatalogo" th:src="${r.copertina}" alt="cover" class="img-fluid zoom-image img-cat"
+								style="border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important;"/>
 						</a>
 					</div>
-					<div class="panel-body text-center">
+					<div class="card-footer panel-body text-center mt-auto">
 						<h5 id="titolocat">
 							<a th:text="${r.titolo}" th:href="@{/dettaglio(id=${r.id})}" class="pro-title"></a>
 						</h5>
 						<p th:text="${r.autore.nomeAutore}+' '+${r.autore.cognome}"></p>
 						<p th:text="'Stato: '+${r.stato ? 'Non disponibile' : 'Disponibile'}"></p>
 					</div>
-				</section>
+				</div>
 			</div>
 		</div>
 	</div>
