@@ -155,11 +155,11 @@
 	<div class="col-11 mx-auto">
 		<div id="lista" class="row product-list justify-content-center">
 			<div th:each="r : ${risultati}" class="col-xl-2 col-lg-3 col-md-5 col-sm-12 card-with-shadow">
-				<section class="panel">
-					<div class="pro-img-box ">
+				<div class="panel">
+					<div class="pro-img-box img-cat">
 						<a th:href="@{/dettaglio(id=${r.id})}">
-							<img id="covercatalogo" th:src="${r.copertina}" alt="cover" class="img-fluid zoom-image"
-								style="border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important;" />
+							<img id="covercatalogo" th:src="${r.copertina}" alt="cover" class="img-fluid zoom-image img-cat-sing mx-auto"
+								style="border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; height: 100%; width: auto;" />
 						</a>
 					</div>
 					<div class="panel-body text-center">
@@ -169,7 +169,7 @@
 						<p th:text="${r.autore.nomeAutore}+' '+${r.autore.cognome}"></p>
                         <p class="pro-stato" th:attr="data-status=${r.stato ? 'non-disponibile' : 'disponibile'}" th:text="${r.stato ? 'Non disponibile' : 'Disponibile'}" onclick="changeStatusColor(this)"></p>
 					</div>
-				</section>
+				</div>
 			</div>
 		</div>
 	</div>
