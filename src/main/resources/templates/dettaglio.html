@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head> 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bibliothè | Dettaglio</title>
@@ -11,21 +11,16 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">	
+	<!-- Collegamento a Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- Includi jQuery da un CDN -->
    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<!-- Includi Popper.js da un CDN -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
 	<!-- Includi MDB JS da un CDN -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 	<script type="text/javascript" th:src="@{/js/dettaglio.js}"></script>
 	<script type="text/javascript" th:src="@{/js/GENERICO.js}"></script>
-
 </head>
 
 <div>
@@ -58,8 +53,9 @@
 									<li th:text="'Anno di pubblicazione: '+${dettaglio.annoEdizione}"></li>
 									<li th:text="'ISBN: ' + ${dettaglio.ISBN}"></li>
 								</ul>
+								<!-- STATO -->
 								<ul class="list-unstyled">
-									<li th:text="${dettaglio.stato ? 'Non disponibile' : 'Disponibile'}"></li>
+									<li class="pro-stato" th:style="'color:' + (${dettaglio.stato ? '#EF7E6B' : '#7EC6AD'})" th:text="${dettaglio.stato ? 'Non disponibile' : 'Disponibile'}"></li>
 									<ul class="list-unstyled mt-3">
 										<li th:unless="${loggato}" class="alert alert-warning mt-4" role="alert">
 											Per prenotare  e recensire i nostri libri effettua il <a class="alert-link" th:text="'login'"

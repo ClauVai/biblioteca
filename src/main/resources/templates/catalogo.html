@@ -167,7 +167,7 @@
 							<a th:text="${r.titolo}" th:href="@{/dettaglio(id=${r.id})}" class="pro-title"></a>
 						</h5>
 						<p th:text="${r.autore.nomeAutore}+' '+${r.autore.cognome}"></p>
-                        <p class="pro-stato" th:attr="data-status=${r.stato ? 'non-disponibile' : 'disponibile'}" th:text="${r.stato ? 'Non disponibile' : 'Disponibile'}" onclick="changeStatusColor(this)"></p>
+                        <p class="pro-stato" th:attr="data-status=${r.stato ? 'non-disponibile' : 'disponibile'}" th:text="${r.stato ? 'Non disponibile' : 'Disponibile'}"></p>
 					</div>
 				</div>
 			</div>
