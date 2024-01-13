@@ -15,6 +15,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -31,21 +32,18 @@
 			<div class="intro">
 					 <h3 th:text="'Ciao ' + ${utente.nome} + ', ecco la tua area riservata!'"></h3>
 
-					<p>Qui potrai vedere i tuoi dati<br> e tutti i libri che hai prenotato e recensito</p>
-			</div>
-			<div>
-				
+					<p style="font-size: 20px;">Qui potrai vedere i tuoi dati<br> e tutti i libri che hai prenotato e recensito</p>
 			</div>
             <div class="row">
-              <div class="col-2">
-                <div class="col-12">
-                    <p>IL TUO PROFILO</p>
-                    <ul class="">
-                        <li class="">
-                            <p class="" th:text="${utente.nome} +' '+ ${utente.cognome}"></p>
+              <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
+                <div class="col-11 mx-auto sidebar">
+                    <p>Il tuo profilo</p>
+                    <ul class="list-unstyled">
+                        <li class="list-unstyled">
+                            <p class="list-unstyled" th:text="${utente.nome} +' '+ ${utente.cognome}"></p>
                         </li>
-                        <li class="">
-                            <p class="" th:text="${utente.email}">Le tue prenotazioni</p>
+                        <li class="list-unstyled">
+                            <p class="list-unstyled" th:text="${utente.email}">Le tue prenotazioni</p>
                         </li>
                         <form th:action="@{riservata/logout}" method="get" onsubmit="return logout()">
                             <button type="submit" class="">Logout</button>
@@ -54,17 +52,16 @@
                     </ul>
                 </div>
               </div>
-              <div class="col-10">
-                    <div class="container">
-				        <p>LE TUE PRENOTAZIONI</p>
+              <div class="col-xl-9 col-lg-9 xol-md-12 col-sm-12">
+                    <div class="col-11 mx-auto">
+				        <p>Le tue prenotazioni</p>
 				        <table class="table table-bordered">
 				            <thead>
-				                <tr>
+				                <tr class="roboto">
 				                    <th>Titolo</th>
 				                    <th>Autore</th>
 				                    <th>Data Prenotazione</th>
 				                    <th>Data Restituzione</th>
-				                    <th>Azioni</th>
 				                </tr>
 				            </thead>
 				            <tbody>
@@ -81,7 +78,7 @@
 				                    <td th:if="${pr != null && pr.dataRestituzione == null}">
 				                        <form th:action="@{'/riservata/restituisci'}" method="post" onsubmit="return restituisci()">
 				                            <input type="hidden" name="prenotazioneId" th:value="${pr.id}" />
-				                            <button type="submit" class="btn btn-danger">Restituisci</button>
+				                            <button type="submit" class="btn btn-success send btn-sm">Restituisci</button>                           
 				                        </form>
 				                    </td>
 				                    <td th:unless="${pr != null && pr.dataRestituzione == null}"
@@ -90,15 +87,13 @@
 				            </tbody>
 				        </table>
 				    </div>
-				      <div class="container">
-				        <div class="row">
-				            <div class="col-12">
-				                <p>LE TUE RECENSIONI</p>
-				                <table class="table table-bordered">
-				                    <thead>
-				                        <tr>
-				                            <th>Titolo</th>
-				                            <th>Autore</th>
+				      <div class="col-11 mx-auto">				        
+				      	<p>Le tue recensioni</p>
+				          <table class="table table-bordered">
+				             <thead>
+				                <tr class="roboto">
+				                   <th>Titolo</th>
+				                     <th>Autore</th>
 				                            <th>Valutazione</th>
 				                            <th>Commento</th>
 				                        </tr>
@@ -118,10 +113,9 @@
 				                        </tr>
 				                    </tbody>
 				                </table>
-				            </div>
-				        </div>
+				       
 				    </div>
-              </div>
+              	</div>
             </div>
           </div>
 	<!-- FOOTER -->

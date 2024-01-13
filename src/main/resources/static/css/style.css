@@ -352,7 +352,9 @@ h1 {
 	margin-top: 20px;
 }
 
-
+.sidebar{
+	padding-left: 10%;
+}
 .pro-title:hover {
 	color: #ffffff;
 }
