@@ -1316,6 +1316,18 @@ h2 {
 .img-cat {
 	height: 32vh
 }
+
+/* Per gestire il colore dello stato diponibile e non disponibile */
+.pro-stato {
+    color: green;
+
+}
+
+.pro-stato[data-status="non-disponibile"] {
+    color: red;
+}
+
+
 @media (max-width:1399px) {
 	.img-cat {
 		min-height: 28vh;
