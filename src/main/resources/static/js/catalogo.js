@@ -61,7 +61,40 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 });
 
+// FUNZIONE per generare un colore casuale escludendo il nero
+$(document).ready(function () {
+   // Funzione per generare un colore casuale escludendo il nero
+   function getRandomColor() {
+      const colors = ['#EF7E6B', '#9AD0C3', '#FCDD98', '#F58247', '#98D4E1'];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
 
+      // Escludi il colore nero
+      return randomColor !== '#000000' ? randomColor : getRandomColor();
+   }
+
+   // Funzione per cambiare il colore del titolo
+   function changeTitleColor() {
+      $('.pro-title').each(function () {
+         $(this).css('color', getRandomColor());
+      });
+   }
+
+   // Call the function to change the color initially and set up an interval to change it periodically
+   changeTitleColor();
+   setInterval(changeTitleColor, 100000); // Cambia colore ogni 5 secondi (puoi regolare l'intervallo)
+
+   // Mantieni il colore bianco quando il titolo è selezionato
+   $('.pro-title').hover(
+      function () {
+         $(this).data('originalColor', $(this).css('color')); // Salva il colore originale
+         $(this).css('color', 'white');
+      },
+      function () {
+         const originalColor = $(this).data('originalColor') || getRandomColor();
+         $(this).css('color', originalColor);
+      }
+   );
+});
 
 
     

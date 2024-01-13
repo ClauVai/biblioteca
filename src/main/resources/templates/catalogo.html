@@ -2,22 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bibliothè | Libri</title>
-	<link rel="icon" type="image/png" th:href="@{/img/favicon.ico}">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link th:href="@{/css/style.css}" rel="stylesheet" />
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-	<script type="text/javascript" th:src="@{/js/catalogo.js}"></script>
-	<script type="text/javascript" th:src="@{/js/GENERICO.js}"></script>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliothè | Libri</title>
+    <link rel="icon" type="image/png" th:href="@{/img/favicon.ico}">
+    
+    <!-- Collegamenti ai fogli di stile -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+
+    <!-- Collegamenti ai font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
+
+    <!-- Collegamento a Font Awesome (se necessario) -->
+    <!-- Aggiungi il link qui -->
+
+    <!-- Collegamenti ai file JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/catalogo.js}"></script>
+    <script type="text/javascript" th:src="@{/js/GENERICO.js}"></script>
 </head>
 
 <body>
@@ -147,21 +155,21 @@
 	<div class="col-11 mx-auto">
 		<div id="lista" class="row product-list justify-content-center">
 			<div th:each="r : ${risultati}" class="col-xl-2 col-lg-3 col-md-5 col-sm-12 card-with-shadow">
-				<div class="card panel">
-					<div class="pro-img-box mx-auto">
+				<section class="panel">
+					<div class="pro-img-box ">
 						<a th:href="@{/dettaglio(id=${r.id})}">
-							<img id="covercatalogo" th:src="${r.copertina}" alt="cover" class="img-fluid zoom-image img-cat"
-								style="border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important;"/>
+							<img id="covercatalogo" th:src="${r.copertina}" alt="cover" class="img-fluid zoom-image"
+								style="border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important;" />
 						</a>
 					</div>
-					<div class="card-footer panel-body text-center mt-auto">
+					<div class="panel-body text-center">
 						<h5 id="titolocat">
 							<a th:text="${r.titolo}" th:href="@{/dettaglio(id=${r.id})}" class="pro-title"></a>
 						</h5>
 						<p th:text="${r.autore.nomeAutore}+' '+${r.autore.cognome}"></p>
 						<p th:text="'Stato: '+${r.stato ? 'Non disponibile' : 'Disponibile'}"></p>
 					</div>
-				</div>
+				</section>
 			</div>
 		</div>
 	</div>
