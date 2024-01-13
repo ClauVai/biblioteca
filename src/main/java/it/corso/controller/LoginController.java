@@ -50,6 +50,7 @@ public class LoginController {
 				return "redirect:/riservata";
 			return "redirect:/dettaglio?id=" + id;
 		}
+		model.addAttribute("id", id);
 		model.addAttribute("caseEditrici", casaEditriceService.getCaseEditrici());
 		model.addAttribute("generi", genereService.getGeneri());
 		model.addAttribute("autori", autoreService.getAutori());
