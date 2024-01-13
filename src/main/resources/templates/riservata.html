@@ -24,83 +24,112 @@
 		</div>
 	</div>
 	<!-- CORPO -->
-	<div class="container row">
-		<h2 th:text="'Ciao ' + ${utente.nome} + ', ecco la tua area riservata!'"></h2>
-		<div class="col-xl-3">
-			<p>IL TUO PROFILO</p>
-			<ul class="">
-				<li class="">
-					<p class="" th:text="${utente.nome} +' '+ ${utente.cognome}"></p>
-				</li>
-				<li class="">
-					<p class="" th:text="${utente.email}">Le tue prenotazioni</p>
-				</li>
-				<form th:action="@{riservata/logout}" method="get" onsubmit="return logout()">
-					<button type="submit" class="">Logout</button>
-				</form>
-				</li>
-			</ul>
-		</div>
-		<div class="col-xl-5">
-			<div>
-				<table>
-					<tr>LE TUE PRENOTAZIONI</tr>
-					<tr>
-						<th>Titolo</th>
-						<th>Autore</th>
-						<th>Data Prenotazione</th>
-						<th>Data Restituzione</th>
-					</tr>
-					<tr th:each="pr : ${prenotazioni}">
-						<td th:if="${prenotazioni == null}" th:text="'Non hai mai prenotato libri'"></td>
-						<td>
-							<a th:text="${pr != null ? pr.dettaglioLibro.titolo : ''}"
-								th:href="@{/dettaglio(id=${pr.dettaglioLibro.id})}"></a>
-						</td>
-						<td
-							th:text="${pr != null ? pr.dettaglioLibro.autore.nomeAutore +' '+ pr.dettaglioLibro.autore.cognome : ''}">
-						</td>
-						<td th:text="${pr != null ? pr.dataPrenotazione : ''}"></td>
-						<td th:if="${pr != null && pr.dataRestituzione == null}">
-							<form th:action="@{'/riservata/restituisci'}" method="post" onsubmit="return restituisci()">
-								<input type="hidden" name="prenotazioneId" th:value="${pr.id}" />
-								<button type="submit">Restituisci</button>
-							</form>
-						</td>
-						<td th:unless="${pr != null && pr.dataRestituzione == null}"
-							th:text="${pr != null ? pr.dataRestituzione : ''}"></td>
-					</tr>
-				</table>
+	<!-- Main container holds the
+		entire content -->
+		<div class="body">
+			<h1 id="riservata" class="text-center arancione">Area riservata</h1>
+			<div class="intro">
+					 <h3 th:text="'Ciao ' + ${utente.nome} + ', ecco la tua area riservata!'"></h3>
+
+					<p>Qui potrai vedere i tuoi dati<br> e tutti i libri che hai prenotato e recensito</p>
 			</div>
-		</div>
-		<div class="col-xl-4">
 			<div>
-				<table>
-					<tr>LE TUE RECENSIONI</tr>
-					<tr>
-						<th>Titolo</th>
-						<th>Autore</th>
-						<th>Valutazione</th>
-						<th>Commento</th>
-					</tr>
-					<tr th:each="rec : ${recensioni}">
-						<td th:if="${recensioni == null}" th:text="'Non hai mai lasciato recensioni'"></td>
-						<td>
-							<a th:text="${rec != null ? rec.dettaglioLibro.titolo : ''}"
-								th:href="@{/dettaglio(id=${rec.dettaglioLibro.id})}"></a>
-						</td>
-						<td
-							th:text="${rec != null ? rec.dettaglioLibro.autore.nomeAutore + rec.dettaglioLibro.autore.cognome : ''}">
-						</td>
-						<td th:text="${rec != null ? rec.ranked : ''}"></td>
-						<td th:text="${rec != null ? rec.commento : ''}"></td>
-					</tr>
-				</table>
+				
 			</div>
-		</div>
-	</div>
+            <div class="row">
+              <div class="col-2">
+                <div class="col-12">
+                    <p>IL TUO PROFILO</p>
+                    <ul class="">
+                        <li class="">
+                            <p class="" th:text="${utente.nome} +' '+ ${utente.cognome}"></p>
+                        </li>
+                        <li class="">
+                            <p class="" th:text="${utente.email}">Le tue prenotazioni</p>
+                        </li>
+                        <form th:action="@{riservata/logout}" method="get" onsubmit="return logout()">
+                            <button type="submit" class="">Logout</button>
+                        </form>
+                        </li>
+                    </ul>
+                </div>
+              </div>
+              <div class="col-10">
+                    <div class="container">
+				        <p>LE TUE PRENOTAZIONI</p>
+				        <table class="table table-bordered">
+				            <thead>
+				                <tr>
+				                    <th>Titolo</th>
+				                    <th>Autore</th>
+				                    <th>Data Prenotazione</th>
+				                    <th>Data Restituzione</th>
+				                    <th>Azioni</th>
+				                </tr>
+				            </thead>
+				            <tbody>
+				                <tr th:each="pr : ${prenotazioni}">
+				                    <td th:if="${prenotazioni == null}" colspan="5">Non hai mai prenotato libri</td>
+				                    <td>
+				                        <a th:text="${pr != null ? pr.dettaglioLibro.titolo : ''}"
+				                            th:href="@{/dettaglio(id=${pr.dettaglioLibro.id})}"></a>
+				                    </td>
+				                    <td
+				                        th:text="${pr != null ? pr.dettaglioLibro.autore.nomeAutore +' '+ pr.dettaglioLibro.autore.cognome : ''}">
+				                    </td>
+				                    <td th:text="${pr != null ? pr.dataPrenotazione : ''}"></td>
+				                    <td th:if="${pr != null && pr.dataRestituzione == null}">
+				                        <form th:action="@{'/riservata/restituisci'}" method="post" onsubmit="return restituisci()">
+				                            <input type="hidden" name="prenotazioneId" th:value="${pr.id}" />
+				                            <button type="submit" class="btn btn-danger">Restituisci</button>
+				                        </form>
+				                    </td>
+				                    <td th:unless="${pr != null && pr.dataRestituzione == null}"
+				                        th:text="${pr != null ? pr.dataRestituzione : ''}"></td>
+				                </tr>
+				            </tbody>
+				        </table>
+				    </div>
+				      <div class="container">
+				        <div class="row">
+				            <div class="col-12">
+				                <p>LE TUE RECENSIONI</p>
+				                <table class="table table-bordered">
+				                    <thead>
+				                        <tr>
+				                            <th>Titolo</th>
+				                            <th>Autore</th>
+				                            <th>Valutazione</th>
+				                            <th>Commento</th>
+				                        </tr>
+				                    </thead>
+				                    <tbody>
+				                        <tr th:each="rec : ${recensioni}">
+				                            <td th:if="${recensioni == null}" colspan="4">Non hai mai lasciato recensioni</td>
+				                            <td>
+				                                <a th:text="${rec != null ? rec.dettaglioLibro.titolo : ''}"
+				                                    th:href="@{/dettaglio(id=${rec.dettaglioLibro.id})}"></a>
+				                            </td>
+				                            <td
+				                                th:text="${rec != null ? rec.dettaglioLibro.autore.nomeAutore + ' ' + rec.dettaglioLibro.autore.cognome : ''}">
+				                            </td>
+				                            <td th:text="${rec != null ? rec.ranked : ''}"></td>
+				                            <td th:text="${rec != null ? rec.commento : ''}"></td>
+				                        </tr>
+				                    </tbody>
+				                </table>
+				            </div>
+				        </div>
+				    </div>
+              </div>
+            </div>
+          </div>
 	<!-- FOOTER -->
 	<div th:replace="~{fragments :: footer}"></div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
