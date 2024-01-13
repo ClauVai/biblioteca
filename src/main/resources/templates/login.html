@@ -66,13 +66,15 @@
                             </div>
                         </div>
                         <hr class="hr-xs">
+                         <div th:if="${loginError}">
+							 <br>
+                        <p th:text="${messaggio}" style="color: #F89765;"></p>
+                    </div>
                         <div class="login-footer">
                             <button type="submit" class="btn btn-outline-success">Accedi</button>
                         </div>
                     </form>
-                    <div th:if="${loginError}">
-                        <p th:text="${messaggio}"></p>
-                    </div>
+                   
                     <div class="login-links">
                         <p class="text-center" style="font-size: 20px;">Non hai ancora un account? <a class="txt-brand" href="#"
                                 onclick="showRegisterForm()">Registrati</a></p>
