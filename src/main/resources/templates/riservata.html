@@ -29,39 +29,36 @@
 		entire content -->
 		<div class="body">
 			<h1 id="riservata" class="text-center arancione">Area riservata</h1>
-			<div class="intro">
+			<div class="intro2">
 					 <h3 th:text="'Ciao ' + ${utente.nome} + ', ecco la tua area riservata!'"></h3>
 
 					<p style="font-size: 20px;">Qui potrai vedere i tuoi dati<br> e tutti i libri che hai prenotato e recensito</p>
 			</div>
             <div class="row">
-              <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
+              <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 bg-light pt-4 pb-4">
                 <div class="col-11 mx-auto sidebar">
-                    <p>Il tuo profilo</p>
-                    <ul class="list-unstyled">
-                        <li class="list-unstyled">
-                            <p class="list-unstyled" th:text="${utente.nome} +' '+ ${utente.cognome}"></p>
-                        </li>
-                        <li class="list-unstyled">
-                            <p class="list-unstyled" th:text="${utente.email}">Le tue prenotazioni</p>
-                        </li>
-                        <form th:action="@{riservata/logout}" method="get" onsubmit="return logout()">
-                            <button type="submit" class="">Logout</button>
-                        </form>
-                        </li>
-                    </ul>
+					<h2 class="roboto azzurro">Il tuo profilo</h2>
+                    <br>
+                    <p class="roboto" style="color: #737373;">Il tuo nome utente:</p>
+                    <p th:text="${utente.nome} +' '+ ${utente.cognome}"></p>
+                    <p  class="roboto" style="color: #737373;">La tua e-mail:</p>
+                    <p th:text="${utente.email}">Le tue prenotazioni</p>
+                    
+                    <form th:action="@{riservata/logout}" method="get" onsubmit="return logout()">
+                        <button type="submit" class="btn btn-secondary btn-rounded">Logout</button>
+                    </form>
                 </div>
               </div>
-              <div class="col-xl-9 col-lg-9 xol-md-12 col-sm-12">
+              <div class="col-xl-9 col-lg-9 xol-md-12 col-sm-12 pt-4 pb-4">
                     <div class="col-11 mx-auto">
-				        <p>Le tue prenotazioni</p>
-				        <table class="table table-bordered">
-				            <thead>
+				         <h2 class="roboto verde">Le tue prenotazioni</h2>
+				        <table class="table table-bordered" >
+				            <thead >
 				                <tr class="roboto">
-				                    <th>Titolo</th>
-				                    <th>Autore</th>
-				                    <th>Data Prenotazione</th>
-				                    <th>Data Restituzione</th>
+				                    <th style="color: #737373;">Titolo</th>
+				                    <th style="color: #737373;">Autore</th>
+				                    <th style="color: #737373;">Data Prenotazione</th>
+				                    <th style="color: #737373;">Data Restituzione</th>
 				                </tr>
 				            </thead>
 				            <tbody>
@@ -87,17 +84,18 @@
 				            </tbody>
 				        </table>
 				    </div>
-				      <div class="col-11 mx-auto">				        
-				      	<p>Le tue recensioni</p>
+				      <div class="col-11 mx-auto">	
+						<h2 class="roboto giallo">Le tue recensioni</h2>			        
+				     
 				          <table class="table table-bordered">
 				             <thead>
 				                <tr class="roboto">
-				                   <th>Titolo</th>
-				                     <th>Autore</th>
-				                            <th>Valutazione</th>
-				                            <th>Commento</th>
-				                        </tr>
-				                    </thead>
+				                   <th style="color: #737373;">Titolo</th>
+				                   <th style="color: #737373;">Autore</th>
+				                   <th style="color: #737373;">Valutazione</th>
+				                   <th style="color: #737373;">Commento</th>
+				                </tr>
+				             </thead>
 				                    <tbody>
 				                        <tr th:each="rec : ${recensioni}">
 				                            <td th:if="${recensioni == null}" colspan="4">Non hai mai lasciato recensioni</td>

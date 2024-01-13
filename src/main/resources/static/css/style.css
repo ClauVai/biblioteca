@@ -318,6 +318,12 @@ img {
 	text-align: center;
 	font-family: 'Montserrat', sans-serif;
 }
+.intro2 {
+	margin-top: 30px;
+	margin-bottom: 50px;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+}
 
 
 #bimba {
@@ -353,8 +359,9 @@ h1 {
 }
 
 .sidebar{
-	padding-left: 10%;
+	padding-left: 20%;
 }
+
 .pro-title:hover {
 	color: #ffffff;
 }
@@ -407,7 +414,7 @@ h1 {
 }
 
 
-@media only screen and (max-width: 989px) {
+@media only screen and (max-width: 990px) {
 
 
 	li {
@@ -486,7 +493,10 @@ h1 {
 		margin: 0;
 		padding: 0;
 	}
-
+	.sidebar{
+		padding-left: 0px;
+		text-align: center;
+	}
 }
 
 .head {
