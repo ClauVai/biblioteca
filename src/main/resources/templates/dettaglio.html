@@ -26,6 +26,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 	<script type="text/javascript" th:src="@{/js/dettaglio.js}"></script>
 	<script type="text/javascript" th:src="@{/js/GENERICO.js}"></script>
+
 </head>
 
 <div>
@@ -64,8 +65,8 @@
 										<li th:unless="${loggato}" class="alert alert-warning mt-4" role="alert">
 											Per prenotare  e recensire i nostri libri,<br> 
 											<a class="alert-link" th:text="'registrati'"
-												th:href="@{/login(id=${libroId})}"></a> o effettua il <a class="alert-link" th:text="'login'"
-												th:href="@{/login(id=${libroId})}"></a>
+												th:href="@{/login(id=${libroId})}" onclick="showLoginForm()"></a> o effettua il <a class="alert-link" th:text="'login'"
+												th:href="@{/login(id=${libroId})}" onclick="showRegisterForm()"></a>
 										</li>
 										<li th:if="${alert}"
 											th:text="'Libro prenotato! Vieni a ritirarlo in sede, ti aspettiamo!'"
