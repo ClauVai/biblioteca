@@ -21,22 +21,27 @@
     <style>
         .accedi-link {
             cursor: pointer;
-            color: blue;
-            text-decoration: underline;
         }
     </style>
 
-    <script>
-        function showRegisterForm() {
-            document.getElementById('loginForm').style.display = 'none';
-            document.getElementById('registerForm').style.display = 'block';
-        }
+   <script>
+    function showRegisterForm() {
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('registerForm').style.display = 'block';
+        document.getElementById('loginImage').style.display = 'none';
+        document.getElementById('registerImage').style.display = 'block';
+        document.getElementById('registerImage').src = '/img/bimbo-login.png'; // Cambia l'immagine a bimba-login.png
+    }
 
-        function showLoginForm() {
-            document.getElementById('registerForm').style.display = 'none';
-            document.getElementById('loginForm').style.display = 'block';
-        }
-    </script>
+    function showLoginForm() {
+        document.getElementById('registerForm').style.display = 'none';
+        document.getElementById('loginForm').style.display = 'block';
+        document.getElementById('registerImage').style.display = 'none';
+        document.getElementById('loginImage').style.display = 'block';
+        document.getElementById('registerImage').src = '/img/bimba-login.png'; // Cambia l'immagine a bimbo-login.png
+    }
+</script>
+
 </head>
 
 <body>
@@ -51,7 +56,7 @@
             <div class="row">
                 <!-- ACCESSO -->
                 <div class="login-block col-xl-6 col-lg-6 col-md-8 col-sm-12 col-sm-12" id="loginForm">
-                    <img th:src="@{'/img/login.png'}" alt="logo login" style="width: 100%;">
+                    <img th:src="@{'/img/logo-lungo.png'}" alt="logo login" style="width: 100%;" id="loginImage">
                     <h1 class="roboto azzurro">Accedi</h1>
                     <form th:action="@{/login/accedi(id=${id})}" method="post">
                         <div class="form-group">
@@ -66,29 +71,27 @@
                             </div>
                         </div>
                         <hr class="hr-xs">
-                         <div th:if="${loginError}">
-							 <br>
-                        <p th:text="${messaggio}" style="color: #F89765;"></p>
-                    </div>
+                        <div th:if="${loginError}">
+                            <br>
+                            <p th:text="${messaggio}" style="color: #F89765;"></p>
+                        </div>
                         <div class="login-footer">
                             <button type="submit" class="btn btn-outline-success">Accedi</button>
                         </div>
                     </form>
-                   
                     <div class="login-links">
-                        <p class="text-center" style="font-size: 20px;">Non hai ancora un account? <a class="txt-brand" href="#"
-                                onclick="showRegisterForm()">Registrati</a></p>
+                        <p class="text-center" style="font-size: 20px;">Non hai ancora un account? <a class="txt-brand" href="#" onclick="showRegisterForm()">Registrati</a></p>
                     </div>
                 </div>
-                
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex align-items-center justify-content-center mt-5 mb-5">
-        <img th:src="@{'/img/logo-lungo.png'}" alt="logo login" style="width: 70%;">
-    </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex align-items-center justify-content-center  mt-5 mb-5" id="registerImageContainer">
+    <img th:src="@{'/img/bimba-login.png'}" alt="logo login" style="width: 70%; margin-bottom: -110px;" id="registerImage">
+</div>
+
 
                 <!-- REGISTRAZIONE -->
-                <div class="login-block col-xl-6 col-lg-6 col-md-8 col-sm-12 col-sm-12" id="registerForm"
-                    style="display: none;">
-                    <img th:src="@{'/img/logo-lungo.png'}" alt="logo login" style="width: 100%;">
+                <div class="login-block col-xl-6 col-lg-6 col-md-8 col-sm-12 col-sm-12" id="registerForm" style="display: none;">
+                    <img th:src="@{'/img/logo-lungo.png'}" alt="logo login" style="width: 100%;" id="registerImage">
                     <h1 class="roboto giallo">Registrati</h1>
                     <form th:action="@{/login/registra(idLibro=${id})}" method="post" th:object="${utente}">
                         <div class="form-group">
@@ -117,18 +120,16 @@
                         <hr class="hr-xs">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="password" id="password1" th:field="*{profilo.password}" required class="form-control"
-                                    placeholder="Scegli una password">
+                                <input type="password" id="password1" th:field="*{profilo.password}" required class="form-control" placeholder="Scegli una password">
                             </div>
                         </div>
                         <hr class="hr-xs">
                         <div class="login-footer">
                             <button type="submit" class="btn btn-outline-success">Registrati</button>
                         </div>
-                      <div class="login-links">
-    <p class="text-center" style="font-size: 20px;">Hai già un account? <a class="txt-brand" href="#" onclick="showLoginForm()">Accedi</a></p>
-</div>
-
+                        <div class="login-links">
+                            <p class="text-center" style="font-size: 20px;">Hai già un account?</br><a class="txt-brand accedi-link" href="#" onclick="showLoginForm()">Accedi</a></p>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -138,6 +139,5 @@
         <div th:replace="~{fragments :: footer}"></div>
     </div>
 </body>
-
 </html>
 
