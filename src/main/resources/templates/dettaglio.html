@@ -62,10 +62,8 @@
 									<li th:text="${dettaglio.stato ? 'Non disponibile' : 'Disponibile'}"></li>
 									<ul class="list-unstyled mt-3">
 										<li th:unless="${loggato}" class="alert alert-warning mt-4" role="alert">
-											Per prenotare  e recensire i nostri libri,<br> 
-											<a class="alert-link" th:text="'registrati'"
-												th:href="@{/login(id=${libroId})}" onclick="showLoginForm()"></a> o effettua il <a class="alert-link" th:text="'login'"
-												th:href="@{/login(id=${libroId})}" onclick="showRegisterForm()"></a>
+											Per prenotare  e recensire i nostri libri effettua il <a class="alert-link" th:text="'login'"
+												th:href="@{/login(id=${libroId})}"></a>
 										</li>
 										<li th:if="${alert}"
 											th:text="'Libro prenotato! Vieni a ritirarlo in sede, ti aspettiamo!'"
