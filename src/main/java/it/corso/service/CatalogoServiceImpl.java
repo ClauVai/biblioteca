@@ -12,10 +12,10 @@ public class CatalogoServiceImpl implements CatalogoService {
 	@Autowired
 	private DettaglioLibroDao dettaglioLibroDao;
 
-	@Override
-	public void resetStato() {
-		dettaglioLibroDao.updateStatoToZeroForAllRecords();
-	}
+//	@Override
+//	public void resetStato() {
+//		dettaglioLibroDao.updateStatoToZeroForAllRecords();
+//	}
 
 	@Override
 	public List<DettaglioLibro> getCatalogoDettaglio() {

@@ -24,10 +24,10 @@ public interface DettaglioLibroDao extends CrudRepository<DettaglioLibro, Intege
     @Query(value = "SELECT * FROM Libri l ORDER BY l.id DESC limit 8",  nativeQuery = true)
     List<DettaglioLibro> findUltimiOttoLibri();
     
-    @Transactional
-    @Modifying
-    @Query(value = "UPDATE Libri l SET l.stato = false",  nativeQuery = true)
-	void updateStatoToZeroForAllRecords();
+//    @Transactional
+//    @Modifying
+//    @Query(value = "UPDATE Libri l SET l.stato = false",  nativeQuery = true)
+//	void updateStatoToZeroForAllRecords();
 
     @Query(value = "SELECT * FROM Libri l WHERE "
     		+ "        (:idGenere IS NULL OR :idGenere = l.genere_id OR (:idGenere = 0 AND l.genere_id = 0))"

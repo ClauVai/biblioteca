@@ -5,7 +5,7 @@ import it.corso.model.DettaglioLibro;
 
 public interface CatalogoService
 {
-	void resetStato();
+//	void resetStato();
 	List<DettaglioLibro> getCatalogoDettaglio();
 	List<DettaglioLibro> getByFilter(
 			int autoreId,
