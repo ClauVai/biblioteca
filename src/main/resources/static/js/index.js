@@ -17,34 +17,6 @@
  // Script jQuery per inizializzare i carousel -->
   document.addEventListener('DOMContentLoaded', function() {
     // PRIMO SCRIPT
-    var secondSwiper = new Swiper('.mySecondSwiper', {
-        slidesPerView: 5,
-        spaceBetween: 10,
-        loop: true,
-        navigation: {
-            nextEl: '.mySecondSwiper .swiper-button-next',
-            prevEl: '.mySecondSwiper .swiper-button-prev',
-        },
-        autoplay: {
-            delay: 2000,
-        },
-        breakpoints: {
-            640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            960: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-            },
-            1024: {
-                slidesPerView: 4,
-                spaceBetween: 40,
-            },
-        },
-    });
-
-    // SECONDO SCRIPT
     var swiper = new Swiper(".mySwiper", {
         slidesPerView: 1,
         spaceBetween: 2,
@@ -62,7 +34,7 @@
             delay: 2000,
         },
         breakpoints: {
-            640: {
+            768: {
                 slidesPerView: 2,
                 spaceBetween: 20,
             },

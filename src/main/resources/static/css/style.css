@@ -123,110 +123,6 @@ body {
 
 
 
-@media (max-width: 992px) {
-	.dropbtn {
-		padding-left: 5px;
-		padding-right: 5px;
-		margin: 0px;
-	}
-
-	#logo {
-		width: 70% !important;
-		padding-left: 0px !important;
-	}
-}
-
-@media (max-width: 840px) {
-
-	#logo {
-		width: 110% !important;
-		padding-left: 0px !important;
-	}
-
-	.dropbtn {
-		padding-left: 25px !important;
-		padding-right: 25px !important;
-		margin: 0px;
-	}
-
-	.custom-dropdown-content a {
-		font-size: 11px;
-		width: 100% !important;
-		padding: 10px;
-		text-decoration: none;
-	}
-}
-
-@media (max-width: 750px) {
-	.custom-dropdown-content {
-		width: 100% !important;
-		column-gap: 0px;
-		column-count: 1 !important;
-		margin: 0px;
-		word-wrap: break-word;
-	}
-
-	.custom-dropdown-content a {
-		width: 100% !important;
-		padding: 10px;
-		text-decoration: none;
-	}
-}
-
-@media (max-width: 550px) {
-	#logo {
-		width: 150% !important;
-		padding-left: 0px !important;
-	}
-
-	.dropbtn {
-		padding-left: 40px !important;
-		padding-right: 40px !important;
-		margin: 0px;
-	}
-
-	.custom-dropdown-content a {
-		font-size: 15px;
-		width: 100% !important;
-		padding: 10px;
-		text-decoration: none;
-	}
-
-}
-
-@media (max-width: 520px) {
-	#logo {
-		width: 150% !important;
-		padding-left: 0px !important;
-	}
-
-	.custom-dropdown-content a {
-		font-size: 15px;
-		width: 100% !important;
-		padding: 10px;
-		text-decoration: none;
-	}
-}
-
-@media (max-width: 420px) {
-	#logo {
-		width: 150% !important;
-		padding-left: 0px !important;
-	}
-
-	.custom-dropdown-content a {
-		font-size: 10px;
-		width: 100% !important;
-		padding: 10px;
-		text-decoration: none;
-	}
-
-	.dropbtn {
-		padding-left: 20px !important;
-		padding-right: 20px !important;
-		margin: 0px;
-	}
-}
 
 
 .dropbtn {
@@ -318,6 +214,7 @@ img {
 	text-align: center;
 	font-family: 'Montserrat', sans-serif;
 }
+
 .intro2 {
 	margin-top: 30px;
 	margin-bottom: 50px;
@@ -358,7 +255,7 @@ h1 {
 	margin-top: 20px;
 }
 
-.sidebar{
+.sidebar {
 	padding-left: 20%;
 }
 
@@ -414,90 +311,6 @@ h1 {
 }
 
 
-@media only screen and (max-width: 990px) {
-
-
-	li {
-		width: 100%;
-		text-decoration: none;
-	}
-
-	ul {
-		overflow: auto;
-		max-height: 992px;
-	}
-
-	li {
-		border-bottom: 1px solid #eae9ed;
-	}
-
-	li:hover {
-		background-color: rgb(215, 245, 235);
-	}
-
-
-	.navbar {
-		justify-content: left;
-	}
-
-	a.nav-link {
-		padding: 1rem 1.375rem !important;
-		white-space: nowrap !important;
-		text-align: left !important;
-	}
-
-	a.nav-link:hover {
-		color: #383b43 !important;
-		padding: 1rem 1.375rem;
-		white-space: nowrap;
-
-	}
-
-	.nav-link {
-		font-size: 130%;
-		justify-content: space-between !important;
-	}
-
-	.subnav {
-		padding-left: 2rem !important;
-	}
-
-	.navbar-nav .nav-link {
-		padding: 0.5rem 1rem;
-		/* Aggiusta il padding dei pulsanti per uno spaziamento uniforme */
-		padding-right: 15px;
-	}
-
-	/* Aggiungi queste regole al tuo stile */
-	.navbar.main {
-		overflow-y: hidden;
-		/* Disabilita lo scrolling verticale */
-		max-height: calc(100vh - 70px);
-		/* Imposta l'altezza massima */
-	}
-
-	.navbar.secondary {
-		overflow-y: auto;
-		/* Abilita lo scrolling verticale se necessario */
-		max-height: calc(100vh - 70px);
-		/* Imposta l'altezza massima */
-	}
-
-	ul.navbar-nav {
-		padding: 0;
-		margin: 0;
-		list-style: none;
-	}
-
-	ul.navbar-nav li {
-		margin: 0;
-		padding: 0;
-	}
-	.sidebar{
-		padding-left: 0px;
-		text-align: center;
-	}
-}
 
 .head {
 	background-color: #ffffff;
@@ -692,11 +505,7 @@ select {
 	font-family: 'Barrio', system-ui;
 }
 
-@media (min-width: 576px) {
-	.custom-margin {
-		margin-left: 70px;
-	}
-}
+
 
 
 #about {
@@ -883,96 +692,6 @@ select {
 	color: #FBD75D;
 }
 
-
-
-
-
-
-
-#myCarousel {
-	margin-top: 50px;
-	overflow: hidden;
-}
-
-.carousel-inner {
-	display: flex;
-	width: 100%;
-	transition: transform 0.1s ease-in-out;
-}
-
-.carousel-item {
-	flex: 0 0 100%;
-	margin-bottom: auto;
-	justify-content: center;
-	/* Centra il carosello orizzontalmente */
-}
-
-.carousel-inner img {
-	max-width: 100%;
-	height: 200px;
-	/* Imposta l'altezza fissa desiderata per le immagini */
-	object-fit: cover;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.carousel-item:not(:last-child) {
-	margin-right: 0;
-}
-
-/* Aggiungi spazio tra pulsanti e immagini */
-.carousel-control-prev,
-.carousel-control-next {
-	margin-left: - 30px;
-	/* Puoi regolare la dimensione dello spazio come desiderato */
-	margin-right: - 30px;
-	/* Puoi regolare la dimensione dello spazio come desiderato */
-}
-
-@media (max-width: 768px) {
-	.carousel-inner .carousel-item>div {
-		display: none;
-	}
-
-	.carousel-inner .carousel-item>div:first-child {
-		display: block;
-	}
-}
-
-.carousel-inner .carousel-item.active,
-.carousel-inner .carousel-item-start,
-.carousel-inner .carousel-item-next,
-.carousel-inner .carousel-item-prev {
-	display: flex;
-}
-
-@media (min-width: 768px) {
-
-	.carousel-inner .carousel-item-right.active,
-	.carousel-inner .carousel-item-next,
-	.carousel-item-next:not(.carousel-item-start) {
-		transform: translateX(25%) !important;
-	}
-
-	.carousel-inner .carousel-item-left.active,
-	.carousel-item-prev:not(.carousel-item-end),
-	.active.carousel-item-start,
-	.carousel-item-prev:not(.carousel-item-end) {
-		transform: translateX(-25%) !important;
-	}
-
-	.carousel-item-next.carousel-item-start,
-	.active.carousel-item-end {
-		transform: translateX(0) !important;
-	}
-
-	.carousel-inner .carousel-item-prev,
-	.carousel-item-prev:not(.carousel-item-end) {
-		transform: translateX(-25%) !important;
-	}
-}
-
-
 .zoom-image:hover {
 	transform: scale(1.10);
 	/* Ingrandisce l'immagine del 5% quando il mouse è sopra */
@@ -981,73 +700,6 @@ select {
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 	/* Aggiunge un'ombra che sporge */
 }
-
-.img-fluid {
-	transition: transform 0.1s ease;
-	/* Aggiunge una transizione fluida per il ritorno all'originale */
-	/* Altri stili dell'immagine, se necessario */
-
-
-	display: block;
-	border-radius: 3px;
-	position: relative;
-	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-	transition: transform 200ms ease-in, box-shadow 200ms ease-in;
-	padding-left: 0px;
-	object-fit: cover;
-}
-
-
-
-
-.carousel-control-next-icon {
-	background-image: url('/img/ROSSO-2.png');
-	margin-left: 50%;
-	box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
-	border-radius: 50%;
-	background-size: contain;
-	/* Imposta la dimensione dell'immagine in modo che si adatti al contenitore */
-	width: 3vw;
-	/* Imposta la larghezza in modo relativo alla larghezza della viewport */
-	height: 3vw;
-	cursor: pointer;
-}
-
-.carousel-control-prev-icon {
-	background-image: url('/img/ROSSO-1.png');
-	margin-right: 50%;
-	box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
-	border-radius: 50%;
-	vertical-align: middle;
-	background-size: contain;
-	/* Imposta la dimensione dell'immagine in modo che si adatti al contenitore */
-	width: 3vw;
-	/* Imposta la larghezza in modo relativo alla larghezza della viewport */
-	height: 3vw;
-	cursor: pointer;
-}
-
-.carousel-control-next,
-.carousel-control-prev {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	z-index: 1;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 15%;
-	padding: 0;
-	text-align: center;
-	background: 0 0;
-	border: 0;
-	opacity: 1;
-	transition: .1s ease;
-
-}
-
-
-
 
 .active {
 	margin-right: 0px;
@@ -1145,12 +797,26 @@ select {
 	margin-left: 0px;
 	padding-left: 0px;
 }
+
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
 	position: relative;
 	display: inline-block;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.img-fluid {
+	transition: transform 0.1s ease;
+	/* Aggiunge una transizione fluida per il ritorno all'originale */
+	/* Altri stili dell'immagine, se necessario */
+	display: block;
+	border-radius: 3px;
+	position: relative;
+	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+	transition: transform 200ms ease-in, box-shadow 200ms ease-in;
+	padding-left: 0px;
+	object-fit: cover;
 }
 
 .swiper-button-next,
@@ -1160,6 +826,7 @@ select {
 
 	font-size: 30px;
 }
+
 .imgSwiper {
 	transition: transform 0.1s ease;
 	/* Aggiunge una transizione fluida per il ritorno all'originale */
@@ -1173,19 +840,23 @@ select {
 	transition: transform 200ms ease-in, box-shadow 200ms ease-in;
 	padding-left: 0px;
 }
+
 .imgSwiper:hover {
 	box-shadow: 0px 11px 18px rgba(0, 0, 0, 0.3);
 	transform: scale(1.1);
 }
+
 .swiper-wrapper {
 	width: 100%;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	text-align: center;
 }
+
 .swiper-slide {
 	overflow-y: visible;
 }
+
 .swiper {
 	overflow-x: hidden;
 	overflow-y: visible;
@@ -1195,6 +866,7 @@ h2 {
 	font-family: sans-serif;
 	color: #fff;
 }
+
 .form-check-input {
 	font-size: 15px;
 	/* Adjust the font size as needed */
@@ -1311,13 +983,13 @@ h2 {
 
 /* Per gestire il colore dello stato diponibile e non disponibile */
 .pro-stato {
-    color: #7EC6AD;
+	color: #7EC6AD;
 
 }
 
 .pro-stato[data-status="non-disponibile"] {
-    color: #EF7E6B;
-    
+	color: #EF7E6B;
+
 }
 
 
@@ -1328,25 +1000,145 @@ h2 {
 
 /*per la pagina login*/
 .accedi-link {
-    cursor: pointer;
+	cursor: pointer;
 }
+
+@media only screen and (max-width: 990px) {
+	li {
+		width: 100%;
+		text-decoration: none;
+	}
+
+	ul {
+		max-height: 992px;
+	}
+
+	li {
+		border-bottom: 1px solid #eae9ed;
+	}
+
+	li:hover {
+		background-color: rgb(215, 245, 235);
+	}
+
+	.navbar {
+		justify-content: left;
+	}
+
+	a.nav-link {
+		padding: 1rem 1.375rem !important;
+		white-space: nowrap !important;
+		text-align: left !important;
+	}
+
+	a.nav-link:hover {
+		color: #383b43 !important;
+		padding: 1rem 1.375rem;
+		white-space: nowrap;
+	}
+
+	.nav-link {
+		font-size: 130%;
+		justify-content: space-between !important;
+	}
+
+	.subnav {
+		padding-left: 2rem !important;
+	}
+
+	.navbar-nav .nav-link {
+		padding: 0.5rem 1rem;
+		/* Aggiusta il padding dei pulsanti per uno spaziamento uniforme */
+		padding-right: 15px;
+	}
+
+	/* Aggiungi queste regole al tuo stile */
+	.navbar.main {
+		overflow-y: hidden;
+
+		/* Disabilita lo scrolling verticale */
+		max-height: calc(100vh - 70px);
+		/* Imposta l'altezza massima */
+	}
+
+	.navbar.secondary {
+		overflow-y: auto;
+		/* Abilita lo scrolling verticale se necessario */
+		max-height: calc(100vh - 70px);
+		/* Imposta l'altezza massima */
+	}
+
+	ul.navbar-nav {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+
+	ul.navbar-nav li {
+		margin: 0;
+		padding: 0;
+	}
+
+	.sidebar {
+		padding-left: 0px;
+		text-align: center;
+	}
+}
+
 
 @media (max-width:1350px) {
 	.img-cat {
 		height: 27vh;
-	width: auto;	}
+		width: auto;
+	}
 }
+
 @media (max-width:1199px) {
 	.img-cat {
 		min-height: 36vh;
-		width: auto;}
+		width: auto;
+	}
 }
 
 @media (max-width:991px) {
 	.img-cat {
 		min-height: 45vh;
-		width: auto;}
+		width: auto;
+	}
+
+	.dropbtn {
+		padding-left: 5px;
+		padding-right: 5px;
+		margin: 0px;
+	}
+
+	#logo {
+		width: 70% !important;
+		padding-left: 0px !important;
+	}
 }
+
+@media (max-width: 840px) {
+
+	#logo {
+		width: 110% !important;
+		padding-left: 0px !important;
+	}
+
+	.dropbtn {
+		padding-left: 25px !important;
+		padding-right: 25px !important;
+		margin: 0px;
+	}
+
+	.custom-dropdown-content a {
+		font-size: 11px;
+		width: 100% !important;
+		padding: 10px;
+		text-decoration: none;
+	}
+}
+
 @media (max-width:767px) {
 	.login-page main {
 		position: static;
@@ -1365,11 +1157,64 @@ h2 {
 		margin-left: auto;
 		margin-right: auto;
 	}
+
 	.img-cat-sing {
 		height: auto;
-		width: 100%;		
+		width: 100%;
 	}
-		.vetrina {
+
+	.vetrina {
 		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+	}
+}
+
+@media (max-width: 750px) {
+	.custom-dropdown-content {
+		width: 100% !important;
+		column-gap: 0px;
+		column-count: 1 !important;
+		margin: 0px;
+		word-wrap: break-word;
+	}
+
+	.custom-dropdown-content a {
+		width: 100% !important;
+		padding: 10px;
+		text-decoration: none;
+	}
+}
+@media (min-width: 576px) {
+	.custom-margin {
+		margin-left: 70px;
+	}
+}
+@media (max-width: 550px) {
+	#logo {
+		width: 150% !important;
+		padding-left: 0px !important;
+	}
+	.dropbtn {
+		padding-left: 40px !important;
+		padding-right: 40px !important;
+		margin: 0px;
+	}
+	.custom-dropdown-content a {
+		font-size: 15px;
+		width: 100% !important;
+		padding: 10px;
+		text-decoration: none;
+	}
+
+}
+
+@media (max-width: 420px) {
+	.custom-dropdown-content a {
+		font-size: 10px;
+	}
+
+	.dropbtn {
+		padding-left: 20px !important;
+		padding-right: 20px !important;
+		margin: 0px;
 	}
 }
