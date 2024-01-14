@@ -544,7 +544,18 @@ select {
 	font-family: 'Open Sans', sans-serif;
 }
 
-
+.img-fluid {
+	transition: transform 0.1s ease;
+	/* Aggiunge una transizione fluida per il ritorno all'originale */
+	/* Altri stili dell'immagine, se necessario */
+	display: block;
+	border-radius: 3px;
+	position: relative;
+	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+	transition: transform 200ms ease-in, box-shadow 200ms ease-in;
+	padding-left: 0px;
+	object-fit: cover;
+}
 
 .pro-page-list {
 	margin: 5px 0 0 0;
@@ -568,7 +579,6 @@ select {
 	font-size: 16px;
 }
 
-
 .rating {
 	font-size: 24px;
 }
@@ -583,7 +593,6 @@ select {
 	color: #FBD75D;
 	/* Colore giallo */
 }
-
 
 #titolocat {
 	font-family: 'Roboto Slab', serif;
@@ -614,7 +623,6 @@ select {
 	text-decoration: none;
 	color: #555;
 }
-
 
 .be-comment-block {
 	margin-bottom: 50px !important;
@@ -647,8 +655,6 @@ select {
 	border-radius: 50%;
 }
 
-
-
 .be-comment-content span {
 	display: inline-block;
 	width: 49%;
@@ -672,7 +678,6 @@ select {
 	margin-bottom: 15px;
 }
 
-
 .be-comment-text {
 	font-size: 17px;
 	line-height: 18px;
@@ -685,7 +690,6 @@ select {
 	margin-left: 3%;
 	margin-right: 3%;
 }
-
 
 .gig-rating {
 
@@ -785,8 +789,6 @@ select {
 	background-color: #f1f1f1;
 }
 
-
-
 .product-image {
 	display: block;
 	border-radius: 3px;
@@ -806,19 +808,6 @@ select {
 	margin-right: auto;
 }
 
-.img-fluid {
-	transition: transform 0.1s ease;
-	/* Aggiunge una transizione fluida per il ritorno all'originale */
-	/* Altri stili dell'immagine, se necessario */
-	display: block;
-	border-radius: 3px;
-	position: relative;
-	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-	transition: transform 200ms ease-in, box-shadow 200ms ease-in;
-	padding-left: 0px;
-	object-fit: cover;
-}
-
 .swiper-button-next,
 .swiper-button-prev {
 	color: #9AD0C3 !important;
@@ -830,9 +819,10 @@ select {
 .imgSwiper {
 	transition: transform 0.1s ease;
 	/* Aggiunge una transizione fluida per il ritorno all'originale */
-	/* Altri stili dell'immagine, se necessario */
-	width: 100%;
-	height: auto;
+	width: auto;
+	height: 400px;
+	/* Imposta l'altezza fissa desiderata */
+	object-fit: cover;
 	margin-left: auto;
 	margin-right: auto;
 	border-radius: 3px;
@@ -858,7 +848,7 @@ select {
 }
 
 .swiper {
-	overflow-x: hidden;
+	overflow-x: visible;
 	overflow-y: visible;
 }
 
@@ -1094,6 +1084,10 @@ h2 {
 }
 
 @media (max-width:1199px) {
+	.imgSwiper {
+		height: 350px;
+	}
+
 	.img-cat {
 		min-height: 36vh;
 		width: auto;
@@ -1150,6 +1144,14 @@ h2 {
 		padding: 30px 15px
 	}
 
+	.imgSwiper {
+		height: 580px;
+	}
+
+	.imgSwiper {
+		transition: transform 0.045s ease;
+	}
+
 	.img-cat {
 		min-height: none;
 		width: 80%;
@@ -1183,21 +1185,25 @@ h2 {
 		text-decoration: none;
 	}
 }
+
 @media (min-width: 576px) {
 	.custom-margin {
 		margin-left: 70px;
 	}
 }
+
 @media (max-width: 550px) {
 	#logo {
 		width: 150% !important;
 		padding-left: 0px !important;
 	}
+
 	.dropbtn {
 		padding-left: 40px !important;
 		padding-right: 40px !important;
 		margin: 0px;
 	}
+
 	.custom-dropdown-content a {
 		font-size: 15px;
 		width: 100% !important;

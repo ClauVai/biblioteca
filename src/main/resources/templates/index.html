@@ -37,16 +37,18 @@
 			<picture>
 				<img class="w-full pt-5" th:src="@{'/img/home.png'}">
 			</picture>
+			
 			<!-- INIZIO NOVITà-->
+			
 			<div class="bg-white p-5">
 				<h2 class="roboto blu" id="scrollspyHeading1">Novità</h2>
 				<p style="font-size: 20px;">Gli ultimi arrivi ogni settimana!</p>
-				<div class="col-12 pt-3">
+				<div class="swiper-container col-12 pt-3">
 					<div class="swiper mySwiper">
 						<div class="swiper-wrapper">
 							<div th:each="libro : ${ultimiLibri}" class="swiper-slide">
 								<a th:href="@{/dettaglio(id=${libro.id})}">
-									<img class="imgSwiper img-fluid" th:src="${libro.copertina}">
+									<img class="imgSwiper" th:src="${libro.copertina}">
 								</a>
 							</div>
 						</div>
@@ -128,7 +130,7 @@
 				</div>
 			</div>
 		</div>
-
+	</div>
 	<!--FOOTER-->
 
 	<div th:replace="~{fragments :: footer}"></div>

@@ -17,15 +17,15 @@
  // Script jQuery per inizializzare i carousel -->
   document.addEventListener('DOMContentLoaded', function() {
     // PRIMO SCRIPT
-    var swiper = new Swiper(".mySwiper", {
+		new Swiper(".mySwiper", {
         slidesPerView: 1,
         spaceBetween: 2,
         loop: true,
         loopedSlides: 20,
-        pagination: {
+   /*     pagination: {
             el: ".swiper-pagination",
             clickable: true,
-        },
+        },   */
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
@@ -36,15 +36,12 @@
         breakpoints: {
             768: {
                 slidesPerView: 2,
-                spaceBetween: 20,
             },
-            960: {
+            990: {
                 slidesPerView: 3,
-                spaceBetween: 30,
             },
-            1024: {
+            1400: {
                 slidesPerView: 4,
-                spaceBetween: 40,
             },
         },
     });
