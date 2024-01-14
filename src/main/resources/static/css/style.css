@@ -1326,6 +1326,11 @@ h2 {
 	width: auto;
 }
 
+/*per la pagina login*/
+.accedi-link {
+    cursor: pointer;
+}
+
 @media (max-width:1350px) {
 	.img-cat {
 		height: 27vh;

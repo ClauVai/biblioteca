@@ -8,7 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link th:href="@{/css/style.css}" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" th:src="@{/js/catalogo.js}"></script>
     <script type="text/javascript" th:src="@{/js/GENERICO.js}"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,28 +17,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
 
-    <style>
-        .accedi-link {
-            cursor: pointer;
-        }
-    </style>
-
    <script>
-    function showRegisterForm() {
-        document.getElementById('loginForm').style.display = 'none';
-        document.getElementById('registerForm').style.display = 'block';
-        document.getElementById('loginImage').style.display = 'none';
-        document.getElementById('registerImage').style.display = 'block';
-        document.getElementById('registerImage').src = '/img/bimbo-login.png'; // Cambia l'immagine a bimba-login.png
-    }
+function showRegisterForm() {
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('registerForm').style.display = 'block';
+    document.getElementById('registerImage').src = '/img/bimbo-login.png'; // Cambia l'immagine a bimba-login.png
+}
 
-    function showLoginForm() {
-        document.getElementById('registerForm').style.display = 'none';
-        document.getElementById('loginForm').style.display = 'block';
-        document.getElementById('registerImage').style.display = 'none';
-        document.getElementById('loginImage').style.display = 'block';
-        document.getElementById('registerImage').src = '/img/bimba-login.png'; // Cambia l'immagine a bimbo-login.png
-    }
+function showLoginForm() {
+    document.getElementById('registerForm').style.display = 'none';
+    document.getElementById('loginForm').style.display = 'block';
+    document.getElementById('registerImage').src = '/img/bimba-login.png';
+   // bimba-login.png
+}
+
 </script>
 
 </head>
@@ -55,9 +46,12 @@
         <main>
             <div class="row">
                 <!-- ACCESSO -->
+                <!-- logo -->               
                 <div class="login-block col-xl-6 col-lg-6 col-md-8 col-sm-12 col-sm-12" id="loginForm">
                     <img th:src="@{'/img/logo-lungo.png'}" alt="logo login" style="width: 100%;" id="loginImage">
                     <h1 class="roboto azzurro">Accedi</h1>
+                <!-- fine logo -->
+                <!-- inizio form  -->                  
                     <form th:action="@{/login/accedi(id=${id})}" method="post">
                         <div class="form-group">
                             <div class="input-group">
@@ -79,20 +73,25 @@
                             <button type="submit" class="btn btn-outline-success">Accedi</button>
                         </div>
                     </form>
+                <!-- fine form  -->                                      
                     <div class="login-links">
                         <p class="text-center" style="font-size: 20px;">Non hai ancora un account? <a class="txt-brand" href="#" onclick="showRegisterForm()">Registrati</a></p>
                     </div>
                 </div>
+                <!-- IMMAGINE MALEDETTA  -->                  
 
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex align-items-center justify-content-center  mt-5 mb-5" id="registerImageContainer">
-    <img th:src="@{'/img/bimba-login.png'}" alt="logo login" style="width: 70%; margin-bottom: -110px;" id="registerImage">
+    <img th:src="@{'/img/bimba-login.png'}" alt="logo login" style="width: 70%;" id="registerImage">
 </div>
 
 
+
                 <!-- REGISTRAZIONE -->
-                <div class="login-block col-xl-6 col-lg-6 col-md-8 col-sm-12 col-sm-12" id="registerForm" style="display: none;">
+                <div class="login-block col-xl-6 col-lg-6 col-md-8 col-sm-12 col-sm-12" id="registerForm" style="display: none;" >
                     <img th:src="@{'/img/logo-lungo.png'}" alt="logo login" style="width: 100%;" id="registerImage">
                     <h1 class="roboto giallo">Registrati</h1>
+                <!-- INIZIO FORM  -->
+
                     <form th:action="@{/login/registra(idLibro=${id})}" method="post" th:object="${utente}">
                         <div class="form-group">
                             <div class="input-group">
@@ -127,17 +126,19 @@
                         <div class="login-footer mt-5">
                             <button type="submit" class="btn btn-outline-success">Registrati</button>
                         </div>
+            </form>
+                <!-- CHIUSURA FORM  -->
+
                         <div class="login-links">
                             <p class="text-center" style="font-size: 20px;">Hai già un account?</br><a class="txt-brand accedi-link" href="#" onclick="showLoginForm()">Accedi</a></p>
                         </div>
-                    </form>
                 </div>
             </div>
         </main>
 
         <!--FRAGMENT FOOTER-->
         <div th:replace="~{fragments :: footer}"></div>
-    </div>
+</div>
 </body>
 </html>
 
