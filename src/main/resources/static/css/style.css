@@ -392,8 +392,6 @@ select {
 	font-size: 18px;
 }
 
-
-
 .btn-outline-success {
 
 	color: #EF7E6B;
@@ -439,12 +437,6 @@ select {
 }
 
 .card {
-	margin-bottom: 30px;
-}
-
-
-
-.card {
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -454,6 +446,7 @@ select {
 	background-clip: border-box;
 	border: 0 solid transparent;
 	border-radius: 0;
+	margin-bottom: 30px;
 }
 
 .card .card-subtitle {
@@ -872,8 +865,6 @@ h2 {
   overflow-y: auto; 
 }*/
 
-
-
 .login-page main {
 	width: 100%;
 	max-width: 800px;
@@ -982,7 +973,6 @@ h2 {
 
 }
 
-
 .img-cat {
 	height: 32vh;
 	width: auto;
@@ -994,17 +984,14 @@ h2 {
 }
 
 @media only screen and (max-width: 990px) {
-	li {
-		width: 100%;
-		text-decoration: none;
-	}
-
 	ul {
 		max-height: 992px;
 	}
 
 	li {
 		border-bottom: 1px solid #eae9ed;
+		width: 100%;
+		text-decoration: none;
 	}
 
 	li:hover {
@@ -1145,11 +1132,10 @@ h2 {
 	}
 
 	.imgSwiper {
-		height: 580px;
-	}
-
-	.imgSwiper {
 		transition: transform 0.045s ease;
+		width: 100%;
+		height: auto;
+		object-fit: cover;
 	}
 
 	.img-cat {
