@@ -16,8 +16,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
-    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
     <!-- script carosello -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- script Bootstrap -->
@@ -91,8 +89,8 @@
 			            <div class="col-md-8">
 			                <div class="card-body">
 			                    <a th:href="@{/dettaglio(id=${libro.id})}"><h6 th:text="${libro.titolo}" class="card-title roboto giallo pb-3"></h6></a>
-			                    <p th:text="${libro.autore.nomeAutore} + ' ' + ${libro.autore.cognome}" class="card-text"></p>
-			                    <p th:text="${libro.stato ? 'Non disponibile' : 'Disponibile'}"></p>
+			                    <p th:text="${libro.autore.nomeAutore} + ' ' + ${libro.autore.cognome}" class="card-text"></p>	                    
+			                    <p class="pro-stato" th:style="'color:' + (${libro.stato ? '#EF7E6B' : '#7EC6AD'})" th:text="${libro.stato ? 'Non disponibile' : 'Disponibile'}"></p>
 			                </div>
 			            </div>
 			        </div>
