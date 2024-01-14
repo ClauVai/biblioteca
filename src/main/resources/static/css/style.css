@@ -1311,13 +1311,15 @@ h2 {
 
 /* Per gestire il colore dello stato diponibile e non disponibile */
 .pro-stato {
-    color: green;
+    color: #7EC6AD;
 
 }
 
 .pro-stato[data-status="non-disponibile"] {
-    color: red;
+    color: #EF7E6B;
+    
 }
+
 
 .img-cat {
 	height: 32vh;

@@ -16,6 +16,23 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
+	
+	<script>
+function getRandomColor() {
+    const colors = ["#EF7E6B", "#9AD0C3", "#FCDD98", "#F58247", "#98D4E1"];
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    return colors[randomIndex];
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const elementsToColor = document.querySelectorAll('.cambia-colore');
+    
+    elementsToColor.forEach(function (element) {
+        element.style.color = getRandomColor();
+    });
+});
+</script>
+
 </head>
 
 <body>
@@ -37,7 +54,7 @@
             <div class="row">
               <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 bg-light pt-4 pb-4">
                 <div class="col-11 mx-auto sidebar">
-					<h2 class="roboto azzurro">Il tuo profilo</h2>
+					<h2 class="roboto azzurro cambia-colore">Il tuo profilo</h2>
                     <br>
                     <p class="roboto" style="color: #737373;">Il tuo nome utente:</p>
                     <p th:text="${utente.nome} +' '+ ${utente.cognome}"></p>
@@ -51,7 +68,7 @@
               </div>
               <div class="col-xl-9 col-lg-9 xol-md-12 col-sm-12 pt-4 pb-4">
                     <div class="col-11 mx-auto">
-				         <h2 class="roboto verde">Le tue prenotazioni</h2>
+				         <h2 class="roboto verde cambia-colore">Le tue prenotazioni</h2>
 				        <table class="table table-bordered" >
 				            <thead >
 				                <tr class="roboto">
@@ -85,7 +102,7 @@
 				        </table>
 				    </div>
 				      <div class="col-11 mx-auto">	
-						<h2 class="roboto giallo">Le tue recensioni</h2>			        
+						<h2 class="roboto giallo cambia-colore">Le tue recensioni</h2>			        
 				     
 				          <table class="table table-bordered">
 				             <thead>
