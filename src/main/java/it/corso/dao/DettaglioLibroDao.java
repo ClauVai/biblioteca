@@ -32,7 +32,7 @@ public interface DettaglioLibroDao extends CrudRepository<DettaglioLibro, Intege
     		+ "    AND (:idCasaEditrice IS NULL OR :idCasaEditrice = l.casa_editrice_id)"
     		+ "    AND (:idLingua IS NULL OR :idLingua = l.lingua_id)"
     		+ "    AND (:titolo IS NULL OR LOWER(l.titolo) LIKE LOWER(CONCAT('%', :titolo, '%')))"
-    		+ "    AND (:stato IS NULL OR :stato IS NOT NULL AND :stato = l.stato)", nativeQuery = true)
+    		+ "    AND (:stato IS NULL OR :stato IS NOT NULL AND :stato = l.stato)ORDER BY l.titolo", nativeQuery = true)
 
     List<DettaglioLibro> getLibriFilter(
     		@Param("idGenere") Integer idGenere, 

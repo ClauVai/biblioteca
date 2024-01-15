@@ -29,7 +29,7 @@ public class CatalogoServiceImpl implements CatalogoService {
 			int annoEdizione,
 			int casaEditriceId,
 			int linguaId) {
-		List<DettaglioLibro> tuttiLibri = (List<DettaglioLibro>) dettaglioLibroDao.findAll();
+		List<DettaglioLibro> tuttiLibri = (List<DettaglioLibro>) dettaglioLibroDao.findAllByOrderByTitoloAsc();
 		// Applica i filtri
         List<DettaglioLibro> libriFiltrati = tuttiLibri.stream()
                 .filter(libro ->
