@@ -80,7 +80,7 @@ function showLoginForm() {
                 </div>
                 <!-- IMMAGINE MALEDETTA  -->                  
 
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 d-none d-sm-none d-lg-block d-xl-block d-flex align-items-center justify-content-center  mt-5 mb-5" id="registerImageContainer">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 d-none d-sm-none d-lg-block d-xl-block d-flex align-items-center justify-content-center  mt-5 mb-5" id="registerImageContainer">
     <img th:src="@{'/img/bimba-login.png'}" alt="logo login" style="width: 70%;" id="registerImage">
 </div>
 
@@ -89,7 +89,7 @@ function showLoginForm() {
                 <!-- REGISTRAZIONE -->
                 <div class="login-block col-xl-6 col-lg-6 col-md-12 col-sm-12 col-sm-12" id="registerForm" style="display: none;" >
                     <img th:src="@{'/img/logo-lungo.png'}" alt="logo login" style="width: 100%;" id="registerImage">
-                    <h1 class="roboto giallo">Registrati</h1>
+                    <h1 class="roboto giallo" id="registrati">Registrati</h1>
                 <!-- INIZIO FORM  -->
 
                     <form th:action="@{/login/registra(idLibro=${id})}" method="post" th:object="${utente}">
@@ -123,7 +123,7 @@ function showLoginForm() {
                             </div>
                         </div>
                         <hr class="hr-xs">
-                        <div class="login-footer mt-5">
+                        <div class="login-footer mt-4">
                             <button type="submit" class="btn btn-outline-success">Registrati</button>
                         </div>
             </form>

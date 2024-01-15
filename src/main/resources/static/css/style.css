@@ -616,7 +616,10 @@ select {
 	text-decoration: none;
 	color: #555;
 }
-
+#registrati{
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
 .be-comment-block {
 	margin-bottom: 50px !important;
 	border: 1px solid #edeff2;
