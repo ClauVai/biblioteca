@@ -1,5 +1,5 @@
     		
-    document.addEventListener('DOMContentLoaded', function () {
+  /*  document.addEventListener('DOMContentLoaded', function () {
         // Array di colori disponibili
         var colors = ["#EF7E6B", "#9AD0C3", "#edaf71", "#F58247", "#98D4E1"];
 
@@ -11,7 +11,7 @@
             var randomColor = colors[Math.floor(Math.random() * colors.length)];
             element.style.color = randomColor;
         });
-    });
+    });*/
     
     
  // Script jQuery per inizializzare i carousel -->

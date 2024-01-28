@@ -61,20 +61,22 @@ body {
 }
 
 .pro-title {
-	text-decoration: none;
-	/* Rimuove la sottolineatura predefinita */
-	color: black;
-	/* Colore del testo iniziale */
-	transition: background-color 0.3s, border-radius 0.3s;
-	padding: 10px;
-
+    text-decoration: none;
+    color: black;
+    transition: background-color 0.3s, border-radius 0.3s;
+    padding: 10px;
 }
 
 .pro-title:hover {
-	background-color: #FCDD98;
-	border-radius: 10px;
-
+    background-color: #FCDD98;
+    border-radius: 10px;
 }
+
+.pro-title:hover span {
+    color: white !important;
+}
+
+
 
 .card-with-shadow {
 	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
